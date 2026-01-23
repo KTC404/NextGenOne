@@ -320,7 +320,7 @@
        </div>
        <h3 class="text-xl font-bold text-teal-600 mb-3">12. "เลือกให้ชัด เรียนให้ใช่"</h3>
        <h4 class="font-semibold text-gray-800 mb-2"></h4>
-       <p class="text-gray-600 text-sm leading-relaxed mb-3">แนะนำวแผนการเรียน...</p><span class="text-teal-500 text-xs font-medium">คลิกเพื่ออ่านเพิ่มเติม →</span>
+       <p class="text-gray-600 text-sm leading-relaxed mb-3">แนะแนวแผนการเรียน...</p><span class="text-teal-500 text-xs font-medium">คลิกเพื่ออ่านเพิ่มเติม →</span>
       </div><!-- Policy 13 -->
       <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-violet-100 cursor-pointer" onclick="openPolicyModal('policy13')">
        <div class="text-4xl mb-4">
@@ -476,6 +476,7 @@
         image: 'https://img2.pic.in.th/4fd3f9c70602fc8dd80909d154e3a8fa.png',
         room: '4/1',
         program: 'คณิตศาสตร์ - หุ่นยนต์',
+        gpa: '3.66',
         instagram: 'https://www.instagram.com/nuldeas/',
         color: 'from-pink-500 to-purple-500'
       },
@@ -486,6 +487,7 @@
         image: 'https://img2.pic.in.th/a282ee30ae6857ae5dcaf191244f4b6c.png',
         room: '4/1',
         program: 'คณิตศาสตร์ - หุ่นยนต์',
+        gpa: '4.00',
         instagram: 'https://www.instagram.com/gxide_g/',
         color: 'from-blue-500 to-purple-500'
       },
@@ -496,6 +498,7 @@
         image: 'https://img2.pic.in.th/3811fccd5f646262837126ae3d1c42a2.png',
         room: '4/1',
         program: 'คณิตศาสตร์ - หุ่นยนต์',
+        gpa: '3.85',
         instagram: 'https://www.instagram.com/t.thanidaa_/',
         color: 'from-purple-500 to-pink-500'
       },
@@ -506,6 +509,7 @@
         image: 'https://img5.pic.in.th/file/secure-sv1/2daeabdae85b10f3494bb15299231a32.png',
         room: '4/1',
         program: 'คณิตศาสตร์ - หุ่นยนต์',
+        gpa: '3.86',
         instagram: 'https://www.instagram.com/nnnx_n_/',
         color: 'from-pink-500 to-rose-500'
       },
@@ -516,6 +520,7 @@
         image: 'https://img5.pic.in.th/file/secure-sv1/b670c9521ac50bcfdfb480d7f7239618.png',
         room: '4/1',
         program: 'คณิตศาสตร์ - หุ่นยนต์',
+        gpa: '3.70',
         instagram: 'https://www.instagram.com/tx_w_an/',
         color: 'from-blue-500 to-cyan-500'
       },
@@ -526,6 +531,7 @@
         image: 'https://img5.pic.in.th/file/secure-sv1/0263ff89b38c8f0cf109d7656758467f.png',
         room: '4/1',
         program: 'คณิตศาสตร์ - หุ่นยนต์',
+        gpa: '3.76',
         instagram: 'https://www.instagram.com/ssithrnhgsaa/',
         color: 'from-purple-500 to-violet-500'
       },
@@ -536,6 +542,7 @@
         image: 'https://img5.pic.in.th/file/secure-sv1/e85030dba531a5a3b0858c9b91f5fde4.png',
         room: '4/1',
         program: 'คณิตศาสตร์ - หุ่นยนต์',
+        gpa: '3.28',
         instagram: 'https://www.instagram.com/dearthitapa/',
         color: 'from-cyan-500 to-teal-500'
       },
@@ -546,6 +553,7 @@
         image: 'https://img5.pic.in.th/file/secure-sv1/43901e5aa015605a15cffcb1d3b13e8b.png',
         room: '4/1',
         program: 'คณิตศาสตร์ - หุ่นยนต์',
+        gpa: '3.47',
         instagram: 'https://www.instagram.com/lily_01d/',
         color: 'from-pink-500 to-fuchsia-500'
       },
@@ -556,6 +564,7 @@
         image: 'https://img2.pic.in.th/6bbeb17e363d5970d9a699f9c51a8d6e.png',
         room: '4/1',
         program: 'คณิตศาสตร์ - หุ่นยนต์',
+        gpa: '3.43',
         instagram: 'https://www.instagram.com/can_igetyourheartt/',
         color: 'from-indigo-500 to-blue-500'
       }
@@ -639,6 +648,17 @@
                   <p class="font-semibold text-gray-800">${member.program}</p>
                 </div>
               </div>
+              ${member.gpa ? `
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                  <span class="text-lg">📊</span>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500">ผลการเรียน</p>
+                  <p class="font-semibold text-gray-800">${member.gpa}</p>
+                </div>
+              </div>
+              ` : ''}
               ${member.instagram ? `
               <div class="flex items-center gap-3">
                 <div class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center">
@@ -719,5 +739,5 @@
       });
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c25933c14ecca4b',t:'MTc2OTE1MzMxNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c26154fb7431d47',t:'MTc2OTE1ODY0My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
