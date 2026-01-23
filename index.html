@@ -3,268 +3,270 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Next Gen One - หมายเลข 1</title>
+  <title>Next Gen One - พรรคหาเสียงสภานักเรียน</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="/_sdk/element_sdk.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
   <style>
     body {
       box-sizing: border-box;
     }
     * {
-      font-family: 'Kanit', sans-serif;
+      font-family: 'Sarabun', sans-serif;
     }
     
-    .hero-section {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    .hero-bg {
+      background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 35%, #3b82f6 70%, #06b6d4 100%);
       position: relative;
       overflow: hidden;
     }
     
-    .hero-section::before {
+    .hero-bg::before {
       content: '';
       position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-      background-size: 50px 50px;
-      animation: drift 20s linear infinite;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(236, 72, 153, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(59, 130, 246, 0.3) 0%, transparent 50%);
+      animation: gradient-shift 8s ease infinite;
     }
     
-    @keyframes drift {
-      from { transform: translate(0, 0); }
-      to { transform: translate(50px, 50px); }
+    @keyframes gradient-shift {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
     }
     
-    .party-number {
-      font-size: 12rem;
-      font-weight: 900;
-      line-height: 1;
-      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-shadow: 0 10px 30px rgba(251, 191, 36, 0.3);
-      animation: pulse-glow 2s ease-in-out infinite;
+    .fade-in-up {
+      animation: fadeInUp 1s ease-out forwards;
+      opacity: 0;
     }
     
-    @keyframes pulse-glow {
-      0%, 100% { filter: drop-shadow(0 0 20px rgba(251, 191, 36, 0.5)); }
-      50% { filter: drop-shadow(0 0 40px rgba(251, 191, 36, 0.8)); }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
     
-    .card-3d {
-      transform-style: preserve-3d;
-      transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    .fade-in-left {
+      animation: fadeInLeft 1s ease-out forwards;
+      opacity: 0;
     }
     
-    .card-3d:hover {
-      transform: translateY(-10px) rotateX(5deg);
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
     
-    .policy-item {
-      background: linear-gradient(135deg, #ffffff 0%, #f3f4f6 100%);
+    .fade-in-right {
+      animation: fadeInRight 1s ease-out forwards;
+      opacity: 0;
+    }
+    
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    .scale-in {
+      animation: scaleIn 0.8s ease-out forwards;
+      opacity: 0;
+    }
+    
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
+    .delay-3 { animation-delay: 0.6s; }
+    .delay-4 { animation-delay: 0.8s; }
+    .delay-5 { animation-delay: 1s; }
+    .delay-6 { animation-delay: 1.2s; }
+    
+    .text-shadow {
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+    
+    .number-badge {
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+      box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
+    }
+    
+    .section-title {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .team-photo {
+      transition: all 0.3s ease;
+      filter: grayscale(0%);
+    }
+    
+    .team-photo:hover {
+      filter: grayscale(0%) brightness(1.1);
+      transform: scale(1.05);
+    }
+    
+    .policy-card {
       border-left: 4px solid;
       transition: all 0.3s ease;
     }
     
-    .policy-item:hover {
-      transform: translateX(10px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    }
-    
-    .floating {
-      animation: floating 3s ease-in-out infinite;
-    }
-    
-    @keyframes floating {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
-    
-    .team-card {
-      position: relative;
-      overflow: hidden;
-      transition: all 0.4s ease;
-    }
-    
-    .team-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-      transition: left 0.5s;
-    }
-    
-    .team-card:hover::before {
-      left: 100%;
-    }
-    
-    .team-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 20px 50px rgba(102, 126, 234, 0.3);
-    }
-    
-    .gradient-text {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    .nav-glass {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    .policy-card:hover {
+      transform: translateX(8px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     }
   </style>
   <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
- <body class="h-full bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
+ <body class="h-full bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50">
   <div id="app-wrapper" class="w-full h-full overflow-auto"><!-- Navigation -->
-   <nav class="nav-glass fixed top-0 left-0 right-0 z-50 shadow-lg">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+   <nav class="bg-white/95 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 shadow-md">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
      <div class="flex justify-between items-center h-16">
-      <div class="flex items-center gap-3">
-       <div class="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-500 rounded-xl flex items-center justify-center text-white font-black text-lg shadow-lg"><span id="nav-party-number">1</span>
-       </div><span id="nav-party-name" class="text-xl font-bold gradient-text">Next Gen One</span>
+      <div class="flex items-center gap-3"><img src="https://img2.pic.in.th/IMG_2115.th.png" alt="Next Gen One Logo" class="w-10 h-10 rounded-lg shadow-md object-cover" loading="lazy" onerror="this.style.background='linear-gradient(135deg, #ec4899, #8b5cf6)'; this.alt='Logo';">
+       <div class="flex items-center gap-2">
+        <div class="number-badge w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-sm"><span id="nav-party-number">1</span>
+        </div><span id="nav-party-name" class="text-lg font-bold bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">Next Gen One</span>
+       </div>
       </div>
-      <div class="hidden md:flex items-center gap-6"><a href="#home" class="text-gray-700 hover:text-purple-600 transition-colors font-medium">หน้าแรก</a> <a href="#about" class="text-gray-700 hover:text-purple-600 transition-colors font-medium">เกี่ยวกับ</a> <a href="#team" class="text-gray-700 hover:text-purple-600 transition-colors font-medium">ทีมงาน</a> <a href="#policies" class="text-gray-700 hover:text-purple-600 transition-colors font-medium">นโยบาย</a> <a href="#contact" class="text-gray-700 hover:text-purple-600 transition-colors font-medium">ติดต่อ</a>
-      </div><button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-purple-100 transition-colors">
-       <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      <div class="hidden md:flex items-center gap-6"><a href="#home" class="text-gray-700 hover:text-purple-600 transition-colors font-medium">หน้าแรก</a> <a href="#about" class="text-gray-700 hover:text-purple-600 transition-colors font-medium">เกี่ยวกับเรา</a> <a href="#team" class="text-gray-700 hover:text-purple-600 transition-colors font-medium">ทีมงาน</a> <a href="#policies" class="text-gray-700 hover:text-purple-600 transition-colors font-medium">นโยบาย</a>
+      </div><button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-purple-50 transition-colors">
+       <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
        </svg></button>
      </div>
     </div>
     <div id="mobile-menu" class="hidden md:hidden bg-white/95 border-t">
-     <div class="px-4 py-3 space-y-2"><a href="#home" class="block px-3 py-2 rounded-lg text-gray-700 hover:bg-purple-100 hover:text-purple-600 transition-colors">หน้าแรก</a> <a href="#about" class="block px-3 py-2 rounded-lg text-gray-700 hover:bg-purple-100 hover:text-purple-600 transition-colors">เกี่ยวกับ</a> <a href="#team" class="block px-3 py-2 rounded-lg text-gray-700 hover:bg-purple-100 hover:text-purple-600 transition-colors">ทีมงาน</a> <a href="#policies" class="block px-3 py-2 rounded-lg text-gray-700 hover:bg-purple-100 hover:text-purple-600 transition-colors">นโยบาย</a> <a href="#contact" class="block px-3 py-2 rounded-lg text-gray-700 hover:bg-purple-100 hover:text-purple-600 transition-colors">ติดต่อ</a>
+     <div class="px-4 py-3 space-y-1"><a href="#home" class="block px-3 py-2 rounded-lg text-gray-700 hover:bg-purple-50 hover:text-purple-600 transition-colors">หน้าแรก</a> <a href="#about" class="block px-3 py-2 rounded-lg text-gray-700 hover:bg-purple-50 hover:text-purple-600 transition-colors">เกี่ยวกับเรา</a> <a href="#team" class="block px-3 py-2 rounded-lg text-gray-700 hover:bg-purple-50 hover:text-purple-600 transition-colors">ทีมงาน</a> <a href="#policies" class="block px-3 py-2 rounded-lg text-gray-700 hover:bg-purple-50 hover:text-purple-600 transition-colors">นโยบาย</a>
      </div>
     </div>
    </nav><!-- Hero Section -->
-   <section id="home" class="hero-section pt-24 pb-20 px-4 relative">
-    <div class="max-w-7xl mx-auto">
-     <div class="text-center relative z-10"><!-- Party Number -->
-      <div class="floating mb-8">
-       <div class="party-number" id="hero-party-number">
-        1
+   <section id="home" class="hero-bg pt-24 pb-20 px-4 relative min-h-screen flex items-center">
+    <div class="max-w-5xl mx-auto w-full relative z-10">
+     <div class="text-center"><!-- Logo -->
+      <div class="mb-8 flex justify-center scale-in"><img src="https://img2.pic.in.th/IMG_2115.th.png" alt="Next Gen One Logo" class="w-40 h-40 rounded-3xl shadow-2xl object-cover border-4 border-white" loading="lazy" onerror="this.style.background='linear-gradient(135deg, #ec4899, #8b5cf6)'; this.alt='Logo';">
+      </div><!-- Party Number -->
+      <div class="fade-in-up delay-1 mb-6">
+       <div class="inline-block number-badge px-8 py-3 rounded-full"><span id="hero-party-number" class="text-4xl font-black text-white">1</span>
        </div>
-      </div><!-- Logo -->
-      <div class="mb-8 flex justify-center"><img src="https://img2.pic.in.th/IMG_2115.th.png" alt="Next Gen One Logo" class="w-48 h-48 rounded-3xl shadow-2xl object-cover border-4 border-white" loading="lazy" onerror="this.style.background='linear-gradient(135deg, #667eea, #764ba2)'; this.alt='Logo';">
-      </div>
-      <h1 id="hero-party-name" class="text-5xl md:text-7xl font-black text-white mb-6 drop-shadow-lg">Next Gen One</h1>
-      <p id="hero-slogan" class="text-2xl md:text-3xl text-white/90 mb-12 font-light">พร้อมนำพา P.S.C สู่ยุคใหม่</p>
-      <div class="flex flex-wrap justify-center gap-4 mb-16"><a href="#policies" class="px-10 py-4 bg-white text-purple-600 rounded-full font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"> ดูนโยบาย </a> <a href="#team" class="px-10 py-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-white rounded-full font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"> รู้จักทีมงาน </a>
-      </div><!-- Stats -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-       <div class="bg-white/20 backdrop-blur-md rounded-2xl p-6 border border-white/30">
-        <div class="text-4xl font-black text-white mb-2">
-         1
-        </div>
-        <div class="text-white/80 font-medium">
-         หมายเลขพรรค
-        </div>
-       </div>
-       <div class="bg-white/20 backdrop-blur-md rounded-2xl p-6 border border-white/30">
-        <div class="text-4xl font-black text-white mb-2">
-         10
-        </div>
-        <div class="text-white/80 font-medium">
-         นโยบาย
-        </div>
-       </div>
-       <div class="bg-white/20 backdrop-blur-md rounded-2xl p-6 border border-white/30">
-        <div class="text-4xl font-black text-white mb-2">
-         9
-        </div>
-        <div class="text-white/80 font-medium">
-         ทีมงาน
-        </div>
-       </div>
-       <div class="bg-white/20 backdrop-blur-md rounded-2xl p-6 border border-white/30">
-        <div class="text-4xl font-black text-white mb-2">
-         100%
-        </div>
-        <div class="text-white/80 font-medium">
-         ความมุ่งมั่น
-        </div>
-       </div>
+      </div><!-- Party Name -->
+      <h1 id="hero-party-name" class="fade-in-up delay-2 text-5xl md:text-6xl font-black text-white mb-6 text-shadow">Next Gen One</h1><!-- Slogan -->
+      <div class="fade-in-up delay-3 max-w-3xl mx-auto mb-12">
+       <p id="hero-slogan-1" class="text-2xl md:text-3xl text-white font-semibold mb-3 text-shadow">รุ่นใหม่ที่พร้อมพาโรงเรียนเราไปให้หนักกว่าเดิม</p>
+       <p id="hero-slogan-2" class="text-lg md:text-xl text-white/95 font-light text-shadow">เราคิดให้ครบ วางแผนให้ชัด และเปลี่ยนทุกไอเดียให้เป็นผลลัพธ์ที่ทุกคนรู้สึกได้</p>
+      </div><!-- CTA Buttons -->
+      <div class="fade-in-up delay-4 flex flex-wrap justify-center gap-4"><a href="#team" class="px-8 py-4 bg-white text-purple-600 rounded-full font-bold text-lg hover:shadow-xl hover:scale-105 transition-all duration-300"> พบกับทีมงาน </a> <a href="#policies" class="px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-full font-bold text-lg hover:shadow-xl hover:scale-105 transition-all duration-300"> ดูนโยบาย </a>
+      </div><!-- Instagram Link -->
+      <div class="fade-in-up delay-5 mt-8"><a href="https://www.instagram.com/party.nextgenone?utm_source=qr" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-6 py-3 bg-white/20 backdrop-blur-sm border-2 border-white text-white rounded-full font-semibold text-lg hover:bg-white/30 hover:scale-105 transition-all duration-300">
+        <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+        </svg><span>ติดตามพรรค @party.nextgenone</span> </a>
       </div>
      </div>
     </div>
    </section><!-- About Section -->
    <section id="about" class="py-20 px-4 bg-white">
-    <div class="max-w-6xl mx-auto">
+    <div class="max-w-5xl mx-auto">
      <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-black gradient-text mb-4">ทำไมต้องเลือกหมายเลข 1</h2>
-      <div class="w-32 h-2 bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-400 mx-auto rounded-full"></div>
+      <h2 class="section-title text-4xl md:text-5xl font-bold text-gray-800 mb-8">ทำไมต้องเลือกเบอร์ 1</h2>
      </div>
      <div class="grid md:grid-cols-3 gap-8">
-      <div class="card-3d bg-gradient-to-br from-purple-100 to-purple-50 rounded-3xl p-8 shadow-xl text-center">
-       <div class="w-20 h-20 bg-gradient-to-br from-purple-600 to-purple-400 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg"><span class="text-4xl">🎯</span>
+      <div class="card-hover bg-gradient-to-br from-pink-50 to-pink-100 rounded-2xl p-8 text-center border border-pink-200">
+       <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-pink-600 rounded-xl flex items-center justify-center mx-auto mb-6 shadow-lg"><span class="text-3xl">💡</span>
        </div>
-       <h3 class="text-2xl font-bold text-gray-800 mb-4">ชัดเจน</h3>
-       <p class="text-gray-600 leading-relaxed">นโยบายที่ชัดเจน ตอบโจทย์ความต้องการของนักเรียนทุกคน</p>
+       <h3 class="text-2xl font-bold text-gray-800 mb-3">คิดให้ครบ</h3>
+       <p class="text-gray-600 leading-relaxed">วางแผนทุกขั้นตอนอย่างละเอียด คิดถึงทุกมิติ เพื่อให้โรงเรียนของเราก้าวไปข้างหน้า</p>
       </div>
-      <div class="card-3d bg-gradient-to-br from-pink-100 to-pink-50 rounded-3xl p-8 shadow-xl text-center">
-       <div class="w-20 h-20 bg-gradient-to-br from-pink-600 to-pink-400 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg"><span class="text-4xl">💪</span>
+      <div class="card-hover bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 text-center border border-purple-200">
+       <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-6 shadow-lg"><span class="text-3xl">📋</span>
        </div>
-       <h3 class="text-2xl font-bold text-gray-800 mb-4">มั่นใจ</h3>
-       <p class="text-gray-600 leading-relaxed">ทีมงานที่พร้อมลงมือทำ ไม่ใช่แค่พูด</p>
+       <h3 class="text-2xl font-bold text-gray-800 mb-3">วางแผนให้ชัด</h3>
+       <p class="text-gray-600 leading-relaxed">มีแผนงานที่ชัดเจน มีขั้นตอนที่เป็นรูปธรรม พร้อมลงมือทำจริง</p>
       </div>
-      <div class="card-3d bg-gradient-to-br from-blue-100 to-blue-50 rounded-3xl p-8 shadow-xl text-center">
-       <div class="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-400 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg"><span class="text-4xl">🚀</span>
+      <div class="card-hover bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 text-center border border-blue-200">
+       <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-6 shadow-lg"><span class="text-3xl">✨</span>
        </div>
-       <h3 class="text-2xl font-bold text-gray-800 mb-4">ก้าวหน้า</h3>
-       <p class="text-gray-600 leading-relaxed">พร้อมพาโรงเรียนไปสู่อนาคตที่ดีกว่า</p>
+       <h3 class="text-2xl font-bold text-gray-800 mb-3">ผลลัพธ์ที่รู้สึกได้</h3>
+       <p class="text-gray-600 leading-relaxed">ไม่ใช่แค่คำพูด แต่คือการลงมือทำที่ทุกคนเห็นและรู้สึกถึงการเปลี่ยนแปลง</p>
       </div>
      </div>
     </div>
    </section><!-- Team Section -->
-   <section id="team" class="py-20 px-4 bg-gradient-to-br from-purple-50 to-pink-50">
-    <div class="max-w-6xl mx-auto">
+   <section id="team" class="py-20 px-4 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
+    <div class="max-w-5xl mx-auto">
      <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-black gradient-text mb-4">ทีมผู้นำ</h2>
-      <div class="w-32 h-2 bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-400 mx-auto rounded-full mb-6"></div>
-      <p class="text-xl text-gray-600">พวกเราพร้อมทำงานเพื่อทุกคน</p>
+      <h2 class="section-title text-4xl md:text-5xl font-bold text-gray-800 mb-4">ทีมผู้นำของเรา</h2>
+      <p class="text-xl text-gray-600 mt-8">พวกเราพร้อมทำงานเพื่อทุกคน</p>
      </div><!-- President -->
      <div class="mb-16">
-      <div class="max-w-md mx-auto">
-       <div class="team-card bg-white rounded-3xl p-8 shadow-2xl border-4 border-purple-200">
+      <div class="max-w-sm mx-auto">
+       <div class="bg-white rounded-3xl p-8 shadow-xl border-2 border-purple-200">
         <div class="relative mb-6">
-         <div class="w-48 h-48 mx-auto rounded-full overflow-hidden border-8 border-purple-300 shadow-2xl"><img src="https://img2.pic.in.th/4fd3f9c70602fc8dd80909d154e3a8fa.png" alt="น.ส.อภิญญาภรณ์ บุญหนา" class="w-full h-full object-cover" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg, #667eea, #764ba2)'; this.style.display='none';">
+         <div class="w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-purple-400 shadow-xl"><img src="https://img2.pic.in.th/4fd3f9c70602fc8dd80909d154e3a8fa.png" alt="น.ส.อภิญญาภรณ์ บุญหนา" class="w-full h-full object-cover team-photo" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg, #ec4899, #8b5cf6)'; this.style.display='none';">
          </div>
-         <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold rounded-full shadow-xl">
+         <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 px-6 py-2 bg-gradient-to-r from-pink-600 to-purple-600 text-white font-bold rounded-full shadow-lg text-sm">
           ประธาน
          </div>
         </div>
         <h3 class="text-2xl font-bold text-gray-800 text-center mt-8 mb-2">น.ส.อภิญญาภรณ์ บุญหนา</h3>
-        <p class="text-purple-600 text-center font-semibold">ประธานสภานักเรียน</p>
        </div>
       </div>
      </div><!-- Vice Presidents -->
      <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto mb-16">
-      <div class="team-card bg-white rounded-3xl p-6 shadow-xl border-2 border-purple-100">
+      <div class="bg-white rounded-2xl p-6 shadow-lg border border-purple-100 card-hover">
        <div class="relative mb-4">
-        <div class="w-40 h-40 mx-auto rounded-full overflow-hidden border-6 border-purple-200 shadow-lg"><img src="https://img2.pic.in.th/a282ee30ae6857ae5dcaf191244f4b6c.png" alt="นาย พชร กาเผือก" class="w-full h-full object-cover" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg, #667eea, #764ba2)'; this.style.display='none';">
+        <div class="w-36 h-36 mx-auto rounded-full overflow-hidden border-4 border-purple-300 shadow-lg"><img src="https://img2.pic.in.th/a282ee30ae6857ae5dcaf191244f4b6c.png" alt="นาย พชร กาเผือก" class="w-full h-full object-cover team-photo" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg, #8b5cf6, #3b82f6)'; this.style.display='none';">
         </div>
-        <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-4 py-1 bg-purple-600 text-white text-sm font-bold rounded-full">
+        <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-4 py-1 bg-purple-600 text-white text-xs font-bold rounded-full">
          รองประธาน 1
         </div>
        </div>
        <h3 class="text-xl font-bold text-gray-800 text-center mt-6">นาย พชร กาเผือก</h3>
       </div>
-      <div class="team-card bg-white rounded-3xl p-6 shadow-xl border-2 border-pink-100">
+      <div class="bg-white rounded-2xl p-6 shadow-lg border border-pink-100 card-hover">
        <div class="relative mb-4">
-        <div class="w-40 h-40 mx-auto rounded-full overflow-hidden border-6 border-pink-200 shadow-lg"><img src="https://img2.pic.in.th/3811fccd5f646262837126ae3d1c42a2.png" alt="น.ส. ฐานิดา พบอารีย์" class="w-full h-full object-cover" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg, #f093fb, #f5576c)'; this.style.display='none';">
+        <div class="w-36 h-36 mx-auto rounded-full overflow-hidden border-4 border-pink-300 shadow-lg"><img src="https://img2.pic.in.th/3811fccd5f646262837126ae3d1c42a2.png" alt="น.ส. ฐานิดา พบอารีย์" class="w-full h-full object-cover team-photo" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg, #ec4899, #8b5cf6)'; this.style.display='none';">
         </div>
-        <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-4 py-1 bg-pink-600 text-white text-sm font-bold rounded-full">
+        <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-4 py-1 bg-pink-600 text-white text-xs font-bold rounded-full">
          รองประธาน 2
         </div>
        </div>
@@ -272,42 +274,41 @@
       </div>
      </div><!-- Core Team -->
      <div class="text-center mb-12">
-      <h3 class="text-3xl font-bold gradient-text mb-3">แกนนำผู้ตั้งพรรค</h3>
-      <div class="w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full"></div>
+      <h3 class="text-3xl font-bold bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600 bg-clip-text text-transparent mb-2">แกนนำผู้ตั้งพรรค</h3>
      </div>
-     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-      <div class="team-card bg-white rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all">
-       <div class="w-24 h-24 mx-auto rounded-full overflow-hidden border-4 border-purple-200 mb-3"><img src="https://img5.pic.in.th/file/secure-sv1/2daeabdae85b10f3494bb15299231a32.png" alt="ปาลีรัตน์ แสงทะมาตร์" class="w-full h-full object-cover" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg, #667eea, #764ba2)'; this.style.display='none';">
+     <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+      <div class="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all card-hover">
+       <div class="w-24 h-24 mx-auto rounded-full overflow-hidden border-3 border-pink-200 mb-3"><img src="https://img5.pic.in.th/file/secure-sv1/2daeabdae85b10f3494bb15299231a32.png" alt="น.ส. ปาลีรัตน์ แสงทะมาตร์" class="w-full h-full object-cover team-photo" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg, #ec4899, #8b5cf6)'; this.style.display='none';">
        </div>
        <h4 class="text-sm font-bold text-gray-800 text-center leading-tight">น.ส. ปาลีรัตน์<br>
         แสงทะมาตร์</h4>
       </div>
-      <div class="team-card bg-white rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all">
-       <div class="w-24 h-24 mx-auto rounded-full overflow-hidden border-4 border-pink-200 mb-3"><img src="https://img5.pic.in.th/file/secure-sv1/b670c9521ac50bcfdfb480d7f7239618.png" alt="แทนคุณ เบญมาตย์" class="w-full h-full object-cover" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg, #f093fb, #f5576c)'; this.style.display='none';">
+      <div class="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all card-hover">
+       <div class="w-24 h-24 mx-auto rounded-full overflow-hidden border-3 border-purple-200 mb-3"><img src="https://img5.pic.in.th/file/secure-sv1/b670c9521ac50bcfdfb480d7f7239618.png" alt="นาย แทนคุณ เบญมาตย์" class="w-full h-full object-cover team-photo" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg, #8b5cf6, #3b82f6)'; this.style.display='none';">
        </div>
        <h4 class="text-sm font-bold text-gray-800 text-center leading-tight">นาย แทนคุณ<br>
         เบญมาตย์</h4>
       </div>
-      <div class="team-card bg-white rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all">
-       <div class="w-24 h-24 mx-auto rounded-full overflow-hidden border-4 border-blue-200 mb-3"><img src="https://img5.pic.in.th/file/secure-sv1/0263ff89b38c8f0cf109d7656758467f.png" alt="ศศิธร หงษา" class="w-full h-full object-cover" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg, #4facfe, #00f2fe)'; this.style.display='none';">
+      <div class="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all card-hover">
+       <div class="w-24 h-24 mx-auto rounded-full overflow-hidden border-3 border-blue-200 mb-3"><img src="https://img5.pic.in.th/file/secure-sv1/0263ff89b38c8f0cf109d7656758467f.png" alt="น.ส. ศศิธร หงษา" class="w-full h-full object-cover team-photo" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg, #3b82f6, #06b6d4)'; this.style.display='none';">
        </div>
        <h4 class="text-sm font-bold text-gray-800 text-center leading-tight">น.ส. ศศิธร<br>
         หงษา</h4>
       </div>
-      <div class="team-card bg-white rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all">
-       <div class="w-24 h-24 mx-auto rounded-full overflow-hidden border-4 border-purple-200 mb-3"><img src="https://img5.pic.in.th/file/secure-sv1/e85030dba531a5a3b0858c9b91f5fde4.png" alt="ฐิตาภา พวงพิศ" class="w-full h-full object-cover" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg, #667eea, #764ba2)'; this.style.display='none';">
+      <div class="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all card-hover">
+       <div class="w-24 h-24 mx-auto rounded-full overflow-hidden border-3 border-pink-200 mb-3"><img src="https://img5.pic.in.th/file/secure-sv1/e85030dba531a5a3b0858c9b91f5fde4.png" alt="น.ส. ฐิตาภา พวงพิศ" class="w-full h-full object-cover team-photo" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg, #ec4899, #8b5cf6)'; this.style.display='none';">
        </div>
        <h4 class="text-sm font-bold text-gray-800 text-center leading-tight">น.ส. ฐิตาภา<br>
         พวงพิศ</h4>
       </div>
-      <div class="team-card bg-white rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all">
-       <div class="w-24 h-24 mx-auto rounded-full overflow-hidden border-4 border-pink-200 mb-3"><img src="https://img5.pic.in.th/file/secure-sv1/43901e5aa015605a15cffcb1d3b13e8b.png" alt="พาขวัญ แสนชินเมือง" class="w-full h-full object-cover" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg, #f093fb, #f5576c)'; this.style.display='none';">
+      <div class="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all card-hover">
+       <div class="w-24 h-24 mx-auto rounded-full overflow-hidden border-3 border-purple-200 mb-3"><img src="https://img5.pic.in.th/file/secure-sv1/43901e5aa015605a15cffcb1d3b13e8b.png" alt="น.ส. พาขวัญ แสนเมืองชิน" class="w-full h-full object-cover team-photo" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg, #8b5cf6, #3b82f6)'; this.style.display='none';">
        </div>
        <h4 class="text-sm font-bold text-gray-800 text-center leading-tight">น.ส. พาขวัญ<br>
-        แสนชินเมือง</h4>
+        แสนเมืองชิน</h4>
       </div>
-      <div class="team-card bg-white rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all">
-       <div class="w-24 h-24 mx-auto rounded-full overflow-hidden border-4 border-blue-200 mb-3"><img src="https://img2.pic.in.th/6bbeb17e363d5970d9a699f9c51a8d6e.png" alt="ธนวัฒน์ สิงห์จารย์" class="w-full h-full object-cover" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg, #4facfe, #00f2fe)'; this.style.display='none';">
+      <div class="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all card-hover">
+       <div class="w-24 h-24 mx-auto rounded-full overflow-hidden border-3 border-blue-200 mb-3"><img src="https://img2.pic.in.th/6bbeb17e363d5970d9a699f9c51a8d6e.png" alt="นาย ธนวัฒน์ สิงห์จารย์" class="w-full h-full object-cover team-photo" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg, #3b82f6, #06b6d4)'; this.style.display='none';">
        </div>
        <h4 class="text-sm font-bold text-gray-800 text-center leading-tight">นาย ธนวัฒน์<br>
         สิงห์จารย์</h4>
@@ -316,158 +317,183 @@
     </div>
    </section><!-- Policies Section -->
    <section id="policies" class="py-20 px-4 bg-white">
-    <div class="max-w-6xl mx-auto">
+    <div class="max-w-5xl mx-auto">
      <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-black gradient-text mb-4">10 นโยบายของเรา</h2>
-      <div class="w-32 h-2 bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-400 mx-auto rounded-full mb-6"></div>
-      <p class="text-xl text-gray-600">นโยบายที่จะเปลี่ยนโรงเรียนให้ดีขึ้น</p>
+      <h2 class="section-title text-4xl md:text-5xl font-bold text-gray-800 mb-4">นโยบายของเรา</h2>
+      <p class="text-xl text-gray-600 mt-8">13 นโยบายที่จะเปลี่ยนโรงเรียนให้ดีขึ้น</p>
      </div>
      <div class="space-y-6">
-      <div class="policy-item border-purple-500 rounded-2xl p-6 shadow-lg">
+      <div class="policy-card border-pink-500 bg-gradient-to-r from-pink-50 to-white rounded-xl p-6 shadow-md">
        <div class="flex items-start gap-4">
-        <div class="w-14 h-14 flex-shrink-0 bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl flex items-center justify-center text-white font-black text-2xl shadow-lg">
+        <div class="w-12 h-12 flex-shrink-0 bg-gradient-to-br from-pink-500 to-pink-600 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-md">
          1
         </div>
         <div class="flex-1">
-         <h3 class="text-xl font-bold text-gray-800 mb-2">สายใยน้องพี่น้ำเงินชมพู 💗</h3>
-         <p class="text-gray-600 leading-relaxed">จับสายรหัสเพื่อกระชับความสัมพันธ์ระหว่างรุ่นพี่กับรุ่นน้องให้แน่นแฟ้นยิ่งขึ้น แบ่งเป็นระดับชั้น ม.ต้น, ม.ปลาย (สายวิทย์), ม.ปลาย (สายศิลป์)</p>
+         <h3 class="text-xl font-bold text-gray-800 mb-2">Clean Zone 🚿</h3>
+         <h4 class="text-lg font-semibold text-pink-600 mb-2">ห้องน้ำดีมีความสุข</h4>
+         <p class="text-gray-600 leading-relaxed">ดำเนินการแก้ไขปัญหาที่เกี่ยวข้องกับห้องน้ำ โดยเฉพาะเรื่องกลิ่นไม่พึงประสงค์ ผ่านการจัดหาสมุนไพรหรือผลิตภัณฑ์ที่มีกลิ่นหอม เพื่อช่วยลดกลิ่น รวมถึงจัดทำอุปกรณ์หรือที่แขวนเพิ่มเติม เพื่อให้ห้องน้ำมีความสะดวกสบายและเหมาะสมต่อการใช้งานมากยิ่งขึ้น</p>
         </div>
        </div>
       </div>
-      <div class="policy-item border-pink-500 rounded-2xl p-6 shadow-lg">
+      <div class="policy-card border-purple-500 bg-gradient-to-r from-purple-50 to-white rounded-xl p-6 shadow-md">
        <div class="flex items-start gap-4">
-        <div class="w-14 h-14 flex-shrink-0 bg-gradient-to-br from-pink-500 to-pink-700 rounded-xl flex items-center justify-center text-white font-black text-2xl shadow-lg">
+        <div class="w-12 h-12 flex-shrink-0 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-md">
          2
         </div>
         <div class="flex-1">
-         <h3 class="text-xl font-bold text-gray-800 mb-2">กิจกรรมบูรณาการกับกลุ่มสาระ 📚</h3>
-         <p class="text-gray-600 leading-relaxed">ร่วมจัดกิจกรรมกับกลุ่มสาระการเรียนรู้ต่างๆ เพื่อให้เกิดความสนุกสนานมากยิ่งกว่าเดิม เช่น กิจกรรมวันภาษาไทย กิจกรรมวันอาเซียน</p>
+         <h3 class="text-xl font-bold text-gray-800 mb-2">Eco-Conscious 🌱</h3>
+         <p class="text-gray-600 leading-relaxed">ส่งเสริมการดูแลสิ่งแวดล้อมภายในโรงเรียน เพื่อปรับปรุงและพัฒนาสภาพแวดล้อมให้สะอาด เป็นระเบียบ และน่าอยู่ยิ่งขึ้น เช่น การเพิ่มถังขยะบริเวณหน้าโรงจอดรถ และการจัดกิจกรรมทำความสะอาดครั้งใหญ่ (Big Cleaning Day)</p>
         </div>
        </div>
       </div>
-      <div class="policy-item border-blue-500 rounded-2xl p-6 shadow-lg">
+      <div class="policy-card border-blue-500 bg-gradient-to-r from-blue-50 to-white rounded-xl p-6 shadow-md">
        <div class="flex items-start gap-4">
-        <div class="w-14 h-14 flex-shrink-0 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center text-white font-black text-2xl shadow-lg">
+        <div class="w-12 h-12 flex-shrink-0 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-md">
          3
         </div>
         <div class="flex-1">
-         <h3 class="text-xl font-bold text-gray-800 mb-2">กิจกรรมต่อต้านยาเสพติด 🚫</h3>
-         <p class="text-gray-600 leading-relaxed">ร่วมมือกับชมรม To Be 1 จัดกิจกรรมรณรงค์ต่อต้านยาเสพติด เช่น การแข่งขันกีฬา กิจกรรมให้ความรู้ถึงโทษของยาเสพติด การจัดบูธ</p>
+         <h3 class="text-xl font-bold text-gray-800 mb-2">Your Voice 📱</h3>
+         <h4 class="text-lg font-semibold text-blue-600 mb-2">QR Code รับความคิดเห็น</h4>
+         <p class="text-gray-600 leading-relaxed">จัดทำ QR Code เพื่อเปิดช่องทางรับฟังความคิดเห็น ข้อเสนอแนะ หรือคำร้องเรียนต่าง ๆ จากพี่ ๆ น้อง ๆ เพื่อนำข้อมูลที่ได้รับไปพิจารณา ปรับปรุง และแก้ไขให้เกิดความเหมาะสมและดีขึ้นอย่างต่อเนื่อง</p>
         </div>
        </div>
       </div>
-      <div class="policy-item border-yellow-500 rounded-2xl p-6 shadow-lg">
+      <div class="policy-card border-cyan-500 bg-gradient-to-r from-cyan-50 to-white rounded-xl p-6 shadow-md">
        <div class="flex items-start gap-4">
-        <div class="w-14 h-14 flex-shrink-0 bg-gradient-to-br from-yellow-500 to-yellow-700 rounded-xl flex items-center justify-center text-white font-black text-2xl shadow-lg">
+        <div class="w-12 h-12 flex-shrink-0 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-md">
          4
         </div>
         <div class="flex-1">
-         <h3 class="text-xl font-bold text-gray-800 mb-2">กิจกรรมประกวดดาว-เดือน ⭐</h3>
-         <p class="text-gray-600 leading-relaxed">ให้พี่ๆน้องๆ ชาว P.S.C ได้แสดงศักยภาพ แบ่งเป็น ดาว (ผญ.) เดือน (ผช.) และ ควีน (LGBTQ+) เพื่อโปรโมทโรงเรียนในด้านต่างๆ</p>
+         <h3 class="text-xl font-bold text-gray-800 mb-2">Safe Talk 💬</h3>
+         <h4 class="text-lg font-semibold text-cyan-600 mb-2">พี่ที่รักษา</h4>
+         <p class="text-gray-600 leading-relaxed mb-3">หากพี่ ๆ น้อง ๆ คนใดกำลังประสบปัญหาหรือมีความกังวลใจ และไม่ทราบว่าจะปรึกษาใครได้ สามารถติดต่อพวกเราได้โดยตรง พวกเราพร้อมเป็นอีกหนึ่งช่องทางในการรับฟัง ให้คำแนะนำ และช่วยเสนอแนวทางแก้ไขปัญหาอย่างเหมาะสม เพื่อให้น้อง ๆ ได้รับการดูแลและความช่วยเหลืออย่างดีที่สุด</p>
+         <p class="text-cyan-700 text-sm font-medium italic">* ทั้งนี้ พวกเราขอยืนยันว่าจะเก็บรักษาข้อมูลและเรื่องราวที่น้อง ๆ เข้ามาปรึกษาเป็นความลับอย่างเคร่งครัด เพื่อความสบายใจและความปลอดภัยของทุกคน</p>
         </div>
        </div>
       </div>
-      <div class="policy-item border-indigo-500 rounded-2xl p-6 shadow-lg">
+      <div class="policy-card border-pink-500 bg-gradient-to-r from-pink-50 to-white rounded-xl p-6 shadow-md">
        <div class="flex items-start gap-4">
-        <div class="w-14 h-14 flex-shrink-0 bg-gradient-to-br from-indigo-500 to-indigo-700 rounded-xl flex items-center justify-center text-white font-black text-2xl shadow-lg">
+        <div class="w-12 h-12 flex-shrink-0 bg-gradient-to-br from-pink-500 to-pink-600 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-md">
          5
         </div>
         <div class="flex-1">
-         <h3 class="text-xl font-bold text-gray-800 mb-2">สานต่อนโยบายรุ่นพี่ 🤝</h3>
-         <p class="text-gray-600 leading-relaxed">ต่อยอดนโยบายรุ่นพี่ เช่น กิจกรรมลานน้ำเงินชมพู การแข่งขัน ESports ผ้าอนามัยฉุกเฉินสำหรับผู้หญิง กระดาษรียูสเพื่อใช้ห่อผ้าอนามัย</p>
+         <h3 class="text-xl font-bold text-gray-800 mb-2">Gen ใหม่ ห่างไกลยา 🚫</h3>
+         <h4 class="text-lg font-semibold text-pink-600 mb-2">กิจกรรมต่อต้านยาเสพติด</h4>
+         <p class="text-gray-600 leading-relaxed">พวกเราจะร่วมมือกับผู้ที่เกี่ยวข้องในการจัดกิจกรรมรณรงค์ต่อต้านยาเสพติด เพื่อสร้างความตระหนักรู้และเสริมภูมิคุ้มกันให้กับนักเรียน ผ่านกิจกรรมต่าง ๆ เช่น การจัดการแข่งขันกีฬา การจัดกิจกรรมให้ความรู้เกี่ยวกับโทษของยาเสพติด และการจัดบูธประชาสัมพันธ์</p>
         </div>
        </div>
       </div>
-      <div class="policy-item border-green-500 rounded-2xl p-6 shadow-lg">
+      <div class="policy-card border-purple-500 bg-gradient-to-r from-purple-50 to-white rounded-xl p-6 shadow-md">
        <div class="flex items-start gap-4">
-        <div class="w-14 h-14 flex-shrink-0 bg-gradient-to-br from-green-500 to-green-700 rounded-xl flex items-center justify-center text-white font-black text-2xl shadow-lg">
+        <div class="w-12 h-12 flex-shrink-0 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-md">
          6
         </div>
         <div class="flex-1">
-         <h3 class="text-xl font-bold text-gray-800 mb-2">Eco-Conscious 🌱</h3>
-         <p class="text-gray-600 leading-relaxed">กิจกรรมการดูแลสิ่งแวดล้อมในโรงเรียน เช่น การเพิ่มถังขยะบริเวณหน้าโรงจอดรถ การทำความสะอาดครั้งใหญ่ (Big Cleaning Day)</p>
+         <h3 class="text-xl font-bold text-gray-800 mb-2">PSC Creative Class 📚</h3>
+         <h4 class="text-lg font-semibold text-purple-600 mb-2">กิจกรรมบูรณาการกับกลุ่มสาระการเรียนรู้ต่าง ๆ</h4>
+         <p class="text-gray-600 leading-relaxed">ร่วมจัดกิจกรรมกับกลุ่มสาระการเรียนรู้ต่าง ๆ เพื่อส่งเสริมความสนุกสนาน ความสร้างสรรค์ และเพิ่มประสบการณ์การเรียนรู้อย่างหลากหลายให้มากยิ่งขึ้น</p>
         </div>
        </div>
       </div>
-      <div class="policy-item border-red-500 rounded-2xl p-6 shadow-lg">
+      <div class="policy-card border-blue-500 bg-gradient-to-r from-blue-50 to-white rounded-xl p-6 shadow-md">
        <div class="flex items-start gap-4">
-        <div class="w-14 h-14 flex-shrink-0 bg-gradient-to-br from-red-500 to-red-700 rounded-xl flex items-center justify-center text-white font-black text-2xl shadow-lg">
+        <div class="w-12 h-12 flex-shrink-0 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-md">
          7
         </div>
         <div class="flex-1">
-         <h3 class="text-xl font-bold text-gray-800 mb-2">QR Code รับความคิดเห็น 📱</h3>
-         <p class="text-gray-600 leading-relaxed">จัดทำ QR Code เพื่อรับฟังความคิดเห็นหรือคำร้องเรียนต่างๆ เพื่อนำไปปรับปรุงแก้ไขให้ดีขึ้นจากแต่ก่อน</p>
+         <h3 class="text-xl font-bold text-gray-800 mb-2">PSC Buddy Link 💗</h3>
+         <h4 class="text-lg font-semibold text-blue-600 mb-2">สายใยน้องพี่น้ำเงินชมพู</h4>
+         <p class="text-gray-600 leading-relaxed">เป็นกิจกรรมจับสายรหัส เพื่อส่งเสริมและกระชับความสัมพันธ์อันดีงามระหว่างรุ่นพี่และรุ่นน้องให้แน่นแฟ้นยิ่งขึ้น โดยแบ่งกลุ่มตามระดับชั้น ได้แก่ ระดับมัธยมศึกษาตอนต้น, มัธยมศึกษาตอนปลาย (สายวิทย์) และมัธยมศึกษาตอนปลาย (สายศิลป์)</p>
         </div>
        </div>
       </div>
-      <div class="policy-item border-orange-500 rounded-2xl p-6 shadow-lg">
+      <div class="policy-card border-cyan-500 bg-gradient-to-r from-cyan-50 to-white rounded-xl p-6 shadow-md">
        <div class="flex items-start gap-4">
-        <div class="w-14 h-14 flex-shrink-0 bg-gradient-to-br from-orange-500 to-orange-700 rounded-xl flex items-center justify-center text-white font-black text-2xl shadow-lg">
+        <div class="w-12 h-12 flex-shrink-0 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-md">
          8
         </div>
         <div class="flex-1">
-         <h3 class="text-xl font-bold text-gray-800 mb-2">Fashion Show 👗</h3>
-         <p class="text-gray-600 leading-relaxed">จัดกิจกรรมประกวดเดินแบบ เช่น ประกวดชุดรีไซเคิลในกิจกรรมวันภาษาไทย ประกวดทำชุดในกิจกรรมวันอาเซียน</p>
+         <h3 class="text-xl font-bold text-gray-800 mb-2">PSC Opportunity Hub 📢</h3>
+         <h4 class="text-lg font-semibold text-cyan-600 mb-2">ศูนย์กลางโอกาสของ PSC</h4>
+         <p class="text-gray-600 leading-relaxed">เป็นการประชาสัมพันธ์ข่าวสารและกิจกรรมที่เป็นประโยชน์แก่พี่ ๆ น้อง ๆ เช่น กิจกรรม Open House ของมหาวิทยาลัยต่าง ๆ รวมถึงกิจกรรมการแข่งขันทั้งภายในและภายนอกโรงเรียน เพื่อเป็นแนวทางในการเก็บสะสมผลงานและเกียรติบัตรสำหรับนำไปใช้ประกอบ Portfolio</p>
         </div>
        </div>
       </div>
-      <div class="policy-item border-teal-500 rounded-2xl p-6 shadow-lg">
+      <div class="policy-card border-pink-500 bg-gradient-to-r from-pink-50 to-white rounded-xl p-6 shadow-md">
        <div class="flex items-start gap-4">
-        <div class="w-14 h-14 flex-shrink-0 bg-gradient-to-br from-teal-500 to-teal-700 rounded-xl flex items-center justify-center text-white font-black text-2xl shadow-lg">
+        <div class="w-12 h-12 flex-shrink-0 bg-gradient-to-br from-pink-500 to-pink-600 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-md">
          9
         </div>
         <div class="flex-1">
-         <h3 class="text-xl font-bold text-gray-800 mb-2">ให้เราแนะนำคุณ 📢</h3>
-         <p class="text-gray-600 leading-relaxed">แจ้งข่าวสารกิจกรรมที่เป็นประโยชน์ เช่น Open House ของมหาวิทยาลัย การแข่งขันทั้งในและนอกโรงเรียน เพื่อเก็บเกียรติบัตรใส่ Portfolio</p>
+         <h3 class="text-xl font-bold text-gray-800 mb-2">Fashion Show 👗</h3>
+         <p class="text-gray-600 leading-relaxed">พวกเราจะร่วมจัดกิจกรรมการประกวดเดินแบบหรือการประกวดด้านแฟชั่น เพื่อส่งเสริมศักยภาพและความสามารถของพี่ ๆ น้อง ๆ ชาว P.S.C ให้ได้แสดงออกอย่างสร้างสรรค์ เช่น การประกวดชุดต่าง ๆ ในกิจกรรมวันสำคัญ</p>
         </div>
        </div>
       </div>
-      <div class="policy-item border-cyan-500 rounded-2xl p-6 shadow-lg">
+      <div class="policy-card border-purple-500 bg-gradient-to-r from-purple-50 to-white rounded-xl p-6 shadow-md">
        <div class="flex items-start gap-4">
-        <div class="w-14 h-14 flex-shrink-0 bg-gradient-to-br from-cyan-500 to-cyan-700 rounded-xl flex items-center justify-center text-white font-black text-2xl shadow-lg">
+        <div class="w-12 h-12 flex-shrink-0 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-md">
          10
         </div>
         <div class="flex-1">
-         <h3 class="text-xl font-bold text-gray-800 mb-2">ห้องน้ำดีมีความสุข 🚿</h3>
-         <p class="text-gray-600 leading-relaxed">จัดการปัญหาเกี่ยวกับห้องน้ำ จัดหาสมุนไพรที่มีกลิ่นหอมมาแขวนขจัดกลิ่นไม่พึงประสงค์ และจัดทำที่แขวนเพื่อความสะดวกสบาย</p>
+         <h3 class="text-xl font-bold text-gray-800 mb-2">PSC Star ⭐</h3>
+         <h4 class="text-lg font-semibold text-purple-600 mb-2">กิจกรรมประกวดดาว-เดือน</h4>
+         <p class="text-gray-600 leading-relaxed mb-3">กิจกรรมที่เปิดโอกาสให้พี่ ๆ น้อง ๆ ชาว P.S.C ได้แสดงศักยภาพและความสามารถของตนเอง ผ่านกิจกรรมที่พวกเราจัดขึ้น โดยแบ่งการประกวดเป็น ดาว (นักเรียนหญิง) • เดือน (นักเรียนชาย) • ควีน (LGBTQ)</p>
+         <p class="text-gray-600 leading-relaxed mb-2">ภายหลังจากการแข่งขันเสร็จสิ้น ผู้ที่ได้รับตำแหน่งทั้ง 3 คนจะมีหน้าที่ร่วมประชาสัมพันธ์และส่งเสริมภาพลักษณ์ของโรงเรียนในด้านต่าง ๆ เช่น การแนะนำโรงเรียนผ่านช่องทางประชาสัมพันธ์ของโรงเรียน รวมถึงการถ่ายภาพเพื่อใช้ในการโปรโมทกิจกรรมต่าง ๆ</p>
+         <p class="text-purple-700 text-sm font-medium italic">* ทั้งนี้ ผู้สมัครเข้าร่วมการประกวดจะต้องแต่งกายและจัดทรงผมให้ถูกต้องตามระเบียบของโรงเรียนอย่างเคร่งครัด</p>
         </div>
        </div>
       </div>
-     </div>
-    </div>
-   </section><!-- Contact Section -->
-   <section id="contact" class="py-20 px-4 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 text-white">
-    <div class="max-w-4xl mx-auto text-center">
-     <h2 class="text-4xl md:text-5xl font-black mb-6">เลือกหมายเลข 1</h2>
-     <p class="text-2xl mb-4 font-light">Next Gen One</p>
-     <p class="text-xl mb-12 opacity-90">พร้อมนำพา P.S.C สู่ยุคใหม่</p>
-     <div class="bg-white/20 backdrop-blur-md rounded-3xl p-8 border-2 border-white/30 max-w-xl mx-auto">
-      <div class="mb-6"><img src="https://img2.pic.in.th/IMG_2115.th.png" alt="Next Gen One Logo" class="w-32 h-32 mx-auto rounded-2xl shadow-2xl object-cover border-4 border-white" loading="lazy" onerror="this.style.background='linear-gradient(135deg, #667eea, #764ba2)'; this.alt='Logo';">
+      <div class="policy-card border-blue-500 bg-gradient-to-r from-blue-50 to-white rounded-xl p-6 shadow-md">
+       <div class="flex items-start gap-4">
+        <div class="w-12 h-12 flex-shrink-0 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-md">
+         11
+        </div>
+        <div class="flex-1">
+         <h3 class="text-xl font-bold text-gray-800 mb-2">Spread the Joy 🎁</h3>
+         <h4 class="text-lg font-semibold text-blue-600 mb-2">พามาภารวมใจมอบให้</h4>
+         <p class="text-gray-600 leading-relaxed mb-2">โครงการรับบริจาคเสื้อผ้า สิ่งของเครื่องใช้ และอุปกรณ์ต่าง ๆ ที่อยู่ในสภาพดีแต่ไม่ได้ใช้งานแล้ว เพื่อนำไปส่งต่อและบริจาคให้แก่ผู้ยากไร้หรือผู้ที่ขาดแคลน เพื่อเป็นการแบ่งปันน้ำใจและเพิ่มประโยชน์ให้แก่ผู้อื่นในสังคม</p>
+         <p class="text-blue-700 text-sm font-medium italic">* ทั้งนี้ โครงการมีเป้าหมายเพื่อส่งเสริมจิตสำนึกด้านการช่วยเหลือเกื้อกูล และสร้างสังคมแห่งการแบ่งปันอย่างยั่งยืน</p>
+        </div>
+       </div>
       </div>
-      <p class="text-lg mb-6">ร่วมกันสร้างสรรค์โรงเรียนให้ดีขึ้น</p>
-      <div class="flex justify-center gap-4">
-       <div class="w-12 h-12 bg-white/30 rounded-full flex items-center justify-center text-2xl">
-        💜
+      <div class="policy-card border-cyan-500 bg-gradient-to-r from-cyan-50 to-white rounded-xl p-6 shadow-md">
+       <div class="flex items-start gap-4">
+        <div class="w-12 h-12 flex-shrink-0 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-md">
+         12
+        </div>
+        <div class="flex-1">
+         <h3 class="text-xl font-bold text-gray-800 mb-2">เลือกให้ชัด เรียนให้ใช่ 🎓</h3>
+         <p class="text-gray-600 leading-relaxed">นโยบายแนะแนวแผนการเรียนเพื่อช่วยให้น้อง ๆ มัธยมต้นที่กำลังสับสนเกี่ยวกับการเลือกแผนการเรียน ได้มีข้อมูลและทางเลือกที่เหมาะกับตัวเองมากขึ้น โดยจัดกิจกรรมจากตัวแทนรุ่นพี่ในแต่ละแผนการเรียนจริง มาแชร์ประสบการณ์ตรง ข้อดี-ข้อควรระวัง และแนวทางการเตรียมตัว ทำให้น้อง ๆ ตัดสินใจได้มั่นใจขึ้น</p>
+        </div>
        </div>
-       <div class="w-12 h-12 bg-white/30 rounded-full flex items-center justify-center text-2xl">
-        💖
-       </div>
-       <div class="w-12 h-12 bg-white/30 rounded-full flex items-center justify-center text-2xl">
-        ✨
+      </div>
+      <div class="policy-card border-pink-500 bg-gradient-to-r from-pink-50 to-white rounded-xl p-6 shadow-md">
+       <div class="flex items-start gap-4">
+        <div class="w-12 h-12 flex-shrink-0 bg-gradient-to-br from-pink-500 to-pink-600 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-md">
+         13
+        </div>
+        <div class="flex-1">
+         <h3 class="text-xl font-bold text-gray-800 mb-2">สานต่อนโยบายรุ่นพี่ 🤝</h3>
+         <p class="text-gray-600 leading-relaxed">เป็นนโยบายที่มุ่งเน้นการต่อยอดและสานต่อแนวทางของสภานักเรียนรุ่นก่อน เพื่อรักษาเจตนารมณ์ที่ดีและพัฒนาต่อเนื่องให้เกิดประโยชน์สูงสุด เช่น กิจกรรมลานน้ำเงินชมพู กิจกรรมการแข่งขัน E-Sports การจัดเตรียมผ้าอนามัยฉุกเฉินสำหรับนักเรียนหญิง และการใช้กระดาษ Reuse สำหรับห่อผ้าอนามัย เป็นต้น</p>
+        </div>
        </div>
       </div>
      </div>
     </div>
    </section><!-- Footer -->
-   <footer class="py-8 px-4 bg-gray-900 text-white">
-    <div class="max-w-6xl mx-auto text-center">
-     <div class="flex justify-center items-center gap-3 mb-4">
-      <div class="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-500 rounded-xl flex items-center justify-center font-black text-lg">
-       1
-      </div><span class="font-bold text-xl">Next Gen One</span>
+   <footer class="py-12 px-4 bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600 text-white">
+    <div class="max-w-5xl mx-auto text-center">
+     <div class="mb-6"><img src="https://img2.pic.in.th/IMG_2115.th.png" alt="Next Gen One Logo" class="w-20 h-20 mx-auto rounded-2xl shadow-xl object-cover border-2 border-white" loading="lazy" onerror="this.style.background='linear-gradient(135deg, #ec4899, #8b5cf6)'; this.alt='Logo';">
      </div>
-     <p class="text-gray-400">พรรคหาเสียงสภานักเรียน P.S.C</p>
-     <p class="text-gray-500 text-sm mt-4">© 2024 Next Gen One. All rights reserved.</p>
+     <div class="flex justify-center items-center gap-3 mb-4">
+      <div class="number-badge w-10 h-10 rounded-lg flex items-center justify-center font-bold text-lg">
+       1
+      </div><span class="font-bold text-2xl">Next Gen One</span>
+     </div>
+     <p class="text-white/90 text-lg mb-2">รุ่นใหม่ที่พร้อมพาโรงเรียนเราไปให้หนักกว่าเดิม</p>
+     <p class="text-white/80 mb-6">เราคิดให้ครบ วางแผนให้ชัด และเปลี่ยนทุกไอเดียให้เป็นผลลัพธ์ที่ทุกคนรู้สึกได้</p>
+     <p class="text-white/70 text-sm">© 2024 Next Gen One - พรรคหาเสียงสภานักเรียน</p>
     </div>
    </footer>
   </div>
@@ -475,11 +501,12 @@
     const defaultConfig = {
       party_name: 'Next Gen One',
       party_number: '1',
-      slogan: 'พร้อมนำพา P.S.C สู่ยุคใหม่',
-      primary_color: '#667eea',
-      secondary_color: '#764ba2',
-      accent_color: '#f093fb',
-      highlight_color: '#fbbf24',
+      slogan_1: 'รุ่นใหม่ที่พร้อมพาโรงเรียนเราไปให้หนักกว่าเดิม',
+      slogan_2: 'เราคิดให้ครบ วางแผนให้ชัด และเปลี่ยนทุกไอเดียให้เป็นผลลัพธ์ที่ทุกคนรู้สึกได้',
+      background_color: '#fdf2f8',
+      primary_color: '#ec4899',
+      secondary_color: '#8b5cf6',
+      accent_color: '#3b82f6',
       text_color: '#1f2937'
     };
 
@@ -514,18 +541,27 @@
       const navPartyNumber = document.getElementById('nav-party-number');
       const heroPartyName = document.getElementById('hero-party-name');
       const heroPartyNumber = document.getElementById('hero-party-number');
-      const heroSlogan = document.getElementById('hero-slogan');
+      const heroSlogan1 = document.getElementById('hero-slogan-1');
+      const heroSlogan2 = document.getElementById('hero-slogan-2');
 
       if (navPartyName) navPartyName.textContent = newConfig.party_name || defaultConfig.party_name;
       if (navPartyNumber) navPartyNumber.textContent = newConfig.party_number || defaultConfig.party_number;
       if (heroPartyName) heroPartyName.textContent = newConfig.party_name || defaultConfig.party_name;
       if (heroPartyNumber) heroPartyNumber.textContent = newConfig.party_number || defaultConfig.party_number;
-      if (heroSlogan) heroSlogan.textContent = newConfig.slogan || defaultConfig.slogan;
+      if (heroSlogan1) heroSlogan1.textContent = newConfig.slogan_1 || defaultConfig.slogan_1;
+      if (heroSlogan2) heroSlogan2.textContent = newConfig.slogan_2 || defaultConfig.slogan_2;
     }
 
     function mapToCapabilities(config) {
       return {
         recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => {
+              config.background_color = value;
+              window.elementSdk.setConfig({ background_color: value });
+            }
+          },
           {
             get: () => config.primary_color || defaultConfig.primary_color,
             set: (value) => {
@@ -548,13 +584,6 @@
             }
           },
           {
-            get: () => config.highlight_color || defaultConfig.highlight_color,
-            set: (value) => {
-              config.highlight_color = value;
-              window.elementSdk.setConfig({ highlight_color: value });
-            }
-          },
-          {
             get: () => config.text_color || defaultConfig.text_color,
             set: (value) => {
               config.text_color = value;
@@ -572,7 +601,8 @@
       return new Map([
         ['party_name', config.party_name || defaultConfig.party_name],
         ['party_number', config.party_number || defaultConfig.party_number],
-        ['slogan', config.slogan || defaultConfig.slogan]
+        ['slogan_1', config.slogan_1 || defaultConfig.slogan_1],
+        ['slogan_2', config.slogan_2 || defaultConfig.slogan_2]
       ]);
     }
 
@@ -585,5 +615,5 @@
       });
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c1f940942713ddc',t:'MTc2OTA5MDQzMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c24557dd268a071',t:'MTc2OTE0MDMwMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
