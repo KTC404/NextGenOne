@@ -9,6 +9,118 @@
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="icon" href="Next Gen One nobg.png">
   <style>
+
+    /* ===== DARK MODE FINAL ===== */
+body.dark {
+  background: #050b18;
+  color: #e5e7eb;
+}
+
+/* background */
+body.dark .gradient-bg {
+  background: linear-gradient(135deg, #050b18, #0b1220, #020617);
+}
+
+/* nav */
+body.dark nav {
+  background: rgba(15,23,42,.95);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 8px 30px rgba(0,0,0,.7);
+}
+
+/* section separation */
+body.dark section {
+  border-top: 1px solid rgba(255,255,255,.04);
+}
+
+/* ===== CARDS (BRIGHTER) ===== */
+body.dark .bg-white {
+  background: #162033 !important;
+  box-shadow: 
+    0 12px 30px rgba(0,0,0,.6),
+    inset 0 1px 0 rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.10);
+}
+
+body.dark .bg-white\/50 {
+  background: rgba(22,32,51,.75) !important;
+}
+
+body.dark .member-card {
+  background: #162033;
+}
+
+/* hover pop */
+body.dark .member-card:hover {
+  box-shadow:
+    0 25px 60px rgba(0,0,0,.8),
+    0 0 25px rgba(99,102,241,.25);
+  transform: translateY(-8px) scale(1.03);
+}
+
+/* modal */
+body.dark #modal-content {
+  background: #0b1220;
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 20px 60px rgba(0,0,0,.9);
+}
+
+/* inner panels */
+body.dark .bg-gray-50 {
+  background: #020617 !important;
+}
+
+body.dark .bg-gray-100 {
+  background: #020617 !important;
+}
+
+/* text layers */
+body.dark .text-gray-800 { color:#f9fafb !important; }
+body.dark .text-gray-700 { color:#e5e7eb !important; }
+body.dark .text-gray-600 { color:#cbd5e1 !important; }
+body.dark .text-gray-500 { color:#94a3b8 !important; }
+
+/* borders */
+body.dark .border-gray-100 {
+  border-color: rgba(255,255,255,.08) !important;
+}
+
+/* ===== POSITION CARDS ===== */
+body.dark .leader-card {
+  border: 1px solid rgba(255,255,255,.15) !important;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.05),
+              0 10px 25px rgba(0,0,0,.6);
+}
+
+body.dark .leader-card.crown {
+  border-color: rgba(255,215,0,.6) !important;
+  box-shadow: 0 0 0 1px rgba(255,215,0,.3),
+              0 10px 30px rgba(0,0,0,.6),
+              0 0 18px rgba(255,215,0,.35);
+}
+
+body.dark .leader-card.star {
+  border-color: rgba(147,197,253,.6) !important;
+  box-shadow: 0 0 0 1px rgba(147,197,253,.3),
+              0 10px 30px rgba(0,0,0,.6),
+              0 0 18px rgba(147,197,253,.35);
+}
+
+/* ===== DARK BUTTON ===== */
+body.dark #darkBtn{
+  background:#1f2933;
+  color:#e5e7eb;
+}
+
+/* ===== LOCK NEW + PRIZE COLORS ===== */
+body.dark .text-shimmer {
+  -webkit-text-fill-color: transparent;
+}
+
+body.dark span[style*="color"] {
+  filter: none;
+}
+
     body {
       box-sizing: border-box;
       font-family: 'Kanit', sans-serif;
@@ -154,7 +266,13 @@
     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
   </svg>
   <span class="hidden sm:inline">Instagram</span>
-</a>
+</a>    
+
+  <button id="darkBtn"
+ onclick="toggleDark()"
+ class="flex items-center gap-2 px-4 py-2 bg-gray-200 text-gray-800 rounded-full font-medium hover:shadow-lg transition-all">
+ 🌙 <span class="hidden sm:inline">Dark</span>
+</button>
 
 
     </div>
@@ -881,4 +999,31 @@ function updateCountdown() {
 
 updateCountdown();
 setInterval(updateCountdown, 1000);
+</script>
+
+<script>
+function toggleDark(){
+  document.body.classList.toggle("dark");
+
+  const isDark = document.body.classList.contains("dark");
+  localStorage.setItem("darkmode", isDark);
+
+  const btn = document.getElementById("darkBtn");
+  if(btn){
+    btn.innerHTML = isDark 
+      ? "☀️ <span class='hidden sm:inline'>Light</span>"
+      : "🌙 <span class='hidden sm:inline'>Dark</span>";
+  }
+}
+
+window.addEventListener("load", () => {
+  const saved = localStorage.getItem("darkmode") === "true";
+  if(saved){
+    document.body.classList.add("dark");
+    const btn = document.getElementById("darkBtn");
+    if(btn){
+      btn.innerHTML = "☀️ <span class='hidden sm:inline'>Light</span>";
+    }
+  }
+});
 </script>
