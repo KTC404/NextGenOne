@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Next Gen One No.1</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="/_sdk/element_sdk.js"></script>
+  <script src="/_sdk/element_sdk.js" type="module"></script>
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="icon" href="Next Gen One nobg.png">
   <style>
@@ -36,7 +36,7 @@ body.dark section {
 /* ===== CARDS (BRIGHTER) ===== */
 body.dark .bg-white {
   background: #162033 !important;
-  box-shadow: 
+  box-shadow:
     0 12px 30px rgba(0,0,0,.6),
     inset 0 1px 0 rgba(255,255,255,.05);
   border: 1px solid rgba(255,255,255,.10);
@@ -46,16 +46,20 @@ body.dark .bg-white\/50 {
   background: rgba(22,32,51,.75) !important;
 }
 
-body.dark .member-card {
+body.dark .member-card { /* Base member card style for dark mode */
   background: #162033;
 }
 
-/* hover pop */
-body.dark .member-card:hover {
+/* member card hover - general for all member cards, subtle lift */
+.member-card:hover {
+  transform: translateY(-5px) scale(1.01); /* Subtle lift */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* General hover shadow */
+}
+body.dark .member-card:hover { /* Dark mode general member card hover */
   box-shadow:
-    0 25px 60px rgba(0,0,0,.8),
-    0 0 25px rgba(99,102,241,.25);
-  transform: translateY(-8px) scale(1.03);
+    0 15px 35px rgba(0,0,0,.7), /* Adjust global dark mode member card shadow */
+    0 0 15px rgba(99,102,241,.15);
+  transform: translateY(-5px) scale(1.01);
 }
 
 /* modal */
@@ -86,24 +90,37 @@ body.dark .border-gray-100 {
 }
 
 /* ===== POSITION CARDS ===== */
+/* Leader card specific styles (light mode) */
+.leader-card {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06); /* Initial shadow for leaders (light) */
+}
+.leader-card:hover {
+  transform: translateY(-10px) scale(1.04); /* Stronger lift for leaders */
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2), 0 0 20px rgba(124,58,237,0.15); /* Stronger glow & shadow */
+}
+
+/* Dark mode specific styles for leader card base */
 body.dark .leader-card {
   border: 1px solid rgba(255,255,255,.15) !important;
   box-shadow: 0 0 0 1px rgba(255,255,255,.05),
               0 10px 25px rgba(0,0,0,.6);
 }
-
 body.dark .leader-card.crown {
   border-color: rgba(255,215,0,.6) !important;
   box-shadow: 0 0 0 1px rgba(255,215,0,.3),
               0 10px 30px rgba(0,0,0,.6),
               0 0 18px rgba(255,215,0,.35);
 }
-
 body.dark .leader-card.star {
   border-color: rgba(147,197,253,.6) !important;
   box-shadow: 0 0 0 1px rgba(147,197,253,.3),
               0 10px 30px rgba(0,0,0,.6),
               0 0 18px rgba(147,197,253,.35);
+}
+/* Dark mode override for leader hover, stronger glow */
+body.dark .leader-card:hover {
+  box-shadow: 0 25px 60px rgba(0,0,0,.8), 0 0 25px rgba(99,102,241,.35);
+  transform: translateY(-10px) scale(1.04);
 }
 
 /* ===== DARK BUTTON ===== */
@@ -125,20 +142,20 @@ body.dark span[style*="color"] {
       box-sizing: border-box;
       font-family: 'Kanit', sans-serif;
     }
-    
+
     .gradient-bg {
       background: linear-gradient(135deg, #fce4ec 0%, #e8eaf6 25%, #e3f2fd 50%, #f3e5f5 75%, #e1f5fe 100%);
     }
-    
+
     @keyframes float {
       0%, 100% { transform: translateY(0px); }
       50% { transform: translateY(-10px); }
     }
-    
+
     .float-animation {
       animation: float 3s ease-in-out infinite;
     }
-    
+
     @keyframes fadeInUp {
       from {
         opacity: 0;
@@ -149,11 +166,11 @@ body.dark span[style*="color"] {
         transform: translateY(0);
       }
     }
-    
+
     .fade-in-up {
       animation: fadeInUp 0.8s ease-out forwards;
     }
-    
+
     .delay-1 { animation-delay: 0.1s; opacity: 0; }
     .delay-2 { animation-delay: 0.2s; opacity: 0; }
     .delay-3 { animation-delay: 0.3s; opacity: 0; }
@@ -161,21 +178,21 @@ body.dark span[style*="color"] {
     .delay-5 { animation-delay: 0.5s; opacity: 0; }
     .delay-6 { animation-delay: 0.6s; opacity: 0; }
     .delay-7 { animation-delay: 0.7s; opacity: 0; }
-    
+
     @keyframes pulseGlow {
       0%, 100% { box-shadow: 0 0 20px rgba(147, 51, 234, 0.3); }
       50% { box-shadow: 0 0 40px rgba(147, 51, 234, 0.6); }
     }
-    
+
     .pulse-glow {
       animation: pulseGlow 2s ease-in-out infinite;
     }
-    
+
     @keyframes shimmer {
       0% { background-position: -200% center; }
       100% { background-position: 200% center; }
     }
-    
+
     .text-shimmer {
       background: linear-gradient(90deg, #7c3aed, #ec4899, #3b82f6, #7c3aed);
       background-size: 200% auto;
@@ -184,15 +201,25 @@ body.dark span[style*="color"] {
       background-clip: text;
       animation: shimmer 3s linear infinite;
     }
-    
+
     .member-card {
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
-    
-    .member-card:hover {
-      transform: translateY(-8px) scale(1.02);
+
+    /* Policy card base and hover styles */
+    .policy-card {
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05); /* Softer initial shadow */
     }
-    
+    .policy-card:hover {
+      transform: translateY(-6px) scale(1.015);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.12), 0 0 10px rgba(124,58,237,0.05);
+    }
+    body.dark .policy-card { /* Initial shadow for dark mode policy cards */
+      box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    }
+
+
     @keyframes modalIn {
       from {
         opacity: 0;
@@ -203,35 +230,51 @@ body.dark span[style*="color"] {
         transform: scale(1);
       }
     }
-    
+
     .modal-animation {
       animation: modalIn 0.3s ease-out forwards;
     }
-    
+
     .gradient-border {
       background: linear-gradient(white, white) padding-box,
                   linear-gradient(135deg, #ec4899, #8b5cf6, #3b82f6) border-box;
       border: 3px solid transparent;
     }
-    
+
     .scroll-hidden {
       opacity: 0;
       transform: translateY(30px);
       transition: all 0.8s ease-out;
     }
-    
+
     .scroll-visible {
       opacity: 1;
       transform: translateY(0);
     }
-    
+
+    /* Custom utility class for border width */
+    .border-3 { border-width: 3px; }
+
   </style>
   <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
-<body class="h-full pt-24 md:pt-16">
+<body class="h-full pt-24 md:pt-16 transition-colors duration-300">
+  <script>
+    // Self-executing script to apply dark mode immediately if preferred, to prevent FOUC
+    (function() {
+      try {
+        const saved = localStorage.getItem("darkmode") === "true";
+        if (saved) {
+          document.body.classList.add("dark");
+        }
+      } catch (e) {
+        console.warn("Failed to apply dark mode from localStorage:", e);
+      }
+    })();
+  </script>
   <div class="h-full w-full gradient-bg overflow-auto"><!-- Navigation -->
-   <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
+   <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md shadow-md transition-colors duration-300">
   <div class="relative max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-2">
 
     <div id="countdown" class="static order-last w-full text-center mt-2 md:mt-0 md:order-none md:absolute md:left-1/2 md:-translate-x-1/2 md:w-auto text-sm font-semibold text-purple-600 bg-purple-100 px-4 py-1 rounded-full shadow">
@@ -252,23 +295,24 @@ body.dark span[style*="color"] {
     <div class="flex items-center gap-2">
 
       <!-- TikTok -->
-      <a href="https://www.tiktok.com/@party.nextgenone" target="_blank" rel="noopener noreferrer"
-        class="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-full font-medium hover:shadow-lg transition-all">
+      <a href="https://www.tiktok.com/@party.nextgenone" target="_blank" rel="noopener noreferrer" aria-label="TikTok"
+        class="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-full font-medium hover:shadow-lg transition-all transform-gpu hover:scale-105">
         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
           <path d="M21 8.3c-1.4 0-2.8-.4-4-1.2v7.2c0 3.6-2.9 6.5-6.5 6.5S4 17.9 4 14.3s2.9-6.5 6.5-6.5c.4 0 .8 0 1.2.1v3.6c-.4-.1-.8-.2-1.2-.2-1.6 0-2.9 1.3-2.9 3s1.3 3 2.9 3 3-1.3 3-3V2h3.4c.3 2.3 2.1 4.1 4.4 4.4v1.9z"/>
         </svg>
         <span class="hidden sm:inline">TikTok</span>
       </a>
 
-      <!-- Instagram (ของเดิม ไม่แก้) -->
-      <a href="https://www.instagram.com/party.nextgenone?utm_source=qr" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 text-white rounded-full font-medium hover:shadow-lg transition-all">
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/party.nextgenone?utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 text-white rounded-full font-medium hover:shadow-lg transition-all transform-gpu hover:scale-105">
   <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
   </svg>
   <span class="hidden sm:inline">Instagram</span>
-</a>    
+</a>
 
   <button id="darkBtn"
+ aria-label="Toggle Dark Mode"
  onclick="toggleDark()"
  class="flex items-center gap-2 px-4 py-2 bg-gray-200 text-gray-800 rounded-full font-medium hover:shadow-lg transition-all">
  🌙 <span class="hidden sm:inline">Dark</span>
@@ -302,8 +346,8 @@ body.dark span[style*="color"] {
      <div class="mb-12">
       <h3 class="text-xl font-semibold text-purple-700 mb-6 text-center">👑 ประธานพรรค</h3>
       <div class="flex justify-center">
-       <div class="member-card gradient-border bg-white rounded-3xl p-6 shadow-xl cursor-pointer max-w-sm w-full fade-in-up delay-2" onclick="openModal('president')">
-        <div class="relative"><img src="https://img2.pic.in.th/4fd3f9c70602fc8dd80909d154e3a8fa.png" alt="น.ส. อภิญญาภรณ์ บุญหนา" class="w-40 h-40 mx-auto rounded-full object-cover shadow-lg ring-4 ring-pink-300" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #ec4899, #8b5cf6)'; this.alt='ประธาน';">
+       <div class="member-card gradient-border bg-white rounded-3xl p-6 shadow-xl cursor-pointer max-w-sm w-full fade-in-up delay-2 leader-card crown transform-gpu" role="button" onclick="openModal('president')">
+        <div class="relative"><img src="https://img2.pic.in.th/4fd3f9c70602fc8dd80909d154e3a8fa.png" alt="น.ส. อภิญญาภรณ์ บุญหนา ประธานพรรค" class="w-40 h-40 mx-auto rounded-full object-cover shadow-lg ring-4 ring-pink-300" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #ec4899, #8b5cf6)'; this.alt='ประธาน';">
          <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-gradient-to-r from-pink-500 to-purple-500 text-white px-4 py-1 rounded-full text-sm font-medium shadow-md">
           ประธาน
          </div>
@@ -316,8 +360,8 @@ body.dark span[style*="color"] {
      <div class="mb-12">
       <h3 class="text-xl font-semibold text-blue-700 mb-6 text-center">⭐ รองประธานพรรค</h3>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
-       <div class="member-card gradient-border bg-white rounded-3xl p-5 shadow-xl cursor-pointer fade-in-up delay-3" onclick="openModal('vice1')">
-        <div class="relative"><img src="https://img2.pic.in.th/a282ee30ae6857ae5dcaf191244f4b6c.png" alt="นาย พชร กาเผือก" class="w-32 h-32 mx-auto rounded-full object-cover shadow-lg ring-4 ring-blue-300" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #3b82f6, #8b5cf6)'; this.alt='รองประธาน 1';">
+       <div class="member-card gradient-border bg-white rounded-3xl p-5 shadow-xl cursor-pointer fade-in-up delay-3 leader-card star transform-gpu" role="button" onclick="openModal('vice1')">
+        <div class="relative"><img src="https://img2.pic.in.th/a282ee30ae6857ae5dcaf191244f4b6c.png" alt="นาย พชร กาเผือก รองประธาน 1" class="w-32 h-32 mx-auto rounded-full object-cover shadow-lg ring-4 ring-blue-300" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #3b82f6, #8b5cf6)'; this.alt='รองประธาน 1';">
          <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-3 py-1 rounded-full text-xs font-medium shadow-md">
           รองประธาน
          </div>
@@ -325,8 +369,8 @@ body.dark span[style*="color"] {
         <h4 class="text-lg font-bold text-gray-800 mt-5 text-center">นาย พชร กาเผือก</h4>
         <p class="text-blue-600 text-center mt-1 text-sm">คลิกเพื่อดูรายละเอียด</p>
        </div>
-       <div class="member-card gradient-border bg-white rounded-3xl p-5 shadow-xl cursor-pointer fade-in-up delay-4" onclick="openModal('vice2')">
-        <div class="relative"><img src="https://img2.pic.in.th/3811fccd5f646262837126ae3d1c42a2.png" alt="น.ส. ฐานิดา พลอารีย์" class="w-32 h-32 mx-auto rounded-full object-cover shadow-lg ring-4 ring-purple-300" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #8b5cf6, #ec4899)'; this.alt='รองประธาน 2';">
+       <div class="member-card gradient-border bg-white rounded-3xl p-5 shadow-xl cursor-pointer fade-in-up delay-4 leader-card star transform-gpu" role="button" onclick="openModal('vice2')">
+        <div class="relative"><img src="https://img2.pic.in.th/3811fccd5f646262837126ae3d1c42a2.png" alt="น.ส. ฐานิดา พลอารีย์ รองประธาน 2" class="w-32 h-32 mx-auto rounded-full object-cover shadow-lg ring-4 ring-purple-300" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #8b5cf6, #ec4899)'; this.alt='รองประธาน 2';">
          <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-1 rounded-full text-xs font-medium shadow-md">
           รองประธาน
          </div>
@@ -343,29 +387,41 @@ body.dark span[style*="color"] {
      <h2 class="fade-in-up text-3xl font-bold text-center mb-4 text-shimmer">แกนนำผู้ตั้งพรรค</h2>
      <p class="text-center text-gray-600 mb-10 fade-in-up delay-1">ทีมที่พร้อมทำงานเพื่อทุกคน</p>
      <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6">
-      <div class="member-card bg-white rounded-2xl p-4 shadow-lg cursor-pointer fade-in-up delay-2 hover:shadow-xl" onclick="openModal('member1')"><img src="https://img5.pic.in.th/file/secure-sv1/2daeabdae85b10f3494bb15299231a32.png" alt="ปาลีรัตน์" class="w-20 h-20 mx-auto rounded-full object-cover shadow-md ring-2 ring-pink-200" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #ec4899, #f472b6)'; this.alt='ปาลีรัตน์';">
-       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight">ปาลีรัตน์ แสงทะมาตร์<br>
-       <p class="text-pink-500 text-center mt-1 text-xs">ดูเพิ่มเติม</p>
+      <div class="member-card bg-white rounded-2xl p-4 shadow-lg cursor-pointer fade-in-up delay-2 hover:shadow-xl transform-gpu" role="button" onclick="openModal('member1')"><img src="https://img5.pic.in.th/file/secure-sv1/2daeabdae85b10f3494bb15299231a32.png" alt="ปาลีรัตน์ แสงทะมาตร์" class="w-20 h-20 mx-auto rounded-full object-cover shadow-md ring-2 ring-pink-200" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #ec4899, #f472b6)'; this.alt='ปาลีรัตน์';">
+       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight">ปาลีรัตน์ แสงทะมาตร์</h4>
+       <span class="text-pink-500 text-center mt-1 text-sm font-medium flex items-center justify-center">ดูเพิ่มเติม <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 ml-1">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+</svg></span>
       </div>
-      <div class="member-card bg-white rounded-2xl p-4 shadow-lg cursor-pointer fade-in-up delay-3 hover:shadow-xl" onclick="openModal('member2')"><img src="https://img5.pic.in.th/file/secure-sv1/b670c9521ac50bcfdfb480d7f7239618.png" alt="แทนคุณ" class="w-20 h-20 mx-auto rounded-full object-cover shadow-md ring-2 ring-blue-200" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #3b82f6, #60a5fa)'; this.alt='แทนคุณ';">
-       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight">แทนคุณ เบญมาตย์<br>
-       <p class="text-blue-500 text-center mt-1 text-xs">ดูเพิ่มเติม</p>
+      <div class="member-card bg-white rounded-2xl p-4 shadow-lg cursor-pointer fade-in-up delay-3 hover:shadow-xl transform-gpu" role="button" onclick="openModal('member2')"><img src="https://img5.pic.in.th/file/secure-sv1/b670c9521ac50bcfdfb480d7f7239618.png" alt="แทนคุณ เบญมาตย์" class="w-20 h-20 mx-auto rounded-full object-cover shadow-md ring-2 ring-blue-200" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #3b82f6, #60a5fa)'; this.alt='แทนคุณ';">
+       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight">แทนคุณ เบญมาตย์</h4>
+       <span class="text-blue-500 text-center mt-1 text-sm font-medium flex items-center justify-center">ดูเพิ่มเติม <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 ml-1">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+</svg></span>
       </div>
-      <div class="member-card bg-white rounded-2xl p-4 shadow-lg cursor-pointer fade-in-up delay-4 hover:shadow-xl" onclick="openModal('member3')"><img src="https://img5.pic.in.th/file/secure-sv1/0263ff89b38c8f0cf109d7656758467f.png" alt="ศศิธร" class="w-20 h-20 mx-auto rounded-full object-cover shadow-md ring-2 ring-purple-200" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #8b5cf6, #a78bfa)'; this.alt='ศศิธร';">
-       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight">ศศิธร หงษา<br>
-       <p class="text-purple-500 text-center mt-1 text-xs">ดูเพิ่มเติม</p>
+      <div class="member-card bg-white rounded-2xl p-4 shadow-lg cursor-pointer fade-in-up delay-4 hover:shadow-xl transform-gpu" role="button" onclick="openModal('member3')"><img src="https://img5.pic.in.th/file/secure-sv1/0263ff89b38c8f0cf109d7656758467f.png" alt="ศศิธร หงษา" class="w-20 h-20 mx-auto rounded-full object-cover shadow-md ring-2 ring-purple-200" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #8b5cf6, #a78bfa)'; this.alt='ศศิธร';">
+       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight">ศศิธร หงษา</h4>
+       <span class="text-purple-500 text-center mt-1 text-sm font-medium flex items-center justify-center">ดูเพิ่มเติม <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 ml-1">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+</svg></span>
       </div>
-      <div class="member-card bg-white rounded-2xl p-4 shadow-lg cursor-pointer fade-in-up delay-5 hover:shadow-xl" onclick="openModal('member4')"><img src="https://img5.pic.in.th/file/secure-sv1/e85030dba531a5a3b0858c9b91f5fde4.png" alt="ฐิตาภา" class="w-20 h-20 mx-auto rounded-full object-cover shadow-md ring-2 ring-cyan-200" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #06b6d4, #22d3d1)'; this.alt='ฐิตาภา';">
-       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight">ฐิตาภา พวงพิศ<br>
-       <p class="text-cyan-500 text-center mt-1 text-xs">ดูเพิ่มเติม</p>
+      <div class="member-card bg-white rounded-2xl p-4 shadow-lg cursor-pointer fade-in-up delay-5 hover:shadow-xl transform-gpu" role="button" onclick="openModal('member4')"><img src="https://img5.pic.in.th/file/secure-sv1/e85030dba531a5a3b0858c9b91f5fde4.png" alt="ฐิตาภา พวงพิศ" class="w-20 h-20 mx-auto rounded-full object-cover shadow-md ring-2 ring-cyan-200" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #06b6d4, #22d3d1)'; this.alt='ฐิตาภา';">
+       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight">ฐิตาภา พวงพิศ</h4>
+       <span class="text-cyan-500 text-center mt-1 text-sm font-medium flex items-center justify-center">ดูเพิ่มเติม <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 ml-1">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+</svg></span>
       </div>
-      <div class="member-card bg-white rounded-2xl p-4 shadow-lg cursor-pointer fade-in-up delay-6 hover:shadow-xl" onclick="openModal('member5')"><img src="https://img5.pic.in.th/file/secure-sv1/43901e5aa015605a15cffcb1d3b13e8b.png" alt="พาขวัญ" class="w-20 h-20 mx-auto rounded-full object-cover shadow-md ring-2 ring-pink-200" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #ec4899, #f472b6)'; this.alt='พาขวัญ';">
-       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight">พาขวัญ แสนเมืองชิน<br>
-       <p class="text-pink-500 text-center mt-1 text-xs">ดูเพิ่มเติม</p>
+      <div class="member-card bg-white rounded-2xl p-4 shadow-lg cursor-pointer fade-in-up delay-6 hover:shadow-xl transform-gpu" role="button" onclick="openModal('member5')"><img src="https://img5.pic.in.th/file/secure-sv1/43901e5aa015605a15cffcb1d3b13e8b.png" alt="พาขวัญ แสนเมืองชิน" class="w-20 h-20 mx-auto rounded-full object-cover shadow-md ring-2 ring-pink-200" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #ec4899, #f472b6)'; this.alt='พาขวัญ';">
+       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight">พาขวัญ แสนเมืองชิน</h4>
+       <span class="text-pink-500 text-center mt-1 text-sm font-medium flex items-center justify-center">ดูเพิ่มเติม <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 ml-1">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+</svg></span>
       </div>
-      <div class="member-card bg-white rounded-2xl p-4 shadow-lg cursor-pointer fade-in-up delay-7 hover:shadow-xl" onclick="openModal('member6')"><img src="ไตเติ้ล.png" alt="ธนวัฒน์" class="w-20 h-20 mx-auto rounded-full object-cover shadow-md ring-2 ring-indigo-200" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #6366f1, #818cf8)'; this.alt='ธนวัฒน์';">
-       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight">ธนวัฒน์ สิงห์จารย์<br>
-       <p class="text-indigo-500 text-center mt-1 text-xs">ดูเพิ่มเติม</p>
+      <div class="member-card bg-white rounded-2xl p-4 shadow-lg cursor-pointer fade-in-up delay-7 hover:shadow-xl transform-gpu" role="button" onclick="openModal('member6')"><img src="ไตเติ้ล.png" alt="ธนวัฒน์ สิงห์จารย์" class="w-20 h-20 mx-auto rounded-full object-cover shadow-md ring-2 ring-indigo-200" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #6366f1, #818cf8)'; this.alt='ธนวัฒน์';">
+       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight">ธนวัฒน์ สิงห์จารย์</h4>
+       <span class="text-indigo-500 text-center mt-1 text-sm font-medium flex items-center justify-center">ดูเพิ่มเติม <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 ml-1">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+</svg></span>
       </div>
      </div>
     </div>
@@ -375,109 +431,109 @@ body.dark span[style*="color"] {
      <h2 class="fade-in-up text-3xl font-bold text-center mb-4 text-shimmer">นโยบายของเรา</h2>
      <p class="text-center text-gray-600 mb-12 fade-in-up delay-1">13 นโยบายเพื่อพัฒนาโรงเรียนและชีวิตนักเรียน</p>
      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"><!-- Policy 1 -->
-      <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-pink-100 cursor-pointer" onclick="openPolicyModal('policy1')">
+      <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg border-3 border-pink-100 cursor-pointer policy-card" role="button" onclick="openPolicyModal('policy1')">
        <div class="text-4xl mb-4">
         🚻
        </div>
        <h3 class="text-xl font-bold text-pink-600 mb-3">1. Clean Zone</h3>
        <h4 class="font-semibold text-gray-800 mb-2">ห้องน้ำดีมีความสุข</h4>
-       <p class="text-gray-600 text-sm leading-relaxed mb-3">ดำเนินการแก้ไขปัญหาที่เกี่ยวข้องกับห้องน้ำ โดยเฉพาะเรื่องกลิ่นไม่พึงประสงค์...</p><span class="text-pink-500 text-xs font-medium">คลิกเพื่ออ่านเพิ่มเติม →</span>
+       <p class="text-gray-600 text-sm leading-relaxed mb-3">ดำเนินการแก้ไขปัญหาที่เกี่ยวข้องกับห้องน้ำ โดยเฉพาะเรื่องกลิ่นไม่พึงประสงค์...</p><span class="text-pink-500 text-sm font-medium flex items-center">คลิกเพื่ออ่านเพิ่มเติม →</span>
       </div><!-- Policy 2 -->
-      <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-green-100 cursor-pointer" onclick="openPolicyModal('policy2')">
+      <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg border-3 border-green-100 cursor-pointer policy-card" role="button" onclick="openPolicyModal('policy2')">
        <div class="text-4xl mb-4">
         🌱
        </div>
        <h3 class="text-xl font-bold text-green-600 mb-3">2. Eco-Conscious</h3>
        <h4 class="font-semibold text-gray-800 mb-2">ใส่ใจสิ่งแวดล้อม</h4>
-       <p class="text-gray-600 text-sm leading-relaxed mb-3">ส่งเสริมการดูแลสิ่งแวดล้อมภายในโรงเรียน เพื่อปรับปรุงและพัฒนาสภาพแวดล้อมให้สะอาด...</p><span class="text-green-500 text-xs font-medium">คลิกเพื่ออ่านเพิ่มเติม →</span>
+       <p class="text-gray-600 text-sm leading-relaxed mb-3">ส่งเสริมการดูแลสิ่งแวดล้อมภายในโรงเรียน เพื่อปรับปรุงและพัฒนาสภาพแวดล้อมให้สะอาด...</p><span class="text-green-500 text-sm font-medium flex items-center">คลิกเพื่ออ่านเพิ่มเติม →</span>
       </div><!-- Policy 3 -->
-      <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-blue-100 cursor-pointer" onclick="openPolicyModal('policy3')">
+      <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg border-3 border-blue-100 cursor-pointer policy-card" role="button" onclick="openPolicyModal('policy3')">
        <div class="text-4xl mb-4">
         💬
        </div>
        <h3 class="text-xl font-bold text-blue-600 mb-3">3. Your Voice</h3>
        <h4 class="font-semibold text-gray-800 mb-2">QR Code รับความคิดเห็น</h4>
-       <p class="text-gray-600 text-sm leading-relaxed mb-3">จัดทำ QR Code เพื่อเปิดช่องทางรับฟังความคิดเห็น...</p><span class="text-blue-500 text-xs font-medium">คลิกเพื่ออ่านเพิ่มเติม →</span>
+       <p class="text-gray-600 text-sm leading-relaxed mb-3">จัดทำ QR Code เพื่อเปิดช่องทางรับฟังความคิดเห็น...</p><span class="text-blue-500 text-sm font-medium flex items-center">คลิกเพื่ออ่านเพิ่มเติม →</span>
       </div><!-- Policy 4 -->
-      <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-purple-100 cursor-pointer" onclick="openPolicyModal('policy4')">
+      <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg border-3 border-purple-100 cursor-pointer policy-card" role="button" onclick="openPolicyModal('policy4')">
        <div class="text-4xl mb-4">
         🤝
        </div>
        <h3 class="text-xl font-bold text-purple-600 mb-3">4. Safe Talk</h3>
        <h4 class="font-semibold text-gray-800 mb-2">พี่ที่ปรึกษา</h4>
-       <p class="text-gray-600 text-sm leading-relaxed mb-3">พร้อมรับฟังปัญหาและให้คำปรึกษา เก็บรักษาข้อมูลเป็นความลับอย่างเคร่งครัด...</p><span class="text-purple-500 text-xs font-medium">คลิกเพื่ออ่านเพิ่มเติม →</span>
+       <p class="text-gray-600 text-sm leading-relaxed mb-3">พร้อมรับฟังปัญหาและให้คำปรึกษา เก็บรักษาข้อมูลเป็นความลับอย่างเคร่งครัด...</p><span class="text-purple-500 text-sm font-medium flex items-center">คลิกเพื่ออ่านเพิ่มเติม →</span>
       </div><!-- Policy 5 -->
-      <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-red-100 cursor-pointer" onclick="openPolicyModal('policy5')">
+      <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg border-3 border-red-100 cursor-pointer policy-card" role="button" onclick="openPolicyModal('policy5')">
        <div class="text-4xl mb-4">
         🚫
        </div>
        <h3 class="text-xl font-bold text-red-600 mb-3">5. Gen ใหม่ ห่างไกลยา</h3>
        <h4 class="font-semibold text-gray-800 mb-2">กิจกรรมต่อต้านยาเสพติด</h4>
-       <p class="text-gray-600 text-sm leading-relaxed mb-3">จัดกิจกรรมรณรงค์ผ่านการแข่งขันกีฬา ให้ความรู้ และจัดบูธประชาสัมพันธ์...</p><span class="text-red-500 text-xs font-medium">คลิกเพื่ออ่านเพิ่มเติม →</span>
+       <p class="text-gray-600 text-sm leading-relaxed mb-3">จัดกิจกรรมรณรงค์ผ่านการแข่งขันกีฬา ให้ความรู้ และจัดบูธประชาสัมพันธ์...</p><span class="text-red-500 text-sm font-medium flex items-center">คลิกเพื่ออ่านเพิ่มเติม →</span>
       </div><!-- Policy 6 -->
-      <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-yellow-100 cursor-pointer" onclick="openPolicyModal('policy6')">
+      <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg border-3 border-yellow-100 cursor-pointer policy-card" role="button" onclick="openPolicyModal('policy6')">
        <div class="text-4xl mb-4">
         🎨
        </div>
        <h3 class="text-xl font-bold text-yellow-600 mb-3">6. PSC Creative Class</h3>
        <h4 class="font-semibold text-gray-800 mb-2">กิจกรรมบูรณาการกับกลุ่มสาระการเรียนรู้ต่าง ๆ</h4>
-       <p class="text-gray-600 text-sm leading-relaxed mb-3">ร่วมจัดกิจกรรมกับกลุ่มสาระต่างๆ เพื่อส่งเสริมความสนุกและประสบการณ์การเรียนรู้...</p><span class="text-yellow-500 text-xs font-medium">คลิกเพื่ออ่านเพิ่มเติม →</span>
+       <p class="text-gray-600 text-sm leading-relaxed mb-3">ร่วมจัดกิจกรรมกับกลุ่มสาระต่างๆ เพื่อส่งเสริมความสนุกและประสบการณ์การเรียนรู้...</p><span class="text-yellow-500 text-sm font-medium flex items-center">คลิกเพื่ออ่านเพิ่มเติม →</span>
       </div><!-- Policy 7 -->
-      <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-indigo-100 cursor-pointer" onclick="openPolicyModal('policy7')">
+      <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg border-3 border-indigo-100 cursor-pointer policy-card" role="button" onclick="openPolicyModal('policy7')">
        <div class="text-4xl mb-4">
         🤗
        </div>
        <h3 class="text-xl font-bold text-indigo-600 mb-3">7. PSC Buddy Link</h3>
        <h4 class="font-semibold text-gray-800 mb-2">สายใยน้องพี่น้ำเงินชมพู</h4>
-       <p class="text-gray-600 text-sm leading-relaxed mb-3">กิจกรรมจับสายรหัสเพื่อกระชับความสัมพันธ์ระหว่างรุ่นพี่และรุ่นน้อง...</p><span class="text-indigo-500 text-xs font-medium">คลิกเพื่ออ่านเพิ่มเติม →</span>
+       <p class="text-gray-600 text-sm leading-relaxed mb-3">กิจกรรมจับสายรหัสเพื่อกระชับความสัมพันธ์ระหว่างรุ่นพี่และรุ่นน้อง...</p><span class="text-indigo-500 text-sm font-medium flex items-center">คลิกเพื่ออ่านเพิ่มเติม →</span>
       </div><!-- Policy 8 -->
-      <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-cyan-100 cursor-pointer" onclick="openPolicyModal('policy8')">
+      <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg border-3 border-cyan-100 cursor-pointer policy-card" role="button" onclick="openPolicyModal('policy8')">
        <div class="text-4xl mb-4">
         🎯
        </div>
        <h3 class="text-xl font-bold text-cyan-600 mb-3">8. PSC Opportunity Hub</h3>
        <h4 class="font-semibold text-gray-800 mb-2">ศูนย์กลางโอกาสของ PSC</h4>
-       <p class="text-gray-600 text-sm leading-relaxed mb-3">ประชาสัมพันธ์ข่าวสาร Open House และกิจกรรมแข่งขันเพื่อเก็บสะสมผลงาน...</p><span class="text-cyan-500 text-xs font-medium">คลิกเพื่ออ่านเพิ่มเติม →</span>
+       <p class="text-gray-600 text-sm leading-relaxed mb-3">ประชาสัมพันธ์ข่าวสาร Open House และกิจกรรมแข่งขันเพื่อเก็บสะสมผลงาน...</p><span class="text-cyan-500 text-sm font-medium flex items-center">คลิกเพื่ออ่านเพิ่มเติม →</span>
       </div><!-- Policy 9 -->
-      <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-fuchsia-100 cursor-pointer" onclick="openPolicyModal('policy9')">
+      <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg border-3 border-fuchsia-100 cursor-pointer policy-card" role="button" onclick="openPolicyModal('policy9')">
        <div class="text-4xl mb-4">
         👗
        </div>
        <h3 class="text-xl font-bold text-fuchsia-600 mb-3">9. Fashion Show</h3>
        <h4 class="font-semibold text-gray-800 mb-2">แฟชั่นโชว์</h4>
-       <p class="text-gray-600 text-sm leading-relaxed mb-3">พวกเราจะร่วมจัดกิจกรรมการประกวดเดินแบบหรือการประกวดด้านแฟชั่น...</p><span class="text-fuchsia-500 text-xs font-medium">คลิกเพื่ออ่านเพิ่มเติม →</span>
+       <p class="text-gray-600 text-sm leading-relaxed mb-3">พวกเราจะร่วมจัดกิจกรรมการประกวดเดินแบบหรือการประกวดด้านแฟชั่น...</p><span class="text-fuchsia-500 text-sm font-medium flex items-center">คลิกเพื่ออ่านเพิ่มเติม →</span>
       </div><!-- Policy 10 -->
-      <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-amber-100 cursor-pointer" onclick="openPolicyModal('policy10')">
+      <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg border-3 border-amber-100 cursor-pointer policy-card" role="button" onclick="openPolicyModal('policy10')">
        <div class="text-4xl mb-4">
         ⭐
        </div>
        <h3 class="text-xl font-bold text-amber-600 mb-3">10. PSC Star</h3>
        <h4 class="font-semibold text-gray-800 mb-2">กิจกรรมประกวดดาว-เดือน</h4>
-       <p class="text-gray-600 text-sm leading-relaxed mb-3">ประกวดดาว เดือน และควีน เพื่อเป็นตัวแทนประชาสัมพันธ์และส่งเสริมภาพลักษณ์...</p><span class="text-amber-500 text-xs font-medium">คลิกเพื่ออ่านเพิ่มเติม →</span>
+       <p class="text-gray-600 text-sm leading-relaxed mb-3">ประกวดดาว เดือน และควีน เพื่อเป็นตัวแทนประชาสัมพันธ์และส่งเสริมภาพลักษณ์...</p><span class="text-amber-500 text-sm font-medium flex items-center">คลิกเพื่ออ่านเพิ่มเติม →</span>
       </div><!-- Policy 11 -->
-      <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-rose-100 cursor-pointer" onclick="openPolicyModal('policy11')">
+      <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg border-3 border-rose-100 cursor-pointer policy-card" role="button" onclick="openPolicyModal('policy11')">
        <div class="text-4xl mb-4">
         💝
        </div>
        <h3 class="text-xl font-bold text-rose-600 mb-3">11. Spread the Joy</h3>
        <h4 class="font-semibold text-gray-800 mb-2">พานทองสภารวมใจมอบให้</h4>
-       <p class="text-gray-600 text-sm leading-relaxed mb-3">รับบริจาคของใช้สภาพดี ส่งต่อให้ผู้ขาดแคลน เพื่อแบ่งปันน้ำใจในสังคม...</p><span class="text-rose-500 text-xs font-medium">คลิกเพื่ออ่านเพิ่มเติม →</span>
+       <p class="text-gray-600 text-sm leading-relaxed mb-3">รับบริจาคของใช้สภาพดี ส่งต่อให้ผู้ขาดแคลน เพื่อแบ่งปันน้ำใจในสังคม...</p><span class="text-rose-500 text-sm font-medium flex items-center">คลิกเพื่ออ่านเพิ่มเติม →</span>
       </div><!-- Policy 12 -->
-      <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-teal-100 cursor-pointer" onclick="openPolicyModal('policy12')">
+      <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg border-3 border-teal-100 cursor-pointer policy-card" role="button" onclick="openPolicyModal('policy12')">
        <div class="text-4xl mb-4">
         📚
        </div>
        <h3 class="text-xl font-bold text-teal-600 mb-3">12. Choose Well, Study Right</h3>
        <h4 class="font-semibold text-gray-800 mb-2">เลือกให้ชัด เรียนให้ใช่</h4>
-       <p class="text-gray-600 text-sm leading-relaxed mb-3">นโยบายแนะแนวแผนการเรียนเพื่อช่วยให้น้อง ๆ มัธยมต้นที่กำลังสับสนเกี่ยวกับการเลือกแผนการเรียน...</p><span class="text-teal-500 text-xs font-medium">คลิกเพื่ออ่านเพิ่มเติม →</span>
+       <p class="text-gray-600 text-sm leading-relaxed mb-3">นโยบายแนะแนวแผนการเรียนเพื่อช่วยให้น้อง ๆ มัธยมต้นที่กำลังสับสนเกี่ยวกับการเลือกแผนการเรียน...</p><span class="text-teal-500 text-sm font-medium flex items-center">คลิกเพื่ออ่านเพิ่มเติม →</span>
       </div><!-- Policy 13 -->
-      <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-violet-100 cursor-pointer" onclick="openPolicyModal('policy13')">
+      <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg border-3 border-violet-100 cursor-pointer policy-card" role="button" onclick="openPolicyModal('policy13')">
        <div class="text-4xl mb-4">
         🔄
        </div>
        <h3 class="text-xl font-bold text-violet-600 mb-3">13. Continue Senior Policy</h3>
        <h4 class="font-semibold text-gray-800 mb-2">สานต่อนโยบายรุ่นพี่</h4>
-       <p class="text-gray-600 text-sm leading-relaxed mb-3">สานต่อนโยบายดีๆ เช่น ลานน้ำเงินชมพู E-Sports ผ้าอนามัยฉุกเฉิน...</p><span class="text-violet-500 text-xs font-medium">คลิกเพื่ออ่านเพิ่มเติม →</span>
+       <p class="text-gray-600 text-sm leading-relaxed mb-3">สานต่อนโยบายดีๆ เช่น ลานน้ำเงินชมพู E-Sports ผ้าอนามัยฉุกเฉิน...</p><span class="text-violet-500 text-sm font-medium flex items-center">คลิกเพื่ออ่านเพิ่มเติม →</span>
       </div>
      </div>
     </div>
@@ -493,7 +549,7 @@ body.dark span[style*="color"] {
 <a href="https://linkin.bio/nextgenone"
    target="_blank"
    rel="noopener noreferrer"
-   class="inline-flex items-center gap-2 px-8 py-4 bg-white text-purple-600 rounded-full font-bold text-lg hover:shadow-xl transition-all">
+   class="inline-flex items-center gap-2 px-8 py-4 bg-white text-purple-600 rounded-full font-bold text-lg hover:shadow-xl transition-all transform-gpu hover:scale-105">
    ติดตามพรรค Q&A กดเลย👈
 </a>
 
@@ -505,8 +561,8 @@ body.dark span[style*="color"] {
      <div class="flex items-center justify-center gap-3 mb-4"><img src="IMG_2115.PNG" alt="Next Gen One Logo" class="w-10 h-10 rounded-xl" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #ec4899, #8b5cf6)'; this.alt='Logo';"> <span class="text-xl font-bold">Next Gen One</span>
      </div>
      <p class="text-gray-400 text-sm">
-  พรรคสภานักเรียน เบอร์ 1 
-  <a href="https://www.facebook.com/ptsp.ac.th" target="_blank" class="hover:underline text-gray-400">
+  พรรคสภานักเรียน เบอร์ 1
+  <a href="https://www.facebook.com/ptsp.ac.th" target="_blank" rel="noopener noreferrer" class="hover:underline text-gray-400">
     โรงเรียนพานทองสภาชนูปถัมภ์
   </a>
 </p>
@@ -554,7 +610,10 @@ body.dark span[style*="color"] {
         subtitle: 'พี่ที่ปรึกษา',
         icon: '🤝',
         color: 'from-purple-500 to-violet-500',
-        description: 'หากพี่ ๆ น้อง ๆ คนใดกำลังประสบปัญหาหรือมีความกังวลใจ และไม่ทราบว่าจะปรึกษาใครได้ สามารถติดต่อพวกเราได้โดยตรง พวกเราพร้อมเป็นอีกหนึ่งช่องทางในการรับฟัง ให้คำแนะนำ และช่วยเสนอแนวทางแก้ไขปัญหาอย่างเหมาะสม เพื่อให้น้อง ๆ ได้รับการดูแลและความช่วยเหลืออย่างดีที่สุด\n- ทั้งนี้ พวกเราขอยืนยันว่าจะเก็บรักษาข้อมูลและเรื่องราวที่น้อง ๆ เข้ามาปรึกษาเป็นความลับอย่างเคร่งครัด เพื่อความสบายใจและความปลอดภัยของทุกคน'
+        description: `หากพี่ ๆ น้อง ๆ คนใดกำลังประสบปัญหาหรือมีความกังวลใจ และไม่ทราบว่าจะปรึกษาใครได้ สามารถติดต่อพวกเราได้โดยตรง พวกเราพร้อมเป็นอีกหนึ่งช่องทางในการรับฟัง ให้คำแนะนำ และช่วยเสนอแนวทางแก้ไขปัญหาอย่างเหมาะสม เพื่อให้น้อง ๆ ได้รับการดูแลและความช่วยเหลืออย่างดีที่สุด
+        
+        <span style="color:#1D4ED8;"> - ทั้งนี้ พวกเราขอยืนยันว่าจะเก็บรักษาข้อมูลและเรื่องราวที่น้อง ๆ เข้ามาปรึกษาเป็นความลับอย่างเคร่งครัด
+          เพื่อความสบายใจและความปลอดภัยของทุกคน</span>`
       },
       policy5: {
         number: '5',
@@ -785,7 +844,7 @@ body.dark span[style*="color"] {
       const modalContent = document.getElementById('modal-content');
       modalContent.innerHTML = `
         <div class="relative">
-          <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors z-10">
+          <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors z-10" aria-label="ปิด">
             <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
             </svg>
@@ -829,7 +888,7 @@ body.dark span[style*="color"] {
           <div class="bg-gray-50 rounded-2xl p-4 max-h-60 overflow-y-auto">
             <ul class="space-y-2">
               ${member.achievements.map((achievement, index) => `
-                <li class="text-sm text-gray-700 leading-relaxed flex gap-2">
+                <li class="text-sm text-gray-700 leading-relaxed flex gap-2 items-start">
                   <span class="text-purple-500 font-bold flex-shrink-0">${index + 1}.</span>
                   <span>${achievement}</span>
                 </li>
@@ -842,7 +901,7 @@ body.dark span[style*="color"] {
       const modalContent = document.getElementById('modal-content');
       modalContent.innerHTML = `
         <div class="relative">
-          <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors z-10">
+          <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors z-10" aria-label="ปิด">
             <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
             </svg>
@@ -936,7 +995,12 @@ body.dark span[style*="color"] {
       });
     }, observerOptions);
 
-    document.querySelectorAll('.scroll-hidden').forEach(el => observer.observe(el));
+    // Apply policy-card to all elements with scroll-hidden for consistent styling and animation
+    document.querySelectorAll('.scroll-hidden').forEach(el => {
+      el.classList.add('policy-card'); // Add policy-card class
+      observer.observe(el);
+    });
+
 
     const defaultConfig = {
       party_name: 'Next Gen One',
@@ -949,7 +1013,7 @@ body.dark span[style*="color"] {
         onConfigChange: async (config) => {
           const partyName = config.party_name || defaultConfig.party_name;
           const slogan = config.slogan_main || defaultConfig.slogan_main;
-          
+
           document.getElementById('nav-party-name').textContent = partyName;
           document.getElementById('hero-party-name').textContent = partyName;
           document.getElementById('hero-slogan').textContent = slogan;
@@ -966,58 +1030,61 @@ body.dark span[style*="color"] {
         ])
       });
     }
-  </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c2676336202fd75',t:'MTc2OTE2MjYxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
- </html>
- <div id="countdown"></div>
 
-<script>
-function updateCountdown() {
-  const targetDate = new Date("2026-02-13T08:00:00");
-  const now = new Date();
-  const diff = targetDate - now;
+    // --- Countdown Logic ---
+    function updateCountdown() {
+      // Target date in Asia/Bangkok (UTC+7)
+      const targetDate = new Date("2026-02-13T08:00:00+07:00");
+      const now = new Date("2026-01-25T22:31:45.894+07:00"); // Using the provided current time
+      const diff = targetDate - now;
 
-  if (diff <= 0) {
-    document.getElementById("countdown").innerText = "🎉 เลือกพรรคสภานักเรียน เบอร์ 1 🎉";
-    return;
-  }
+      const countdownElement = document.getElementById("countdown");
 
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((diff / (1000 * 60)) % 60);
-  const seconds = Math.floor((diff / 1000) % 60);
+      if (diff <= 0) {
+        countdownElement.innerText = "🎉 เลือกพรรคสภานักเรียน เบอร์ 1 🎉";
+        return;
+      }
 
-  document.getElementById("countdown").innerText =
-    `อีก ${days} วัน ${hours} : ${minutes} : ${seconds} เลือกตั้ง`;
-}
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
 
-updateCountdown();
-setInterval(updateCountdown, 1000);
-</script>
-
-<script>
-function toggleDark(){
-  document.body.classList.toggle("dark");
-
-  const isDark = document.body.classList.contains("dark");
-  localStorage.setItem("darkmode", isDark);
-
-  const btn = document.getElementById("darkBtn");
-  if(btn){
-    btn.innerHTML = isDark 
-      ? "☀️ <span class='hidden sm:inline'>Light</span>"
-      : "🌙 <span class='hidden sm:inline'>Dark</span>";
-  }
-}
-
-window.addEventListener("load", () => {
-  const saved = localStorage.getItem("darkmode") === "true";
-  if(saved){
-    document.body.classList.add("dark");
-    const btn = document.getElementById("darkBtn");
-    if(btn){
-      btn.innerHTML = "☀️ <span class='hidden sm:inline'>Light</span>";
+      countdownElement.innerText =
+        `อีก ${days} วัน ${hours} : ${minutes} : ${seconds} เลือกตั้ง`;
     }
-  }
-});
-</script>
+
+    // Initial call and set interval
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // --- Dark Mode Logic ---
+    function toggleDark(){
+      document.body.classList.toggle("dark");
+
+      const isDark = document.body.classList.contains("dark");
+      localStorage.setItem("darkmode", isDark);
+
+      const btn = document.getElementById("darkBtn");
+      if(btn){
+        btn.innerHTML = isDark
+          ? "☀️ <span class='hidden sm:inline'>Light</span>"
+          : "🌙 <span class='hidden sm:inline'>Dark</span>";
+        btn.setAttribute("aria-label", isDark ? "Toggle Light Mode" : "Toggle Dark Mode"); // Update aria-label
+      }
+    }
+
+    // Apply dark mode button state on window load, after the button element is available
+    window.addEventListener("load", () => {
+      const saved = localStorage.getItem("darkmode") === "true";
+      const btn = document.getElementById("darkBtn");
+      if (btn) {
+        btn.innerHTML = saved
+          ? "☀️ <span class='hidden sm:inline'>Light</span>"
+          : "🌙 <span class='hidden sm:inline'>Dark</span>";
+        btn.setAttribute("aria-label", saved ? "Toggle Light Mode" : "Toggle Dark Mode"); // Set initial aria-label
+      }
+    });
+  </script>
+ </body>
+</html>
