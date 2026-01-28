@@ -36,7 +36,7 @@ body.dark section {
 /* ===== CARDS (BRIGHTER) ===== */
 body.dark .bg-white {
   background: #162033 !important;
-  box-shadow: 
+  box-shadow:
     0 12px 30px rgba(0,0,0,.6),
     inset 0 1px 0 rgba(255,255,255,.05);
   border: 1px solid rgba(255,255,255,.10);
@@ -125,20 +125,20 @@ body.dark span[style*="color"] {
       box-sizing: border-box;
       font-family: 'Kanit', sans-serif;
     }
-    
+
     .gradient-bg {
       background: linear-gradient(135deg, #fce4ec 0%, #e8eaf6 25%, #e3f2fd 50%, #f3e5f5 75%, #e1f5fe 100%);
     }
-    
+
     @keyframes float {
       0%, 100% { transform: translateY(0px); }
       50% { transform: translateY(-10px); }
     }
-    
+
     .float-animation {
       animation: float 3s ease-in-out infinite;
     }
-    
+
     @keyframes fadeInUp {
       from {
         opacity: 0;
@@ -149,11 +149,11 @@ body.dark span[style*="color"] {
         transform: translateY(0);
       }
     }
-    
+
     .fade-in-up {
       animation: fadeInUp 0.8s ease-out forwards;
     }
-    
+
     .delay-1 { animation-delay: 0.1s; opacity: 0; }
     .delay-2 { animation-delay: 0.2s; opacity: 0; }
     .delay-3 { animation-delay: 0.3s; opacity: 0; }
@@ -161,21 +161,21 @@ body.dark span[style*="color"] {
     .delay-5 { animation-delay: 0.5s; opacity: 0; }
     .delay-6 { animation-delay: 0.6s; opacity: 0; }
     .delay-7 { animation-delay: 0.7s; opacity: 0; }
-    
+
     @keyframes pulseGlow {
       0%, 100% { box-shadow: 0 0 20px rgba(147, 51, 234, 0.3); }
       50% { box-shadow: 0 0 40px rgba(147, 51, 234, 0.6); }
     }
-    
+
     .pulse-glow {
       animation: pulseGlow 2s ease-in-out infinite;
     }
-    
+
     @keyframes shimmer {
       0% { background-position: -200% center; }
       100% { background-position: 200% center; }
     }
-    
+
     .text-shimmer {
       background: linear-gradient(90deg, #7c3aed, #ec4899, #3b82f6, #7c3aed);
       background-size: 200% auto;
@@ -184,15 +184,15 @@ body.dark span[style*="color"] {
       background-clip: text;
       animation: shimmer 3s linear infinite;
     }
-    
+
     .member-card {
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
-    
+
     .member-card:hover {
       transform: translateY(-8px) scale(1.02);
     }
-    
+
     @keyframes modalIn {
       from {
         opacity: 0;
@@ -203,28 +203,28 @@ body.dark span[style*="color"] {
         transform: scale(1);
       }
     }
-    
+
     .modal-animation {
       animation: modalIn 0.3s ease-out forwards;
     }
-    
+
     .gradient-border {
       background: linear-gradient(white, white) padding-box,
                   linear-gradient(135deg, #ec4899, #8b5cf6, #3b82f6) border-box;
       border: 3px solid transparent;
     }
-    
+
     .scroll-hidden {
       opacity: 0;
       transform: translateY(30px);
       transition: all 0.8s ease-out;
     }
-    
+
     .scroll-visible {
       opacity: 1;
       transform: translateY(0);
     }
-    
+
   </style>
   <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
@@ -266,7 +266,7 @@ body.dark span[style*="color"] {
     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072-4.354-.2-6.782-2.618-6.979-6.98-.059-1.28-.073-1.689-.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
   </svg>
   <span class="sr-only" data-lang-key="instagramText">Instagram</span>
-</a>    
+</a>
 
   <button id="darkBtn"
  aria-label="Toggle Dark Mode"
@@ -351,33 +351,40 @@ body.dark span[style*="color"] {
      <p class="text-center text-gray-600 mb-10 fade-in-up delay-1" data-lang-key="coreMembersDesc">ทีมที่พร้อมทำงานเพื่อทุกคน</p>
      <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6">
       <div class="member-card bg-white rounded-2xl p-4 shadow-lg cursor-pointer fade-in-up delay-2 hover:shadow-xl" onclick="openModal('member1')"><img src="https://img5.pic.in.th/file/secure-sv1/2daeabdae85b10f3494bb15299231a32.png" data-alt-key="member1NameAlt" alt="ปาลีรัตน์ แสงทะมาตร์" class="w-20 h-20 mx-auto rounded-full object-cover shadow-md ring-2 ring-pink-200" loading="lazy" onerror="this.src=''; this.alt=translations[currentLanguage].imageUnavailableAlt; console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #ec4899, #f472b6)';">
-       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight" id="member1-card-name">ปาลีรัตน์ แสงทะมาตร์<br>
-       <p class="text-pink-500 text-center mt-1 text-xs" data-lang-key="viewMore">ดูเพิ่มเติม</p>
+       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight" id="member1-card-name">ปาลีรัตน์ แสงทะมาตร์</h4>
+       <p class="text-pink-500 text-center mt-1 text-sm" data-lang-key="clickForDetails">คลิกเพื่อดูรายละเอียด</p>
       </div>
       <div class="member-card bg-white rounded-2xl p-4 shadow-lg cursor-pointer fade-in-up delay-3 hover:shadow-xl" onclick="openModal('member2')"><img src="https://img5.pic.in.th/file/secure-sv1/b670c9521ac50bcfdfb480d7f7239618.png" data-alt-key="member2NameAlt" alt="แทนคุณ เบญมาตย์" class="w-20 h-20 mx-auto rounded-full object-cover shadow-md ring-2 ring-blue-200" loading="lazy" onerror="this.src=''; this.alt=translations[currentLanguage].imageUnavailableAlt; console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #3b82f6, #60a5fa)';">
-       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight" id="member2-card-name">แทนคุณ เบญมาตย์<br>
-       <p class="text-blue-500 text-center mt-1 text-xs" data-lang-key="viewMore">ดูเพิ่มเติม</p>
+       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight" id="member2-card-name">แทนคุณ เบญมาตย์</h4>
+       <p class="text-blue-500 text-center mt-1 text-sm" data-lang-key="clickForDetails">คลิกเพื่อดูรายละเอียด</p>
       </div>
       <div class="member-card bg-white rounded-2xl p-4 shadow-lg cursor-pointer fade-in-up delay-4 hover:shadow-xl" onclick="openModal('member3')"><img src="https://img5.pic.in.th/file/secure-sv1/0263ff89b38c8f0cf109d7656758467f.png" data-alt-key="member3NameAlt" alt="ศศิธร หงษา" class="w-20 h-20 mx-auto rounded-full object-cover shadow-md ring-2 ring-purple-200" loading="lazy" onerror="this.src=''; this.alt=translations[currentLanguage].imageUnavailableAlt; console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #8b5cf6, #a78bfa)';">
-       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight" id="member3-card-name">ศศิธร หงษา<br>
-       <p class="text-purple-500 text-center mt-1 text-xs" data-lang-key="viewMore">ดูเพิ่มเติม</p>
+       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight" id="member3-card-name">ศศิธร หงษา</h4>
+       <p class="text-purple-500 text-center mt-1 text-sm" data-lang-key="clickForDetails">คลิกเพื่อดูรายละเอียด</p>
       </div>
       <div class="member-card bg-white rounded-2xl p-4 shadow-lg cursor-pointer fade-in-up delay-5 hover:shadow-xl" onclick="openModal('member4')"><img src="https://img5.pic.in.th/file/secure-sv1/e85030dba531a5a3b0858c9b91f5fde4.png" data-alt-key="member4NameAlt" alt="ฐิตาภา พวงพิศ" class="w-20 h-20 mx-auto rounded-full object-cover shadow-md ring-2 ring-cyan-200" loading="lazy" onerror="this.src=''; this.alt=translations[currentLanguage].imageUnavailableAlt; console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #06b6d4, #22d3d1)';">
-       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight" id="member4-card-name">ฐิตาภา พวงพิศ<br>
-       <p class="text-cyan-500 text-center mt-1 text-xs" data-lang-key="viewMore">ดูเพิ่มเติม</p>
+       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight" id="member4-card-name">ฐิตาภา พวงพิศ</h4>
+       <p class="text-cyan-500 text-center mt-1 text-sm" data-lang-key="clickForDetails">คลิกเพื่อดูรายละเอียด</p>
       </div>
       <div class="member-card bg-white rounded-2xl p-4 shadow-lg cursor-pointer fade-in-up delay-6 hover:shadow-xl" onclick="openModal('member5')"><img src="https://img5.pic.in.th/file/secure-sv1/43901e5aa015605a15cffcb1d3b13e8b.png" data-alt-key="member5NameAlt" alt="พาขวัญ แสนเมืองชิน" class="w-20 h-20 mx-auto rounded-full object-cover shadow-md ring-2 ring-pink-200" loading="lazy" onerror="this.src=''; this.alt=translations[currentLanguage].imageUnavailableAlt; console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #ec4899, #f472b6)';">
-       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight" id="member5-card-name">พาขวัญ แสนเมืองชิน<br>
-       <p class="text-pink-500 text-center mt-1 text-xs" data-lang-key="viewMore">ดูเพิ่มเติม</p>
+       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight" id="member5-card-name">พาขวัญ แสนเมืองชิน</h4>
+       <p class="text-pink-500 text-center mt-1 text-sm" data-lang-key="clickForDetails">คลิกเพื่อดูรายละเอียด</p>
       </div>
       <div class="member-card bg-white rounded-2xl p-4 shadow-lg cursor-pointer fade-in-up delay-7 hover:shadow-xl" onclick="openModal('member6')"><img src="ไตเติ้ล.png" data-alt-key="member6NameAlt" alt="ธนวัฒน์ สิงห์จารย์" class="w-20 h-20 mx-auto rounded-full object-cover shadow-md ring-2 ring-indigo-200" loading="lazy" onerror="this.src=''; this.alt=translations[currentLanguage].imageUnavailableAlt; console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #6366f1, #818cf8)';">
-       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight" id="member6-card-name">ธนวัฒน์ สิงห์จารย์<br>
-       <p class="text-indigo-500 text-center mt-1 text-xs" data-lang-key="viewMore">ดูเพิ่มเติม</p>
+       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight" id="member6-card-name">ธนวัฒน์ สิงห์จารย์</h4>
+       <p class="text-indigo-500 text-center mt-1 text-sm" data-lang-key="clickForDetails">คลิกเพื่อดูรายละเอียด</p>
       </div>
      </div>
     </div>
+    <!-- Categories Section -->
+
+
+    
    </section><!-- Policies Section -->
    <section class="py-16 px-4 bg-white/50">
+
+    
+    
     <div class="max-w-6xl mx-auto">
      <h2 class="fade-in-up text-3xl font-bold text-center mb-4 text-shimmer" data-lang-key="policiesTitle">นโยบายของเรา</h2>
      <p class="text-center text-gray-600 mb-12 fade-in-up delay-1" data-lang-key="policiesDesc">13 นโยบายเพื่อพัฒนาโรงเรียนและชีวิตนักเรียน</p>
@@ -512,7 +519,7 @@ body.dark span[style*="color"] {
      <div class="flex items-center justify-center gap-3 mb-4"><img src="IMG_2115.PNG" data-alt-key="footerLogoAlt" alt="Next Gen One Logo" class="w-10 h-10 rounded-xl" loading="lazy" onerror="this.src=''; this.alt=translations[currentLanguage].imageUnavailableAlt; console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #ec4899, #8b5cf6)';"> <span class="text-xl font-bold" data-lang-key="partyName">Next Gen One</span>
      </div>
      <p class="text-gray-400 text-sm" data-lang-key="footerPartyDesc">
-  พรรคสภานักเรียน เบอร์ 1 
+  พรรคสภานักเรียน เบอร์ 1
   <a href="https://www.facebook.com/ptsp.ac.th" target="_blank" rel="noopener noreferrer" class="hover:underline text-gray-400" data-lang-key="schoolName">
     โรงเรียนพานทองสภาชนูปถัมภ์
   </a>
@@ -672,6 +679,7 @@ body.dark span[style*="color"] {
         policy4_note: '<span style="color:#1D4ED8;"> - ทั้งนี้ พวกเราขอยืนยันว่าจะเก็บรักษาข้อมูลและเรื่องราวที่น้อง ๆ เข้ามาปรึกษาเป็นความลับอย่างเคร่งครัด เพื่อความสบายใจและความปลอดภัยของทุกคน</span>',
         policy10_note: '<span style="color:#EF4444;">- ทั้งนี้ ผู้สมัครเข้าร่วมการประกวดจะต้องแต่งกายและจัดทรงผมให้ถูกต้องตามระเบียบของโรงเรียนอย่างเคร่งครัด</span>',
         policy11_note: '<span style="color:#1D4ED8;">- ทั้งนี้ โครงการมีเป้าหมายเพื่อส่งเสริมจิตสำนึกด้านการช่วยเหลือเกื้อกูล และสร้างสังคมแห่งการแบ่งปันอย่างยั่งยืน</span>',
+        clickToReadMore: 'คลิกเพื่ออ่านเพิ่มเติม →',
       },
       en: {
         pageTitle: 'Next Gen One No.1',
@@ -727,7 +735,7 @@ body.dark span[style*="color"] {
         policy11ShortDesc: 'Collecting good condition used items to donate to those in need, sharing kindness in society...',
         policy12Title: '12. Choose Well, Study Right',
         policy12Subtitle: 'Choose Well, Study Right',
-        policy12ShortDesc: 'Study plan guidance policy to help middle school students who are confused about choosing a study plan...',
+        policy12ShortDesc: 'An academic path guidance policy to help middle school students who are confused about choosing their study plans...',
         policy13Title: '13. Continue Senior Policy',
         policy13Subtitle: 'Continue Senior Policy',
         policy13ShortDesc: 'Continuing good policies like Blue-Pink Courtyard, E-Sports, emergency sanitary pads...',
@@ -814,6 +822,8 @@ body.dark span[style*="color"] {
         policy4_note: '<span style="color:#1D4ED8;"> - We assure strict confidentiality of all information and stories shared, for everyone\'s comfort and safety.</span>',
         policy10_note: '<span style="color:#EF4444;">- Applicants for the contest must adhere strictly to school regulations regarding attire and hairstyle.</span>',
         policy11_note: '<span style="color:#1D4ED8;">- The project aims to promote a sense of helpfulness and create a sustainable sharing society.</span>',
+        clickToReadMore: 'Click to read more →',
+
       }
     };
 
@@ -1188,7 +1198,7 @@ body.dark span[style*="color"] {
           element.textContent = translations[lang][key];
         }
       });
-      
+
       setAltText(); // Update alt texts after language switch
       setAriaLabels(); // Update aria-labels after language switch
 
@@ -1225,9 +1235,9 @@ body.dark span[style*="color"] {
       if (!modalElement.classList.contains('hidden')) {
         // This is a simplified approach: just close it.
         // A more robust solution would store the member/policy ID and re-call openModal/openPolicyModal.
-        closeModal(); 
+        closeModal();
       }
-      
+
       updateCountdown(); // Update countdown text immediately
       updateLangButtonDisplay(); // Update language button after language change
       updateDarkButtonDisplay(); // Update dark mode button after language change (its text depends on currentLanguage)
@@ -1414,7 +1424,7 @@ body.dark span[style*="color"] {
         onConfigChange: async (config) => {
           const partyName = config.party_name || defaultConfig.party_name;
           const slogan = config.slogan_main || defaultConfig.slogan_main;
-          
+
           document.getElementById('nav-party-name').textContent = partyName;
           document.getElementById('hero-party-name').textContent = partyName;
           document.getElementById('hero-slogan').textContent = slogan;
@@ -1435,7 +1445,7 @@ body.dark span[style*="color"] {
     // --- Countdown Logic ---
     function updateCountdown() {
       // Target date in Asia/Bangkok (UTC+7)
-      const targetDate = new Date("2026-02-13T08:00:00+07:00"); 
+      const targetDate = new Date("2026-02-13T08:00:00+07:00");
       const now = new Date();
       const diff = targetDate - now;
 
@@ -1476,7 +1486,7 @@ body.dark span[style*="color"] {
       if(savedDark){
         document.body.classList.add("dark");
       }
-      
+
       // Apply language (this will also update dark mode and language button text)
       setLanguage(currentLanguage);
     });
