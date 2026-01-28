@@ -3,7 +3,7 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Next Gen One No.1</title>
+  <title data-lang-key="pageTitle">Next Gen One No.1</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="/_sdk/element_sdk.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
@@ -239,12 +239,12 @@ body.dark span[style*="color"] {
     </div>
 
     <div class="flex items-center gap-3 fade-in-up">
-      <img src="IMG_2115.PNG" alt="Next Gen One Logo"
+      <img src="IMG_2115.PNG" data-alt-key="navLogoAlt" alt="Next Gen One Logo"
         class="w-12 h-12 rounded-2xl shadow-md float-animation"
         loading="lazy"
-        onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #ec4899, #8b5cf6)'; this.alt='Logo';">
+        onerror="this.src=''; this.alt=translations[currentLanguage].imageUnavailableAlt; console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #ec4899, #8b5cf6)';">
 
-      <span id="nav-party-name" class="text-xl font-bold text-shimmer">Next Gen One</span>
+      <span id="nav-party-name" class="text-xl font-bold text-shimmer" data-lang-key="partyName">Next Gen One</span>
       <span id="countdown-text" class="ml-3 text-sm font-semibold text-purple-600"></span>
     </div>
 
@@ -252,29 +252,35 @@ body.dark span[style*="color"] {
     <div class="flex items-center gap-2">
 
       <!-- TikTok -->
-      <a href="https://www.tiktok.com/@party.nextgenone" target="_blank" rel="noopener noreferrer" aria-label="TikTok"
-        class="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-full font-medium hover:shadow-lg transition-all">
+      <a href="https://www.tiktok.com/@party.nextgenone" target="_blank" rel="noopener noreferrer" data-aria-label-key="tiktokAriaLabel" aria-label="TikTok"
+        class="flex items-center p-2 bg-black text-white rounded-full font-medium hover:shadow-lg transition-all">
         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
           <path d="M21 8.3c-1.4 0-2.8-.4-4-1.2v7.2c0 3.6-2.9 6.5-6.5 6.5S4 17.9 4 14.3s2.9-6.5 6.5-6.5c.4 0 .8 0 1.2.1v3.6c-.4-.1-.8-.2-1.2-.2-1.6 0-2.9 1.3-2.9 3s1.3 3 2.9 3 3-1.3 3-3V2h3.4c.3 2.3 2.1 4.1 4.4 4.4v1.9z"/>
         </svg>
-        <span class="hidden sm:inline">TikTok</span>
+        <span class="sr-only" data-lang-key="tiktokText">TikTok</span>
       </a>
 
       <!-- Instagram -->
-      <a href="https://www.instagram.com/party.nextgenone?utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 text-white rounded-full font-medium hover:shadow-lg transition-all">
+      <a href="https://www.instagram.com/party.nextgenone?utm_source=qr" target="_blank" rel="noopener noreferrer" data-aria-label-key="instagramAriaLabel" aria-label="Instagram" class="flex items-center p-2 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 text-white rounded-full font-medium hover:shadow-lg transition-all">
   <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
-    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072-4.354-.2-6.782-2.618-6.979-6.98-.059-1.28-.073-1.689-.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
   </svg>
-  <span class="hidden sm:inline">Instagram</span>
+  <span class="sr-only" data-lang-key="instagramText">Instagram</span>
 </a>    
 
   <button id="darkBtn"
  aria-label="Toggle Dark Mode"
  onclick="toggleDark()"
  class="flex items-center gap-2 px-4 py-2 bg-gray-200 text-gray-800 rounded-full font-medium hover:shadow-lg transition-all">
- 🌙 <span class="hidden sm:inline">Dark</span>
+ <span id="dark-indicator-icon">🌙</span> <span class="hidden sm:inline" id="dark-indicator-text"></span>
 </button>
 
+<button id="langBtn"
+ aria-label="เปลี่ยนภาษา"
+ onclick="toggleLanguage()"
+ class="flex items-center gap-2 px-4 py-2 bg-blue-200 text-blue-800 rounded-full font-medium hover:shadow-lg transition-all">
+ <span id="lang-indicator-icon"></span> <span class="hidden sm:inline" id="lang-indicator-text"></span>
+</button>
 
     </div>
 
@@ -284,56 +290,56 @@ body.dark span[style*="color"] {
    <!-- Hero Section -->
    <header class="pt-24 pb-16 px-4">
     <div class="max-w-4xl mx-auto text-center">
-     <div class="fade-in-up delay-1 mb-6"><img src="IMG_2115.PNG" alt="Next Gen One Logo" class="w-32 h-32 mx-auto rounded-3xl shadow-2xl pulse-glow" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #ec4899, #8b5cf6)'; this.alt='Logo';">
+     <div class="fade-in-up delay-1 mb-6"><img src="IMG_2115.PNG" data-alt-key="heroLogoAlt" alt="Next Gen One Logo" class="w-32 h-32 mx-auto rounded-3xl shadow-2xl pulse-glow" loading="lazy" onerror="this.src=''; this.alt=translations[currentLanguage].imageUnavailableAlt; console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #ec4899, #8b5cf6)';">
      </div>
-     <h1 class="fade-in-up delay-2 text-4xl sm:text-5xl md:text-6xl font-bold mb-4"><span class="text-shimmer">เบอร์ 1</span> <span id="hero-party-name" class="block mt-2 bg-gradient-to-r from-pink-500 via-purple-600 to-blue-500 bg-clip-text text-transparent">Next Gen One</span></h1>
-     <p id="hero-slogan" class="fade-in-up delay-3 text-lg sm:text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed">รุ่นใหม่ที่พร้อมพาโรงเรียนเราไปให้ไกล</p>
+     <h1 class="fade-in-up delay-2 text-4xl sm:text-5xl md:text-6xl font-bold mb-4"><span class="text-shimmer" data-lang-key="heroNumber1">เบอร์ 1</span> <span id="hero-party-name" class="block mt-2 bg-gradient-to-r from-pink-500 via-purple-600 to-blue-500 bg-clip-text text-transparent" data-lang-key="partyName">Next Gen One</span></h1>
+     <p id="hero-slogan" class="fade-in-up delay-3 text-lg sm:text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed" data-lang-key="heroSlogan">รุ่นใหม่ที่พร้อมพาโรงเรียนเราไปให้ไกล</p>
      <div class="fade-in-up delay-4 mt-6 mb-4">
       <div class="inline-block bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 text-white px-8 py-4 rounded-2xl shadow-xl pulse-glow">
-       <p class="text-sm font-medium mb-1">📅 เลือกตั้งสภานักเรียน</p>
-       <p class="text-2xl sm:text-3xl font-bold">13 กุมภาพันธ์ 2569</p>
+       <p class="text-sm font-medium mb-1" data-lang-key="electionDateTitle">📅 เลือกตั้งสภานักเรียน</p>
+       <p class="text-2xl sm:text-3xl font-bold" data-lang-key="electionDate">13 กุมภาพันธ์ 2569</p>
       </div>
      </div>
-     <p class="fade-in-up delay-5 text-base text-gray-600 max-w-xl mx-auto mt-4 leading-relaxed">เราคิดให้ครบ วางแผนให้ชัด และเปลี่ยนทุกไอเดียให้เป็นผลลัพธ์ที่ทุกคนรู้สึกได้</p>
+     <p class="fade-in-up delay-5 text-base text-gray-600 max-w-xl mx-auto mt-4 leading-relaxed" data-lang-key="heroDesc">เราคิดให้ครบ วางแผนให้ชัด และเปลี่ยนทุกไอเดียให้เป็นผลลัพธ์ที่ทุกคนรู้สึกได้</p>
     </div>
    </header><!-- Leaders Section -->
    <section class="py-12 px-4">
     <div class="max-w-6xl mx-auto">
-     <h2 class="fade-in-up text-3xl font-bold text-center mb-12 text-shimmer">ผู้นำพรรค</h2><!-- President -->
+     <h2 class="fade-in-up text-3xl font-bold text-center mb-12 text-shimmer" data-lang-key="leadersTitle">ผู้นำพรรค</h2><!-- President -->
      <div class="mb-12">
-      <h3 class="text-xl font-semibold text-purple-700 mb-6 text-center">👑 ประธานพรรค</h3>
+      <h3 class="text-xl font-semibold text-purple-700 mb-6 text-center" data-lang-key="presidentSectionTitle">👑 ประธานพรรค</h3>
       <div class="flex justify-center">
        <div class="member-card gradient-border bg-white rounded-3xl p-6 shadow-xl cursor-pointer max-w-sm w-full fade-in-up delay-2" onclick="openModal('president')">
-        <div class="relative"><img src="https://img2.pic.in.th/4fd3f9c70602fc8dd80909d154e3a8fa.png" alt="น.ส. อภิญญาภรณ์ บุญหนา ประธานพรรค" class="w-40 h-40 mx-auto rounded-full object-cover shadow-lg ring-4 ring-pink-300" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #ec4899, #8b5cf6)'; this.alt='ประธาน';">
-         <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-gradient-to-r from-pink-500 to-purple-500 text-white px-4 py-1 rounded-full text-sm font-medium shadow-md">
+        <div class="relative"><img src="https://img2.pic.in.th/4fd3f9c70602fc8dd80909d154e3a8fa.png" data-alt-key="presidentNameAlt" alt="น.ส. อภิญญาภรณ์ บุญหนา ประธานพรรค" class="w-40 h-40 mx-auto rounded-full object-cover shadow-lg ring-4 ring-pink-300" loading="lazy" onerror="this.src=''; this.alt=translations[currentLanguage].imageUnavailableAlt; console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #ec4899, #8b5cf6)';">
+         <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-gradient-to-r from-pink-500 to-purple-500 text-white px-4 py-1 rounded-full text-sm font-medium shadow-md" id="president-card-role">
           ประธาน
          </div>
         </div>
-        <h4 class="text-xl font-bold text-gray-800 mt-6 text-center">น.ส. อภิญญาภรณ์ บุญหนา</h4>
-        <p class="text-purple-600 text-center mt-2 text-sm">คลิกเพื่อดูรายละเอียด</p>
+        <h4 class="text-xl font-bold text-gray-800 mt-6 text-center" id="president-card-name">น.ส. อภิญญาภรณ์ บุญหนา</h4>
+        <p class="text-purple-600 text-center mt-2 text-sm" data-lang-key="clickForDetails">คลิกเพื่อดูรายละเอียด</p>
        </div>
       </div>
      </div><!-- Vice Presidents -->
      <div class="mb-12">
-      <h3 class="text-xl font-semibold text-blue-700 mb-6 text-center">⭐ รองประธานพรรค</h3>
+      <h3 class="text-xl font-semibold text-blue-700 mb-6 text-center" data-lang-key="vicePresidentSectionTitle">⭐ รองประธานพรรค</h3>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
        <div class="member-card gradient-border bg-white rounded-3xl p-5 shadow-xl cursor-pointer fade-in-up delay-3" onclick="openModal('vice1')">
-        <div class="relative"><img src="https://img2.pic.in.th/a282ee30ae6857ae5dcaf191244f4b6c.png" alt="นาย พชร กาเผือก รองประธาน 1" class="w-32 h-32 mx-auto rounded-full object-cover shadow-lg ring-4 ring-blue-300" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #3b82f6, #8b5cf6)'; this.alt='รองประธาน 1';">
-         <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-3 py-1 rounded-full text-xs font-medium shadow-md">
+        <div class="relative"><img src="https://img2.pic.in.th/a282ee30ae6857ae5dcaf191244f4b6c.png" data-alt-key="vice1NameAlt" alt="นาย พชร กาเผือก รองประธาน 1" class="w-32 h-32 mx-auto rounded-full object-cover shadow-lg ring-4 ring-blue-300" loading="lazy" onerror="this.src=''; this.alt=translations[currentLanguage].imageUnavailableAlt; console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #3b82f6, #8b5cf6)';">
+         <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-3 py-1 rounded-full text-xs font-medium shadow-md" id="vice1-card-role">
           รองประธาน
          </div>
         </div>
-        <h4 class="text-lg font-bold text-gray-800 mt-5 text-center">นาย พชร กาเผือก</h4>
-        <p class="text-blue-600 text-center mt-1 text-sm">คลิกเพื่อดูรายละเอียด</p>
+        <h4 class="text-lg font-bold text-gray-800 mt-5 text-center" id="vice1-card-name">นาย พชร กาเผือก</h4>
+        <p class="text-blue-600 text-center mt-1 text-sm" data-lang-key="clickForDetails">คลิกเพื่อดูรายละเอียด</p>
        </div>
        <div class="member-card gradient-border bg-white rounded-3xl p-5 shadow-xl cursor-pointer fade-in-up delay-4" onclick="openModal('vice2')">
-        <div class="relative"><img src="https://img2.pic.in.th/3811fccd5f646262837126ae3d1c42a2.png" alt="น.ส. ฐานิดา พลอารีย์ รองประธาน 2" class="w-32 h-32 mx-auto rounded-full object-cover shadow-lg ring-4 ring-purple-300" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #8b5cf6, #ec4899)'; this.alt='รองประธาน 2';">
-         <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-1 rounded-full text-xs font-medium shadow-md">
+        <div class="relative"><img src="https://img2.pic.in.th/3811fccd5f646262837126ae3d1c42a2.png" data-alt-key="vice2NameAlt" alt="น.ส. ฐานิดา พลอารีย์ รองประธาน 2" class="w-32 h-32 mx-auto rounded-full object-cover shadow-lg ring-4 ring-purple-300" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.alt='รองประธาน 2';">
+         <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-1 rounded-full text-xs font-medium shadow-md" id="vice2-card-role">
           รองประธาน
          </div>
         </div>
-        <h4 class="text-lg font-bold text-gray-800 mt-5 text-center">น.ส. ฐานิดา พลอารีย์</h4>
-        <p class="text-purple-600 text-center mt-1 text-sm">คลิกเพื่อดูรายละเอียด</p>
+        <h4 class="text-lg font-bold text-gray-800 mt-5 text-center" id="vice2-card-name">น.ส. ฐานิดา พลอารีย์</h4>
+        <p class="text-purple-600 text-center mt-1 text-sm" data-lang-key="clickForDetails">คลิกเพื่อดูรายละเอียด</p>
        </div>
       </div>
      </div>
@@ -341,144 +347,144 @@ body.dark span[style*="color"] {
    </section><!-- Core Members Section -->
    <section class="py-12 px-4 bg-white/50">
     <div class="max-w-6xl mx-auto">
-     <h2 class="fade-in-up text-3xl font-bold text-center mb-4 text-shimmer">แกนนำผู้ตั้งพรรค</h2>
-     <p class="text-center text-gray-600 mb-10 fade-in-up delay-1">ทีมที่พร้อมทำงานเพื่อทุกคน</p>
+     <h2 class="fade-in-up text-3xl font-bold text-center mb-4 text-shimmer" data-lang-key="coreMembersTitle">แกนนำผู้ตั้งพรรค</h2>
+     <p class="text-center text-gray-600 mb-10 fade-in-up delay-1" data-lang-key="coreMembersDesc">ทีมที่พร้อมทำงานเพื่อทุกคน</p>
      <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6">
-      <div class="member-card bg-white rounded-2xl p-4 shadow-lg cursor-pointer fade-in-up delay-2 hover:shadow-xl" onclick="openModal('member1')"><img src="https://img5.pic.in.th/file/secure-sv1/2daeabdae85b10f3494bb15299231a32.png" alt="ปาลีรัตน์ แสงทะมาตร์" class="w-20 h-20 mx-auto rounded-full object-cover shadow-md ring-2 ring-pink-200" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #ec4899, #f472b6)'; this.alt='ปาลีรัตน์';">
-       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight">ปาลีรัตน์ แสงทะมาตร์<br>
-       <p class="text-pink-500 text-center mt-1 text-xs">ดูเพิ่มเติม</p>
+      <div class="member-card bg-white rounded-2xl p-4 shadow-lg cursor-pointer fade-in-up delay-2 hover:shadow-xl" onclick="openModal('member1')"><img src="https://img5.pic.in.th/file/secure-sv1/2daeabdae85b10f3494bb15299231a32.png" data-alt-key="member1NameAlt" alt="ปาลีรัตน์ แสงทะมาตร์" class="w-20 h-20 mx-auto rounded-full object-cover shadow-md ring-2 ring-pink-200" loading="lazy" onerror="this.src=''; this.alt=translations[currentLanguage].imageUnavailableAlt; console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #ec4899, #f472b6)';">
+       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight" id="member1-card-name">ปาลีรัตน์ แสงทะมาตร์<br>
+       <p class="text-pink-500 text-center mt-1 text-xs" data-lang-key="viewMore">ดูเพิ่มเติม</p>
       </div>
-      <div class="member-card bg-white rounded-2xl p-4 shadow-lg cursor-pointer fade-in-up delay-3 hover:shadow-xl" onclick="openModal('member2')"><img src="https://img5.pic.in.th/file/secure-sv1/b670c9521ac50bcfdfb480d7f7239618.png" alt="แทนคุณ เบญมาตย์" class="w-20 h-20 mx-auto rounded-full object-cover shadow-md ring-2 ring-blue-200" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #3b82f6, #60a5fa)'; this.alt='แทนคุณ';">
-       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight">แทนคุณ เบญมาตย์<br>
-       <p class="text-blue-500 text-center mt-1 text-xs">ดูเพิ่มเติม</p>
+      <div class="member-card bg-white rounded-2xl p-4 shadow-lg cursor-pointer fade-in-up delay-3 hover:shadow-xl" onclick="openModal('member2')"><img src="https://img5.pic.in.th/file/secure-sv1/b670c9521ac50bcfdfb480d7f7239618.png" data-alt-key="member2NameAlt" alt="แทนคุณ เบญมาตย์" class="w-20 h-20 mx-auto rounded-full object-cover shadow-md ring-2 ring-blue-200" loading="lazy" onerror="this.src=''; this.alt=translations[currentLanguage].imageUnavailableAlt; console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #3b82f6, #60a5fa)';">
+       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight" id="member2-card-name">แทนคุณ เบญมาตย์<br>
+       <p class="text-blue-500 text-center mt-1 text-xs" data-lang-key="viewMore">ดูเพิ่มเติม</p>
       </div>
-      <div class="member-card bg-white rounded-2xl p-4 shadow-lg cursor-pointer fade-in-up delay-4 hover:shadow-xl" onclick="openModal('member3')"><img src="https://img5.pic.in.th/file/secure-sv1/0263ff89b38c8f0cf109d7656758467f.png" alt="ศศิธร หงษา" class="w-20 h-20 mx-auto rounded-full object-cover shadow-md ring-2 ring-purple-200" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #8b5cf6, #a78bfa)'; this.alt='ศศิธร';">
-       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight">ศศิธร หงษา<br>
-       <p class="text-purple-500 text-center mt-1 text-xs">ดูเพิ่มเติม</p>
+      <div class="member-card bg-white rounded-2xl p-4 shadow-lg cursor-pointer fade-in-up delay-4 hover:shadow-xl" onclick="openModal('member3')"><img src="https://img5.pic.in.th/file/secure-sv1/0263ff89b38c8f0cf109d7656758467f.png" data-alt-key="member3NameAlt" alt="ศศิธร หงษา" class="w-20 h-20 mx-auto rounded-full object-cover shadow-md ring-2 ring-purple-200" loading="lazy" onerror="this.src=''; this.alt=translations[currentLanguage].imageUnavailableAlt; console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #8b5cf6, #a78bfa)';">
+       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight" id="member3-card-name">ศศิธร หงษา<br>
+       <p class="text-purple-500 text-center mt-1 text-xs" data-lang-key="viewMore">ดูเพิ่มเติม</p>
       </div>
-      <div class="member-card bg-white rounded-2xl p-4 shadow-lg cursor-pointer fade-in-up delay-5 hover:shadow-xl" onclick="openModal('member4')"><img src="https://img5.pic.in.th/file/secure-sv1/e85030dba531a5a3b0858c9b91f5fde4.png" alt="ฐิตาภา พวงพิศ" class="w-20 h-20 mx-auto rounded-full object-cover shadow-md ring-2 ring-cyan-200" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #06b6d4, #22d3d1)'; this.alt='ฐิตาภา';">
-       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight">ฐิตาภา พวงพิศ<br>
-       <p class="text-cyan-500 text-center mt-1 text-xs">ดูเพิ่มเติม</p>
+      <div class="member-card bg-white rounded-2xl p-4 shadow-lg cursor-pointer fade-in-up delay-5 hover:shadow-xl" onclick="openModal('member4')"><img src="https://img5.pic.in.th/file/secure-sv1/e85030dba531a5a3b0858c9b91f5fde4.png" data-alt-key="member4NameAlt" alt="ฐิตาภา พวงพิศ" class="w-20 h-20 mx-auto rounded-full object-cover shadow-md ring-2 ring-cyan-200" loading="lazy" onerror="this.src=''; this.alt=translations[currentLanguage].imageUnavailableAlt; console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #06b6d4, #22d3d1)';">
+       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight" id="member4-card-name">ฐิตาภา พวงพิศ<br>
+       <p class="text-cyan-500 text-center mt-1 text-xs" data-lang-key="viewMore">ดูเพิ่มเติม</p>
       </div>
-      <div class="member-card bg-white rounded-2xl p-4 shadow-lg cursor-pointer fade-in-up delay-6 hover:shadow-xl" onclick="openModal('member5')"><img src="https://img5.pic.in.th/file/secure-sv1/43901e5aa015605a15cffcb1d3b13e8b.png" alt="พาขวัญ แสนเมืองชิน" class="w-20 h-20 mx-auto rounded-full object-cover shadow-md ring-2 ring-pink-200" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #ec4899, #f472b6)'; this.alt='พาขวัญ';">
-       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight">พาขวัญ แสนเมืองชิน<br>
-       <p class="text-pink-500 text-center mt-1 text-xs">ดูเพิ่มเติม</p>
+      <div class="member-card bg-white rounded-2xl p-4 shadow-lg cursor-pointer fade-in-up delay-6 hover:shadow-xl" onclick="openModal('member5')"><img src="https://img5.pic.in.th/file/secure-sv1/43901e5aa015605a15cffcb1d3b13e8b.png" data-alt-key="member5NameAlt" alt="พาขวัญ แสนเมืองชิน" class="w-20 h-20 mx-auto rounded-full object-cover shadow-md ring-2 ring-pink-200" loading="lazy" onerror="this.src=''; this.alt=translations[currentLanguage].imageUnavailableAlt; console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #ec4899, #f472b6)';">
+       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight" id="member5-card-name">พาขวัญ แสนเมืองชิน<br>
+       <p class="text-pink-500 text-center mt-1 text-xs" data-lang-key="viewMore">ดูเพิ่มเติม</p>
       </div>
-      <div class="member-card bg-white rounded-2xl p-4 shadow-lg cursor-pointer fade-in-up delay-7 hover:shadow-xl" onclick="openModal('member6')"><img src="ไตเติ้ล.png" alt="ธนวัฒน์ สิงห์จารย์" class="w-20 h-20 mx-auto rounded-full object-cover shadow-md ring-2 ring-indigo-200" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #6366f1, #818cf8)'; this.alt='ธนวัฒน์';">
-       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight">ธนวัฒน์ สิงห์จารย์<br>
-       <p class="text-indigo-500 text-center mt-1 text-xs">ดูเพิ่มเติม</p>
+      <div class="member-card bg-white rounded-2xl p-4 shadow-lg cursor-pointer fade-in-up delay-7 hover:shadow-xl" onclick="openModal('member6')"><img src="ไตเติ้ล.png" data-alt-key="member6NameAlt" alt="ธนวัฒน์ สิงห์จารย์" class="w-20 h-20 mx-auto rounded-full object-cover shadow-md ring-2 ring-indigo-200" loading="lazy" onerror="this.src=''; this.alt=translations[currentLanguage].imageUnavailableAlt; console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #6366f1, #818cf8)';">
+       <h4 class="text-sm font-bold text-gray-800 mt-3 text-center leading-tight" id="member6-card-name">ธนวัฒน์ สิงห์จารย์<br>
+       <p class="text-indigo-500 text-center mt-1 text-xs" data-lang-key="viewMore">ดูเพิ่มเติม</p>
       </div>
      </div>
     </div>
    </section><!-- Policies Section -->
    <section class="py-16 px-4 bg-white/50">
     <div class="max-w-6xl mx-auto">
-     <h2 class="fade-in-up text-3xl font-bold text-center mb-4 text-shimmer">นโยบายของเรา</h2>
-     <p class="text-center text-gray-600 mb-12 fade-in-up delay-1">13 นโยบายเพื่อพัฒนาโรงเรียนและชีวิตนักเรียน</p>
+     <h2 class="fade-in-up text-3xl font-bold text-center mb-4 text-shimmer" data-lang-key="policiesTitle">นโยบายของเรา</h2>
+     <p class="text-center text-gray-600 mb-12 fade-in-up delay-1" data-lang-key="policiesDesc">13 นโยบายเพื่อพัฒนาโรงเรียนและชีวิตนักเรียน</p>
      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"><!-- Policy 1 -->
       <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-pink-100 cursor-pointer" onclick="openPolicyModal('policy1')">
        <div class="text-4xl mb-4">
         🚻
        </div>
-       <h3 class="text-xl font-bold text-pink-600 mb-3">1. Clean Zone</h3>
-       <h4 class="font-semibold text-gray-800 mb-2">ห้องน้ำดีมีความสุข</h4>
-       <p class="text-gray-600 text-sm leading-relaxed mb-3">ดำเนินการแก้ไขปัญหาที่เกี่ยวข้องกับห้องน้ำ โดยเฉพาะเรื่องกลิ่นไม่พึงประสงค์...</p><span class="text-pink-500 text-xs font-medium">คลิกเพื่ออ่านเพิ่มเติม →</span>
+       <h3 class="text-xl font-bold text-pink-600 mb-3" data-lang-key="policy1Title">1. Clean Zone</h3>
+       <h4 class="font-semibold text-gray-800 mb-2" data-lang-key="policy1Subtitle">ห้องน้ำดีมีความสุข</h4>
+       <p class="text-gray-600 text-sm leading-relaxed mb-3" data-lang-key="policy1ShortDesc">ดำเนินการแก้ไขปัญหาที่เกี่ยวข้องกับห้องน้ำ โดยเฉพาะเรื่องกลิ่นไม่พึงประสงค์...</p><span class="text-pink-500 text-xs font-medium" data-lang-key="clickToReadMore">คลิกเพื่ออ่านเพิ่มเติม →</span>
       </div><!-- Policy 2 -->
       <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-green-100 cursor-pointer" onclick="openPolicyModal('policy2')">
        <div class="text-4xl mb-4">
         🌱
        </div>
-       <h3 class="text-xl font-bold text-green-600 mb-3">2. Eco-Conscious</h3>
-       <h4 class="font-semibold text-gray-800 mb-2">ใส่ใจสิ่งแวดล้อม</h4>
-       <p class="text-gray-600 text-sm leading-relaxed mb-3">ส่งเสริมการดูแลสิ่งแวดล้อมภายในโรงเรียน เพื่อปรับปรุงและพัฒนาสภาพแวดล้อมให้สะอาด...</p><span class="text-green-500 text-xs font-medium">คลิกเพื่ออ่านเพิ่มเติม →</span>
+       <h3 class="text-xl font-bold text-green-600 mb-3" data-lang-key="policy2Title">2. Eco-Conscious</h3>
+       <h4 class="font-semibold text-gray-800 mb-2" data-lang-key="policy2Subtitle">ใส่ใจสิ่งแวดล้อม</h4>
+       <p class="text-gray-600 text-sm leading-relaxed mb-3" data-lang-key="policy2ShortDesc">ส่งเสริมการดูแลสิ่งแวดล้อมภายในโรงเรียน เพื่อปรับปรุงและพัฒนาสภาพแวดล้อมให้สะอาด...</p><span class="text-green-500 text-xs font-medium" data-lang-key="clickToReadMore">คลิกเพื่ออ่านเพิ่มเติม →</span>
       </div><!-- Policy 3 -->
       <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-blue-100 cursor-pointer" onclick="openPolicyModal('policy3')">
        <div class="text-4xl mb-4">
         💬
        </div>
-       <h3 class="text-xl font-bold text-blue-600 mb-3">3. Your Voice</h3>
-       <h4 class="font-semibold text-gray-800 mb-2">QR Code รับความคิดเห็น</h4>
-       <p class="text-gray-600 text-sm leading-relaxed mb-3">จัดทำ QR Code เพื่อเปิดช่องทางรับฟังความคิดเห็น...</p><span class="text-blue-500 text-xs font-medium">คลิกเพื่ออ่านเพิ่มเติม →</span>
+       <h3 class="text-xl font-bold text-blue-600 mb-3" data-lang-key="policy3Title">3. Your Voice</h3>
+       <h4 class="font-semibold text-gray-800 mb-2" data-lang-key="policy3Subtitle">QR Code รับความคิดเห็น</h4>
+       <p class="text-gray-600 text-sm leading-relaxed mb-3" data-lang-key="policy3ShortDesc">จัดทำ QR Code เพื่อเปิดช่องทางรับฟังความคิดเห็น...</p><span class="text-blue-500 text-xs font-medium" data-lang-key="clickToReadMore">คลิกเพื่ออ่านเพิ่มเติม →</span>
       </div><!-- Policy 4 -->
       <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-purple-100 cursor-pointer" onclick="openPolicyModal('policy4')">
        <div class="text-4xl mb-4">
         🤝
        </div>
-       <h3 class="text-xl font-bold text-purple-600 mb-3">4. Safe Talk</h3>
-       <h4 class="font-semibold text-gray-800 mb-2">พี่ที่ปรึกษา</h4>
-       <p class="text-gray-600 text-sm leading-relaxed mb-3">พร้อมรับฟังปัญหาและให้คำปรึกษา เก็บรักษาข้อมูลเป็นความลับอย่างเคร่งครัด...</p><span class="text-purple-500 text-xs font-medium">คลิกเพื่ออ่านเพิ่มเติม →</span>
+       <h3 class="text-xl font-bold text-purple-600 mb-3" data-lang-key="policy4Title">4. Safe Talk</h3>
+       <h4 class="font-semibold text-gray-800 mb-2" data-lang-key="policy4Subtitle">พี่ที่ปรึกษา</h4>
+       <p class="text-gray-600 text-sm leading-relaxed mb-3" data-lang-key="policy4ShortDesc">พร้อมรับฟังปัญหาและให้คำปรึกษา เก็บรักษาข้อมูลเป็นความลับอย่างเคร่งครัด...</p><span class="text-purple-500 text-xs font-medium" data-lang-key="clickToReadMore">คลิกเพื่ออ่านเพิ่มเติม →</span>
       </div><!-- Policy 5 -->
       <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-red-100 cursor-pointer" onclick="openPolicyModal('policy5')">
        <div class="text-4xl mb-4">
         🚫
        </div>
-       <h3 class="text-xl font-bold text-red-600 mb-3">5. Gen ใหม่ ห่างไกลยา</h3>
-       <h4 class="font-semibold text-gray-800 mb-2">กิจกรรมต่อต้านยาเสพติด</h4>
-       <p class="text-gray-600 text-sm leading-relaxed mb-3">จัดกิจกรรมรณรงค์ผ่านการแข่งขันกีฬา ให้ความรู้ และจัดบูธประชาสัมพันธ์...</p><span class="text-red-500 text-xs font-medium">คลิกเพื่ออ่านเพิ่มเติม →</span>
+       <h3 class="text-xl font-bold text-red-600 mb-3" data-lang-key="policy5Title">5. Gen ใหม่ ห่างไกลยา</h3>
+       <h4 class="font-semibold text-gray-800 mb-2" data-lang-key="policy5Subtitle">กิจกรรมต่อต้านยาเสพติด</h4>
+       <p class="text-gray-600 text-sm leading-relaxed mb-3" data-lang-key="policy5ShortDesc">จัดกิจกรรมรณรงค์ผ่านการแข่งขันกีฬา ให้ความรู้ และจัดบูธประชาสัมพันธ์...</p><span class="text-red-500 text-xs font-medium" data-lang-key="clickToReadMore">คลิกเพื่ออ่านเพิ่มเติม →</span>
       </div><!-- Policy 6 -->
       <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-yellow-100 cursor-pointer" onclick="openPolicyModal('policy6')">
        <div class="text-4xl mb-4">
         🎨
        </div>
-       <h3 class="text-xl font-bold text-yellow-600 mb-3">6. PSC Creative Class</h3>
-       <h4 class="font-semibold text-gray-800 mb-2">กิจกรรมบูรณาการกับกลุ่มสาระการเรียนรู้ต่าง ๆ</h4>
-       <p class="text-gray-600 text-sm leading-relaxed mb-3">ร่วมจัดกิจกรรมกับกลุ่มสาระต่างๆ เพื่อส่งเสริมความสนุกและประสบการณ์การเรียนรู้...</p><span class="text-yellow-500 text-xs font-medium">คลิกเพื่ออ่านเพิ่มเติม →</span>
+       <h3 class="text-xl font-bold text-yellow-600 mb-3" data-lang-key="policy6Title">6. PSC Creative Class</h3>
+       <h4 class="font-semibold text-gray-800 mb-2" data-lang-key="policy6Subtitle">กิจกรรมบูรณาการกับกลุ่มสาระการเรียนรู้ต่าง ๆ</h4>
+       <p class="text-gray-600 text-sm leading-relaxed mb-3" data-lang-key="policy6ShortDesc">ร่วมจัดกิจกรรมกับกลุ่มสาระต่างๆ เพื่อส่งเสริมความสนุกและประสบการณ์การเรียนรู้...</p><span class="text-yellow-500 text-xs font-medium" data-lang-key="clickToReadMore">คลิกเพื่ออ่านเพิ่มเติม →</span>
       </div><!-- Policy 7 -->
       <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-indigo-100 cursor-pointer" onclick="openPolicyModal('policy7')">
        <div class="text-4xl mb-4">
         🤗
        </div>
-       <h3 class="text-xl font-bold text-indigo-600 mb-3">7. PSC Buddy Link</h3>
-       <h4 class="font-semibold text-gray-800 mb-2">สายใยน้องพี่น้ำเงินชมพู</h4>
-       <p class="text-gray-600 text-sm leading-relaxed mb-3">กิจกรรมจับสายรหัสเพื่อกระชับความสัมพันธ์ระหว่างรุ่นพี่และรุ่นน้อง...</p><span class="text-indigo-500 text-xs font-medium">คลิกเพื่ออ่านเพิ่มเติม →</span>
+       <h3 class="text-xl font-bold text-indigo-600 mb-3" data-lang-key="policy7Title">7. PSC Buddy Link</h3>
+       <h4 class="font-semibold text-gray-800 mb-2" data-lang-key="policy7Subtitle">สายใยน้องพี่น้ำเงินชมพู</h4>
+       <p class="text-gray-600 text-sm leading-relaxed mb-3" data-lang-key="policy7ShortDesc">กิจกรรมจับสายรหัสเพื่อกระชับความสัมพันธ์ระหว่างรุ่นพี่และรุ่นน้อง...</p><span class="text-indigo-500 text-xs font-medium" data-lang-key="clickToReadMore">คลิกเพื่ออ่านเพิ่มเติม →</span>
       </div><!-- Policy 8 -->
       <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-cyan-100 cursor-pointer" onclick="openPolicyModal('policy8')">
        <div class="text-4xl mb-4">
         🎯
        </div>
-       <h3 class="text-xl font-bold text-cyan-600 mb-3">8. PSC Opportunity Hub</h3>
-       <h4 class="font-semibold text-gray-800 mb-2">ศูนย์กลางโอกาสของ PSC</h4>
-       <p class="text-gray-600 text-sm leading-relaxed mb-3">ประชาสัมพันธ์ข่าวสาร Open House และกิจกรรมแข่งขันเพื่อเก็บสะสมผลงาน...</p><span class="text-cyan-500 text-xs font-medium">คลิกเพื่ออ่านเพิ่มเติม →</span>
+       <h3 class="text-xl font-bold text-cyan-600 mb-3" data-lang-key="policy8Title">8. PSC Opportunity Hub</h3>
+       <h4 class="font-semibold text-gray-800 mb-2" data-lang-key="policy8Subtitle">ศูนย์กลางโอกาสของ PSC</h4>
+       <p class="text-gray-600 text-sm leading-relaxed mb-3" data-lang-key="policy8ShortDesc">ประชาสัมพันธ์ข่าวสาร Open House และกิจกรรมแข่งขันเพื่อเก็บสะสมผลงาน...</p><span class="text-cyan-500 text-xs font-medium" data-lang-key="clickToReadMore">คลิกเพื่ออ่านเพิ่มเติม →</span>
       </div><!-- Policy 9 -->
       <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-fuchsia-100 cursor-pointer" onclick="openPolicyModal('policy9')">
        <div class="text-4xl mb-4">
         👗
        </div>
-       <h3 class="text-xl font-bold text-fuchsia-600 mb-3">9. Fashion Show</h3>
-       <h4 class="font-semibold text-gray-800 mb-2">แฟชั่นโชว์</h4>
-       <p class="text-gray-600 text-sm leading-relaxed mb-3">พวกเราจะร่วมจัดกิจกรรมการประกวดเดินแบบหรือการประกวดด้านแฟชั่น...</p><span class="text-fuchsia-500 text-xs font-medium">คลิกเพื่ออ่านเพิ่มเติม →</span>
+       <h3 class="text-xl font-bold text-fuchsia-600 mb-3" data-lang-key="policy9Title">9. Fashion Show</h3>
+       <h4 class="font-semibold text-gray-800 mb-2" data-lang-key="policy9Subtitle">แฟชั่นโชว์</h4>
+       <p class="text-gray-600 text-sm leading-relaxed mb-3" data-lang-key="policy9ShortDesc">พวกเราจะร่วมจัดกิจกรรมการประกวดเดินแบบหรือการประกวดด้านแฟชั่น...</p><span class="text-fuchsia-500 text-xs font-medium" data-lang-key="clickToReadMore">คลิกเพื่ออ่านเพิ่มเติม →</span>
       </div><!-- Policy 10 -->
       <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-amber-100 cursor-pointer" onclick="openPolicyModal('policy10')">
        <div class="text-4xl mb-4">
         ⭐
        </div>
-       <h3 class="text-xl font-bold text-amber-600 mb-3">10. PSC Star</h3>
-       <h4 class="font-semibold text-gray-800 mb-2">กิจกรรมประกวดดาว-เดือน</h4>
-       <p class="text-gray-600 text-sm leading-relaxed mb-3">ประกวดดาว เดือน และควีน เพื่อเป็นตัวแทนประชาสัมพันธ์และส่งเสริมภาพลักษณ์...</p><span class="text-amber-500 text-xs font-medium">คลิกเพื่ออ่านเพิ่มเติม →</span>
+       <h3 class="text-xl font-bold text-amber-600 mb-3" data-lang-key="policy10Title">10. PSC Star</h3>
+       <h4 class="font-semibold text-gray-800 mb-2" data-lang-key="policy10Subtitle">กิจกรรมประกวดดาว-เดือน</h4>
+       <p class="text-gray-600 text-sm leading-relaxed mb-3" data-lang-key="policy10ShortDesc">ประกวดดาว เดือน และควีน เพื่อเป็นตัวแทนประชาสัมพันธ์และส่งเสริมภาพลักษณ์...</p><span class="text-amber-500 text-xs font-medium" data-lang-key="clickToReadMore">คลิกเพื่ออ่านเพิ่มเติม →</span>
       </div><!-- Policy 11 -->
       <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-rose-100 cursor-pointer" onclick="openPolicyModal('policy11')">
        <div class="text-4xl mb-4">
         💝
        </div>
-       <h3 class="text-xl font-bold text-rose-600 mb-3">11. Spread the Joy</h3>
-       <h4 class="font-semibold text-gray-800 mb-2">พานทองสภารวมใจมอบให้</h4>
-       <p class="text-gray-600 text-sm leading-relaxed mb-3">รับบริจาคของใช้สภาพดี ส่งต่อให้ผู้ขาดแคลน เพื่อแบ่งปันน้ำใจในสังคม...</p><span class="text-rose-500 text-xs font-medium">คลิกเพื่ออ่านเพิ่มเติม →</span>
+       <h3 class="text-xl font-bold text-rose-600 mb-3" data-lang-key="policy11Title">11. Spread the Joy</h3>
+       <h4 class="font-semibold text-gray-800 mb-2" data-lang-key="policy11Subtitle">พานทองสภารวมใจมอบให้</h4>
+       <p class="text-gray-600 text-sm leading-relaxed mb-3" data-lang-key="policy11ShortDesc">รับบริจาคของใช้สภาพดี ส่งต่อให้ผู้ขาดแคลน เพื่อแบ่งปันน้ำใจในสังคม...</p><span class="text-rose-500 text-xs font-medium" data-lang-key="clickToReadMore">คลิกเพื่ออ่านเพิ่มเติม →</span>
       </div><!-- Policy 12 -->
       <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-teal-100 cursor-pointer" onclick="openPolicyModal('policy12')">
        <div class="text-4xl mb-4">
         📚
        </div>
-       <h3 class="text-xl font-bold text-teal-600 mb-3">12. Choose Well, Study Right</h3>
-       <h4 class="font-semibold text-gray-800 mb-2">เลือกให้ชัด เรียนให้ใช่</h4>
-       <p class="text-gray-600 text-sm leading-relaxed mb-3">นโยบายแนะแนวแผนการเรียนเพื่อช่วยให้น้อง ๆ มัธยมต้นที่กำลังสับสนเกี่ยวกับการเลือกแผนการเรียน...</p><span class="text-teal-500 text-xs font-medium">คลิกเพื่ออ่านเพิ่มเติม →</span>
+       <h3 class="text-xl font-bold text-teal-600 mb-3" data-lang-key="policy12Title">12. Choose Well, Study Right</h3>
+       <h4 class="font-semibold text-gray-800 mb-2" data-lang-key="policy12Subtitle">เลือกให้ชัด เรียนให้ใช่</h4>
+       <p class="text-gray-600 text-sm leading-relaxed mb-3" data-lang-key="policy12ShortDesc">นโยบายแนะแนวแผนการเรียนเพื่อช่วยให้น้อง ๆ มัธยมต้นที่กำลังสับสนเกี่ยวกับการเลือกแผนการเรียน...</p><span class="text-teal-500 text-xs font-medium" data-lang-key="clickToReadMore">คลิกเพื่ออ่านเพิ่มเติม →</span>
       </div><!-- Policy 13 -->
       <div class="scroll-hidden bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-violet-100 cursor-pointer" onclick="openPolicyModal('policy13')">
        <div class="text-4xl mb-4">
         🔄
        </div>
-       <h3 class="text-xl font-bold text-violet-600 mb-3">13. Continue Senior Policy</h3>
-       <h4 class="font-semibold text-gray-800 mb-2">สานต่อนโยบายรุ่นพี่</h4>
-       <p class="text-gray-600 text-sm leading-relaxed mb-3">สานต่อนโยบายดีๆ เช่น ลานน้ำเงินชมพู E-Sports ผ้าอนามัยฉุกเฉิน...</p><span class="text-violet-500 text-xs font-medium">คลิกเพื่ออ่านเพิ่มเติม →</span>
+       <h3 class="text-xl font-bold text-violet-600 mb-3" data-lang-key="policy13Title">13. Continue Senior Policy</h3>
+       <h4 class="font-semibold text-gray-800 mb-2" data-lang-key="policy13Subtitle">สานต่อนโยบายรุ่นพี่</h4>
+       <p class="text-gray-600 text-sm leading-relaxed mb-3" data-lang-key="policy13ShortDesc">สานต่อนโยบายดีๆ เช่น ลานน้ำเงินชมพู E-Sports ผ้าอนามัยฉุกเฉิน...</p><span class="text-violet-500 text-xs font-medium" data-lang-key="clickToReadMore">คลิกเพื่ออ่านเพิ่มเติม →</span>
       </div>
      </div>
     </div>
@@ -486,15 +492,15 @@ body.dark span[style*="color"] {
    <section class="py-16 px-4">
     <div class="max-w-3xl mx-auto text-center">
      <div class="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 rounded-3xl p-8 shadow-2xl fade-in-up">
-      <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">🗳️ เลือกเบอร์ 1</h2>
-      <p class="text-white/90 text-lg mb-6">
+      <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4" data-lang-key="callToActionTitle">🗳️ เลือกเบอร์ 1</h2>
+      <p class="text-white/90 text-lg mb-6" data-lang-key="callToActionSlogan">
   Next Gen One รุ่นใหม่ที่พร้อมพาโรงเรียนเราไปให้ไกล
 </p>
 
 <a href="https://linkin.bio/nextgenone"
    target="_blank"
    rel="noopener noreferrer"
-   class="inline-flex items-center gap-2 px-8 py-4 bg-white text-purple-600 rounded-full font-bold text-lg hover:shadow-xl transition-all">
+   class="inline-flex items-center gap-2 px-8 py-4 bg-white text-purple-600 rounded-full font-bold text-lg hover:shadow-xl transition-all" data-lang-key="callToActionButton">
    ติดตามพรรค Q&A กดเลย👈
 </a>
 
@@ -503,16 +509,16 @@ body.dark span[style*="color"] {
    </section><!-- Footer -->
    <footer class="py-8 px-4 bg-gray-900 text-white">
     <div class="max-w-4xl mx-auto text-center">
-     <div class="flex items-center justify-center gap-3 mb-4"><img src="IMG_2115.PNG" alt="Next Gen One Logo" class="w-10 h-10 rounded-xl" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #ec4899, #8b5cf6)'; this.alt='Logo';"> <span class="text-xl font-bold">Next Gen One</span>
+     <div class="flex items-center justify-center gap-3 mb-4"><img src="IMG_2115.PNG" data-alt-key="footerLogoAlt" alt="Next Gen One Logo" class="w-10 h-10 rounded-xl" loading="lazy" onerror="this.src=''; this.alt=translations[currentLanguage].imageUnavailableAlt; console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #ec4899, #8b5cf6)';"> <span class="text-xl font-bold" data-lang-key="partyName">Next Gen One</span>
      </div>
-     <p class="text-gray-400 text-sm">
+     <p class="text-gray-400 text-sm" data-lang-key="footerPartyDesc">
   พรรคสภานักเรียน เบอร์ 1 
-  <a href="https://www.facebook.com/ptsp.ac.th" target="_blank" rel="noopener noreferrer" class="hover:underline text-gray-400">
+  <a href="https://www.facebook.com/ptsp.ac.th" target="_blank" rel="noopener noreferrer" class="hover:underline text-gray-400" data-lang-key="schoolName">
     โรงเรียนพานทองสภาชนูปถัมภ์
   </a>
 </p>
 
-     <p class="text-gray-500 text-xs mt-2">© 2026 Next Gen One Party. All rights reserved.</p>
+     <p class="text-gray-500 text-xs mt-2" data-lang-key="allRightsReserved">© 2026 Next Gen One Party. All rights reserved.</p>
     </div>
    </footer><!-- Modal -->
    <div id="modal" class="fixed inset-0 z-50 hidden">
@@ -524,263 +530,713 @@ body.dark span[style*="color"] {
    </div>
   </div>
   <script>
+    const translations = {
+      th: {
+        pageTitle: 'Next Gen One No.1',
+        partyName: 'Next Gen One',
+        heroNumber1: 'เบอร์ 1',
+        heroSlogan: 'รุ่นใหม่ที่พร้อมพาโรงเรียนเราไปให้ไกล',
+        electionDateTitle: '📅 เลือกตั้งสภานักเรียน',
+        electionDate: '13 กุมภาพันธ์ 2569',
+        heroDesc: 'เราคิดให้ครบ วางแผนให้ชัด และเปลี่ยนทุกไอเดียให้เป็นผลลัพธ์ที่ทุกคนรู้สึกได้',
+        leadersTitle: 'ผู้นำพรรค',
+        presidentSectionTitle: '👑 ประธานพรรค',
+        presidentRole: 'ประธาน',
+        clickForDetails: 'คลิกเพื่อดูรายละเอียด',
+        vicePresidentSectionTitle: '⭐ รองประธานพรรค',
+        vicePresidentRole: 'รองประธาน',
+        coreMembersTitle: 'แกนนำผู้ตั้งพรรค',
+        coreMembersDesc: 'ทีมที่พร้อมทำงานเพื่อทุกคน',
+        viewMore: 'ดูเพิ่มเติม',
+        policiesTitle: 'นโยบายของเรา',
+        policiesDesc: '13 นโยบายเพื่อพัฒนาโรงเรียนและชีวิตนักเรียน',
+        policy1Title: '1. Clean Zone',
+        policy1Subtitle: 'ห้องน้ำดีมีความสุข',
+        policy1ShortDesc: 'ดำเนินการแก้ไขปัญหาที่เกี่ยวข้องกับห้องน้ำ โดยเฉพาะเรื่องกลิ่นไม่พึงประสงค์...',
+        policy2Title: '2. Eco-Conscious',
+        policy2Subtitle: 'ใส่ใจสิ่งแวดล้อม',
+        policy2ShortDesc: 'ส่งเสริมการดูแลสิ่งแวดล้อมภายในโรงเรียน เพื่อปรับปรุงและพัฒนาสภาพแวดล้อมให้สะอาด...',
+        policy3Title: '3. Your Voice',
+        policy3Subtitle: 'QR Code รับความคิดเห็น',
+        policy3ShortDesc: 'จัดทำ QR Code เพื่อเปิดช่องทางรับฟังความคิดเห็น...',
+        policy4Title: '4. Safe Talk',
+        policy4Subtitle: 'พี่ที่ปรึกษา',
+        policy4ShortDesc: 'พร้อมรับฟังปัญหาและให้คำปรึกษา เก็บรักษาข้อมูลเป็นความลับอย่างเคร่งครัด...',
+        policy5Title: '5. Gen ใหม่ ห่างไกลยา',
+        policy5Subtitle: 'กิจกรรมต่อต้านยาเสพติด',
+        policy5ShortDesc: 'จัดกิจกรรมรณรงค์ผ่านการแข่งขันกีฬา ให้ความรู้ และจัดบูธประชาสัมพันธ์...',
+        policy6Title: '6. PSC Creative Class',
+        policy6Subtitle: 'กิจกรรมบูรณาการกับกลุ่มสาระการเรียนรู้ต่าง ๆ',
+        policy6ShortDesc: 'ร่วมจัดกิจกรรมกับกลุ่มสาระต่างๆ เพื่อส่งเสริมความสนุกและประสบการณ์การเรียนรู้...',
+        policy7Title: '7. PSC Buddy Link',
+        policy7Subtitle: 'สายใยน้องพี่น้ำเงินชมพู',
+        policy7ShortDesc: 'กิจกรรมจับสายรหัสเพื่อกระชับความสัมพันธ์ระหว่างรุ่นพี่และรุ่นน้อง...',
+        policy8Title: '8. PSC Opportunity Hub',
+        policy8Subtitle: 'ศูนย์กลางโอกาสของ PSC',
+        policy8ShortDesc: 'ประชาสัมพันธ์ข่าวสาร Open House และกิจกรรมแข่งขันเพื่อเก็บสะสมผลงาน...',
+        policy9Title: '9. Fashion Show',
+        policy9Subtitle: 'แฟชั่นโชว์',
+        policy9ShortDesc: 'พวกเราจะร่วมจัดกิจกรรมการประกวดเดินแบบหรือการประกวดด้านแฟชั่น...',
+        policy10Title: '10. PSC Star',
+        policy10Subtitle: 'กิจกรรมประกวดดาว-เดือน',
+        policy10ShortDesc: 'ประกวดดาว เดือน และควีน เพื่อเป็นตัวแทนประชาสัมพันธ์และส่งเสริมภาพลักษณ์...',
+        policy11Title: '11. Spread the Joy',
+        policy11Subtitle: 'พานทองสภารวมใจมอบให้',
+        policy11ShortDesc: 'รับบริจาคของใช้สภาพดี ส่งต่อให้ผู้ขาดแคลน เพื่อแบ่งปันน้ำใจในสังคม...',
+        policy12Title: '12. Choose Well, Study Right',
+        policy12Subtitle: 'เลือกให้ชัด เรียนให้ใช่',
+        policy12ShortDesc: 'นโยบายแนะแนวแผนการเรียนเพื่อช่วยให้น้อง ๆ มัธยมต้นที่กำลังสับสนเกี่ยวกับการเลือกแผนการเรียน...',
+        policy13Title: '13. Continue Senior Policy',
+        policy13Subtitle: 'สานต่อนโยบายรุ่นพี่',
+        policy13ShortDesc: 'สานต่อนโยบายดีๆ เช่น ลานน้ำเงินชมพู E-Sports ผ้าอนามัยฉุกเฉิน...',
+        callToActionTitle: '🗳️ เลือกเบอร์ 1',
+        callToActionSlogan: 'Next Gen One รุ่นใหม่ที่พร้อมพาโรงเรียนเราไปให้ไกล',
+        callToActionButton: 'ติดตามพรรค Q&A กดเลย👈',
+        footerPartyDesc: 'พรรคสภานักเรียน เบอร์ 1',
+        schoolName: 'โรงเรียนพานทองสภาชนูปถัมภ์',
+        allRightsReserved: '© 2026 Next Gen One Party. All rights reserved.',
+        closeButton: 'ปิด',
+        policyModalNumber: 'นโยบายที่',
+        roomLabel: 'ห้อง',
+        programLabel: 'แผนการเรียน',
+        gpaLabel: 'ผลการเรียน',
+        achievementsLabel: 'ผลงาน',
+        votePartyNum1: 'พรรค Next Gen One เบอร์ 1',
+        loadingTime: 'กำลังโหลดเวลา...',
+        electionFinished: '🎉 เลือกพรรคสภานักเรียน เบอร์ 1 🎉',
+        days: 'วัน',
+        hours: 'ชั่วโมง',
+        minutes: 'นาที',
+        seconds: 'วินาที',
+        electionPrefix: 'อีก',
+        electionSuffix: 'เลือกตั้ง',
+        darkBtnText: 'Dark', // Text for Dark Mode button when in Light mode
+        lightBtnText: 'Light', // Text for Dark Mode button when in Dark mode
+        darkBtnAriaLabel: 'เปิดใช้งานโหมดมืด', // Aria label for toggling dark mode
+        lightBtnAriaLabel: 'เปิดใช้งานโหมดสว่าง', // Aria label for toggling light mode
+        langBtnText: '(English)', // Text for Language button when in Thai mode (i.e., switch to English)
+        langBtnAriaLabel: 'เปลี่ยนเป็นภาษาอังกฤษ', // Aria label for switching to English
+        tiktokText: 'TikTok',
+        instagramText: 'Instagram',
+        tiktokAriaLabel: 'TikTok ของพรรค Next Gen One',
+        instagramAriaLabel: 'Instagram ของพรรค Next Gen One',
+        navLogoAlt: 'โลโก้ Next Gen One',
+        heroLogoAlt: 'โลโก้ Next Gen One',
+        presidentNameAlt: 'ภาพของ น.ส. อภิญญาภรณ์ บุญหนา ประธานพรรค',
+        vice1NameAlt: 'ภาพของ นาย พชร กาเผือก รองประธาน 1',
+        vice2NameAlt: 'ภาพของ น.ส. ฐานิดา พลอารีย์ รองประธาน 2',
+        member1NameAlt: 'ภาพของ ปาลีรัตน์ แสงทะมาตร์ แกนนำผู้ตั้งพรรค',
+        member2NameAlt: 'ภาพของ แทนคุณ เบญมาตย์ แกนนำผู้ตั้งพรรค',
+        member3NameAlt: 'ภาพของ ศศิธร หงษา แกนนำผู้ตั้งพรรค',
+        member4NameAlt: 'ภาพของ ฐิตาภา พวงพิศ แกนนำผู้ตั้งพรรค',
+        member5NameAlt: 'ภาพของ พาขวัญ แสนเมืองชิน แกนนำผู้ตั้งพรรค',
+        member6NameAlt: 'ภาพของ ธนวัฒน์ สิงห์จารย์ แกนนำผู้ตั้งพรรค',
+        footerLogoAlt: 'โลโก้ Next Gen One',
+        imageUnavailableAlt: 'รูปภาพไม่พร้อมใช้งาน',
+        nicknameLabel: 'ชื่อเล่น',
+        newAchievement: '<span class="text-shimmer font-bold mr-2">NEW</span>',
+        prizeGold: '<span style="color: #D4AF37; font-weight: bold;">รางวัลเหรียญทอง</span>',
+        prizeGold1stRunnerUp: '<span style="color: #D4AF37; font-weight: bold;">รางวัลเหรียญทองรองชนะเลิศอันดับ 1</span>',
+        prizeSilver: '<span style="color: #9CA3AF; font-weight: bold;">รางวัลระดับเหรียญเงิน</span>',
+        prizeBronze: '<span style="color: #9C4F19; font-weight: bold;">รางวัลระดับเหรียญทองแดง</span>',
+        prizeWinner: '<span style="color: #D4AF37; font-weight: bold;">รางวัลชนะเลิศ</span>',
+        prize1stRunnerUp: '<span style="color: #D4AF37; font-weight: bold;">รางวัลรองชนะเลิศอันดับ 1</span>',
+        prize3rdRunnerUp: '<span style="color: #9C4F19; font-weight: bold;">รางวัลรองชนะเลิศลำดับ 3</span>',
+        prizeCommendation: 'รางวัล ชมเชย',
+        ach_pre_sci_show_73: 'การแข่งขัน วิทยาศาสตร์และเทคโนโลยีการแข่งขันการแสดงทางวิทยาศาสตร์ (Science Show) ม.4-ม.6 งานศิลปหัตถกรรมนักเรียน ครั้งที่ 73 ปีการศึกษา 2568',
+        ach_pre_small_book_73: 'การแข่งขันการจัดทำหนังสือเล่มเล็ก ระดับชั้นมัธยมศึกษาตอนต้น ประจำปี 2567 สพม.เพชรบูรณ์',
+        ach_pre_lit_crit_66: 'การแข่งขันพินิจวรรณคดี ระดับชั้นมัธยมศึกษาตอนต้น ประจำปี 2566 สพม.เพชรบูรณ์ กลุ่ม 3',
+        ach_pre_sci_speech_wk: 'การประกวดพูดทางวิทยาศาสตร์ เนื่องในวันสัปดาห์วิทยาศาสตร์',
+        ach_pre_short_film_hr: 'การประกวดภาพยนตร์สั้น กิจกรรมสิทธิมนุษย์ชนแผ่นฟิล์ม',
+        ach_pre_royal_speech: 'เข้าร่วมการประกวดสุนทรพจน์ ระดับมัธยมศึกษาตอนปลาย ในกิจกรรม ทวีบัญญาเฉลิมพระเกียรติ พระบาทสมเด็จพระมงกุฎเกล้าเจ้าอยู่หัว เนื่องในโอกาสครบรอบ ๑๐๐ ปี แห่งวันสวรรคต',
+        ach_pre_1: 'เป็นนักเรียนแกนนำโครงการสร้างและส่งเสริมความเป็นพลเมืองดีตามรอยพระยุคลบาทด้านการศึกษาสู่การปฏิบัติ ประจำปี 2567 (จังหวัดเพชรบูรณ์)',
+        ach_vice1_poetry_66: 'การแข่งขันแต่งบทร้อยกรองระดับมัธยมศึกษาตอนต้น เนื่องในวันคล้ายวันสถาปนาโรงเรียนศรีราชาครบรอบปีที่ ๗๒ และงานเปิดบ้านวิชาการศรีราชา ฟ้า-แดง ประจำปีการศึกษา ๒๕๖๖',
+        ach_vice1_essay_buddhist_lent: 'การประกวดการเขียนเรียงความหัวข้อ "เข้าพรรษา พางดเหล้า" โรงเรียนพานทองสภาชนูปถัมภ์',
+        ach_vice1_poetry_71: 'กิจกรรมการแข่งขันกวีเยาวชนคนรุ่นใหม่กาพย์ยานี ๑๑(๖บท) ระดับชั้นม.๑ ถึงม.๓ งานศิลปหัตถกรรมนักเรียนครั้งที่ ๗๑ ปีการศึกษา ๒๕๖๖ ระดับเขตพื้นที่การศึกษาสหวิทยาเขตชลบุรีเขต ๒',
+        ach_vice1_thai_lit_67: 'กิจกรรมแต่งคำประพันธ์ระดับชั้นมัธยมศึกษาตอนต้น กิจกรรมวันสุนทรภู่และวันภาษาไทยแห่งชาติ ปีการศึกษา 2567 โรงเรียนพานทองสภาชนูปถัมภ์',
+        ach_vice1_moral_proj_70: 'การประกวดโครงงานคุณธรรมระดับชั้นมัธยมศึกษา ม.1-ม.3 งานศิลปหัตถกรรมครั้งที่ 70 ระดับเขตพื้นที่การศึกษาสหวิทยาเขตชลบุรี 2 ณ โรงเรียนพนัสพิทยาคาร',
+        ach_vice1_drug_comm_proj: 'ระดับอำเภอประเภทมัธยมศึกษาตอนต้น ในการประกวดโครงงานการสื่อสารสร้างสรรค์รู้เท่าทันยาบ้า จากสำนักงานคณะกรรมการป้องกันและปราบปรามยาเสพติดกระทรวงยุติธรรม',
+        ach_vice1_sci_show_68: 'การแข่งขันการแสดงทางวิทยาศาสตร์ (Science Show) ระดับมัธยมศึกษาตอนปลาย เนื่องในกิจกรรมสัปดาห์วิทยาศาสตร์แห่งชาติประจำปี 2568 ณ โรงเรียนพานทองสภาชนูปถัมภ์',
+        ach_vice1_moral_proj_natl_70: 'กิจกรรมการประกวดโครงงานคุณธรรมระดับชั้นมัธยมศึกษาปีที่ ๑-๓ งานศิลปหัตถกรรมนักเรียน ระดับชาติครั้งที่ 70 ภาคกลางและภาคตะวันออก ณ จังหวัดราชบุรี',
+        ach_vice1_thai_lit_comp_67: 'กิจกรรมแต่งคำประพันธ์มัธยมศึกษาปีที่ ๑-๓ การแข่งขันทักษะภาษาไทยโครงงานรักภาษาไทยเนื่องในสัปดาห์วันภาษาไทยแห่งชาติปี ๒๕๖๗ ระดับเขตพื้นที่การศึกษา',
+        ach_vice1_1: 'เป็นตัวแทนนำเสนอผลการดำเนินงานโครงงานโรงเรียนคุณธรรมเนื่องในโอกาสรับการนิเทศติดตามผลการดำเนินงานโครงงานคุณธรรมโรงเรียนจากมูลนิธิยุวพัฒน์',
+        ach_vice1_2: 'ผ่านการเข้าร่วม "ค่ายนักสืบสายน้ำ ตอน ตราชั่งคาร์บอน" หน้าโรงไฟฟ้าบางปะกง ระหว่างวันที่ 19-21 พฤศจิกายน 2568',
+        ach_vice2_thai_lit_crit_73: 'การแข่งขัน ภาษาไทยการแข่งขันวรรณกรรมพิจารณ์ ม.4-ม.6 งานศิลปหัตถกรรมนักเรียน ครั้งที่ 73 ปีการศึกษา 2568',
+        ach_vice2_short_film_moral: 'การแข่งขันประกวดภาพยนตร์สั้นในหัวข้อ "เก่ง กล้า ดี มีคุณธรรม" ระดับชั้นมัธยมศึกษาตอนต้น',
+        ach_vice2_1: 'รางวัลเด็กดีศรีพานทองสภาฯ เนื่องในวันเกียรติยศ กิจกรรมจบการศึกษามัธยมศึกษาตอนต้น',
+        ach_vice2_encyclopedia_quiz: 'การตอบปัญหาสารานุกรม เนื่องในกิจกรรมสัปดาห์ห้องสมุด ระดับชั้นมัธยมศึกษาตอนปลาย',
+        ach_vice2_lit_crit_71: 'การแข่งขันวรรณกรรมพิจารณ์ ระดับชั้นมัธยมศึกษาตอนต้น งานศิลปหัตถกรรมนักเรียนระดับสหวิทยาเขต ครั้งที่ 71 ปีการศึกษา 2566 สังกัดสำนักงานเขตพื้นที่การศึกษามัธยมศึกษาชลบุรี ระยอง สหวิทยาเขตชลบุรี 2',
+        ach_vice2_lit_crit_district_66: 'การแข่งขันวรรณกรรมพิจารณ์ ระดับชั้นมัธยมศึกษาตอนต้น งานศิลปหัตถกรรมนักเรียน ระดับเขตพื้นที่การศึกษา สพม.ชลบุรี ระยอง ปีการศึกษา 2566',
+        ach_vice2_lit_crit_senior: 'การแข่งขันวรรณกรรมพิจารณ์ ระดับชั้นมัธยมศึกษาตอนปลาย',
+        ach_vice2_thai_read_comp_66: 'การแข่งขันทักษะภาษาไทยโครงการรักษ์ภาษาไทย เนื่องในสัปดาห์วันภาษาไทยแห่งชาติ ปี 2566 กิจกรรมการอ่านจับใจความ ระดับชั้นมัธยมศึกษาตอนต้น',
+        policy4_note: '<span style="color:#1D4ED8;"> - ทั้งนี้ พวกเราขอยืนยันว่าจะเก็บรักษาข้อมูลและเรื่องราวที่น้อง ๆ เข้ามาปรึกษาเป็นความลับอย่างเคร่งครัด เพื่อความสบายใจและความปลอดภัยของทุกคน</span>',
+        policy10_note: '<span style="color:#EF4444;">- ทั้งนี้ ผู้สมัครเข้าร่วมการประกวดจะต้องแต่งกายและจัดทรงผมให้ถูกต้องตามระเบียบของโรงเรียนอย่างเคร่งครัด</span>',
+        policy11_note: '<span style="color:#1D4ED8;">- ทั้งนี้ โครงการมีเป้าหมายเพื่อส่งเสริมจิตสำนึกด้านการช่วยเหลือเกื้อกูล และสร้างสังคมแห่งการแบ่งปันอย่างยั่งยืน</span>',
+      },
+      en: {
+        pageTitle: 'Next Gen One No.1',
+        partyName: 'Next Gen One',
+        heroNumber1: 'No. 1',
+        heroSlogan: 'A new generation ready to take our school further.',
+        electionDateTitle: '📅 Student Council Election',
+        electionDate: 'February 13, 2026',
+        heroDesc: 'We think thoroughly, plan clearly, and turn every idea into tangible results for everyone.',
+        leadersTitle: 'Party Leaders',
+        presidentSectionTitle: '👑 Party President',
+        presidentRole: 'President',
+        clickForDetails: 'Click for details',
+        vicePresidentSectionTitle: '⭐ Party Vice-Presidents',
+        vicePresidentRole: 'Vice President',
+        coreMembersTitle: 'Founding Core Members',
+        coreMembersDesc: 'A team ready to work for everyone.',
+        viewMore: 'View More',
+        policiesTitle: 'Our Policies',
+        policiesDesc: '13 policies to develop the school and student life.',
+        policy1Title: '1. Clean Zone',
+        policy1Subtitle: 'Happy Bathrooms',
+        policy1ShortDesc: 'Resolving bathroom issues, especially unpleasant odors...',
+        policy2Title: '2. Eco-Conscious',
+        policy2Subtitle: 'Mindful of the Environment',
+        policy2ShortDesc: 'Promoting environmental care within the school to improve and develop a clean environment...',
+        policy3Title: '3. Your Voice',
+        policy3Subtitle: 'Feedback QR Code',
+        policy3ShortDesc: 'Creating a QR Code to open a channel for feedback...',
+        policy4Title: '4. Safe Talk',
+        policy4Subtitle: 'Peer Advisor',
+        policy4ShortDesc: 'Ready to listen to problems and provide advice, strictly keeping information confidential...',
+        policy5Title: '5. New Gen, Drug-Free',
+        policy5Subtitle: 'Anti-Drug Activities',
+        policy5ShortDesc: 'Organizing campaigns through sports competitions, providing knowledge, and setting up information booths...',
+        policy6Title: '6. PSC Creative Class',
+        policy6Subtitle: 'Integrated Activities with Various Learning Areas',
+        policy6ShortDesc: 'Collaborating with various subjects to promote fun, creativity, and diverse learning experiences...',
+        policy7Title: '7. PSC Buddy Link',
+        policy7Subtitle: 'Blue-Pink Sibling Bonds',
+        policy7ShortDesc: 'Buddy system activities to foster and strengthen good relationships between seniors and juniors...',
+        policy8Title: '8. PSC Opportunity Hub',
+        policy8Subtitle: 'PSC Opportunity Hub',
+        policy8ShortDesc: 'Publicize news of Open House and competition activities to collect works...',
+        policy9Title: '9. Fashion Show',
+        policy9Subtitle: 'Fashion Show',
+        policy9ShortDesc: 'We will join in organizing a catwalk competition or fashion contest...',
+        policy10Title: '10. PSC Star',
+        policy10Subtitle: 'Star-Moon Contest',
+        policy10ShortDesc: 'Contest for Star, Moon, and Queen to represent and promote the school\'s image...',
+        policy11Title: '11. Spread the Joy',
+        policy11Subtitle: 'Panthong Sapha Unites to Give',
+        policy11ShortDesc: 'Collecting good condition used items to donate to those in need, sharing kindness in society...',
+        policy12Title: '12. Choose Well, Study Right',
+        policy12Subtitle: 'Choose Well, Study Right',
+        policy12ShortDesc: 'Study plan guidance policy to help middle school students who are confused about choosing a study plan...',
+        policy13Title: '13. Continue Senior Policy',
+        policy13Subtitle: 'Continue Senior Policy',
+        policy13ShortDesc: 'Continuing good policies like Blue-Pink Courtyard, E-Sports, emergency sanitary pads...',
+        callToActionTitle: '🗳️ Vote No. 1',
+        callToActionSlogan: 'Next Gen One, a new generation ready to take our school further.',
+        callToActionButton: 'Follow the Party Q&A, Click Here 👈',
+        footerPartyDesc: 'Student Council Party No. 1',
+        schoolName: 'Panthong Sapachanupatham School',
+        allRightsReserved: '© 2026 Next Gen One Party. All rights reserved.',
+        closeButton: 'Close',
+        policyModalNumber: 'Policy No.',
+        roomLabel: 'Room',
+        programLabel: 'Study Program',
+        gpaLabel: 'GPA',
+        achievementsLabel: 'Achievements',
+        votePartyNum1: 'Next Gen One Party No. 1',
+        loadingTime: 'Loading time...',
+        electionFinished: '🎉 Vote Student Council Party No. 1 🎉',
+        days: 'days',
+        hours: 'hours',
+        minutes: 'minutes',
+        seconds: 'seconds',
+        electionPrefix: 'In',
+        electionSuffix: 'to election',
+        darkBtnText: 'Dark', // Text for Dark Mode button when in Light mode
+        lightBtnText: 'Light', // Text for Dark Mode button when in Dark mode
+        darkBtnAriaLabel: 'Toggle Dark Mode', // Aria label for toggling dark mode
+        lightBtnAriaLabel: 'Toggle Light Mode', // Aria label for toggling light mode
+        langBtnText: '(Thai)', // Text for Language button when in English mode (i.e., switch to Thai)
+        langBtnAriaLabel: 'Switch to Thai', // Aria label for switching to Thai
+        tiktokText: 'TikTok',
+        instagramText: 'Instagram',
+        tiktokAriaLabel: 'Next Gen One Party TikTok',
+        instagramAriaLabel: 'Next Gen One Party Instagram',
+        navLogoAlt: 'Next Gen One Logo',
+        heroLogoAlt: 'Next Gen One Logo',
+        presidentNameAlt: 'Image of Ms. Apinyaporn Bunna, Party President',
+        vice1NameAlt: 'Image of Mr. Pachara Kapueak, Vice President 1',
+        vice2NameAlt: 'Image of Ms. Thanida polaree, Vice President 2',
+        member1NameAlt: 'Image of Paleerat Sangthamatr, Founding Core Member',
+        member2NameAlt: 'Image of Thaenkhun Benmart, Founding Core Member',
+        member3NameAlt: 'Image of Sasithorn Hongsa, Founding Core Member',
+        member4NameAlt: 'Image of Thitapha Phuangphit, Founding Core Member',
+        member5NameAlt: 'Image of Phakhwan Saenmueangchin, Founding Core Member',
+        member6NameAlt: 'Image of Mr. Thanawat Singjarn, Founding Core Member', // Corrected name
+        footerLogoAlt: 'Next Gen One Logo',
+        imageUnavailableAlt: 'Image unavailable',
+        nicknameLabel: 'Nickname',
+        newAchievement: '<span class="text-shimmer font-bold mr-2">NEW</span>',
+        prizeGold: '<span style="color: #D4AF37; font-weight: bold;">Gold Medal Award</span>',
+        prizeGold1stRunnerUp: '<span style="color: #D4AF37; font-weight: bold;">1st Runner-up Gold Medal Award</span>',
+        prizeSilver: '<span style="color: #9CA3AF; font-weight: bold;">Silver Medal Award</span>',
+        prizeBronze: '<span style="color: #9C4F19; font-weight: bold;">Bronze Medal Award</span>',
+        prizeWinner: '<span style="color: #D4AF37; font-weight: bold;">Winner</span>',
+        prize1stRunnerUp: '<span style="color: #D4AF37; font-weight: bold;">1st Runner-up</span>',
+        prize3rdRunnerUp: '<span style="color: #9C4F19; font-weight: bold;">3rd Runner-up</span>',
+        prizeCommendation: 'Commendation Award',
+        ach_pre_sci_show_73: 'Science and Technology Competition: Science Show (M.4-M.6), 73rd Student Arts & Crafts Competition, Academic Year 2025',
+        ach_pre_small_book_73: 'Small Book Making Competition, Junior High School Level, Academic Year 2024, Secondary Educational Service Area Office Phetchabun',
+        ach_pre_lit_crit_66: 'Literary Criticism Competition, Junior High School Level, Academic Year 2023, Secondary Educational Service Area Office Phetchabun Group 3',
+        ach_pre_sci_speech_wk: 'Science Speech Contest during Science Week activities',
+        ach_pre_short_film_hr: 'Short Film Competition, Human Rights on Film Activity',
+        ach_pre_royal_speech: 'Participated in the Senior High School Speech Contest in the "Taveebanya Chalerm Phrakiat" activity, honoring His Majesty King Vajiravudh on the 100th anniversary of his passing.',
+        ach_pre_1: 'Core student for the project to build and promote good citizenship following the royal initiatives in education towards practice, 2024 (Phetchabun Province).',
+        ach_vice1_poetry_66: 'Poetry Writing Competition, Junior High School Level, on the 72nd anniversary of Sriracha School\'s establishment and Sriracha Academic Open House, Blue-Red, Academic Year 2023.',
+        ach_vice1_essay_buddhist_lent: 'Essay Writing Contest on "Buddhist Lent: Abstain from Alcohol" at Panthong Sapachanupatham School.',
+        ach_vice1_poetry_71: 'New Generation Poet Competition, Kap Yaani 11 (6 verses), Junior High School Level, 71st Student Arts & Crafts Competition, Academic Year 2023, Chonburi Educational Service Area 2.',
+        ach_vice1_thai_lit_67: 'Thai Literary Composition Activity, Junior High School Level, Sunthorn Phu Day and Thai Language Day Activity, Academic Year 2024, Panthong Sapachanupatham School.',
+        ach_vice1_moral_proj_70: 'Moral Project Competition, M.1-M.3 Junior High School Level, 70th Arts & Crafts Competition, Chonburi Educational Service Area 2, at Panus Pittayakarn School.',
+        ach_vice1_drug_comm_proj: 'District Level, Junior High School Category, in the Creative Communication Project Competition on "Understanding Yaba" from the Office of the Narcotics Control Board, Ministry of Justice.',
+        ach_vice1_sci_show_68: 'Science Show Competition, Senior High School Level, during National Science Week activities, Academic Year 2025, at Panthong Sapachanupatham School.',
+        ach_vice1_moral_proj_natl_70: 'Moral Project Competition, M.1-M.3 Junior High School Level, 70th National Student Arts & Crafts Competition, Central and Eastern Region, Ratchaburi Province.',
+        ach_vice1_thai_lit_comp_67: 'Thai Literary Composition Activity, M.1-M.3 Junior High School Level, Thai Language Skills Competition, "Love Thai Language" Project, Thai Language Day Week, Academic Year 2024, Regional Educational Service Area.',
+        ach_vice1_1: 'Representative presenting the results of the moral school project upon receiving supervision and follow-up on the school\'s moral project from the Yuwaphat Foundation.',
+        ach_vice1_2: 'Participated in "River Detective Camp, Carbon Scale Episode" in front of Bang Pakong Power Plant, November 19-21, 2025.',
+        ach_vice2_thai_lit_crit_73: 'Thai Language Competition: Literary Criticism (M.4-M.6), 73rd Student Arts & Crafts Competition, Academic Year 2025',
+        ach_vice2_short_film_moral: 'Short Film Competition on "Talented, Brave, Good, and Moral," Junior High School Level.',
+        ach_vice2_1: 'Outstanding Student of Panthong Sapha on Honor Day, Junior High School Graduation Activity.',
+        ach_vice2_encyclopedia_quiz: 'Encyclopedia Quiz Competition during Library Week activities, Senior High School Level.',
+        ach_vice2_lit_crit_71: 'Literary Criticism Competition, Junior High School Level, 71st Student Arts & Crafts Competition, Academic Year 2023, under Secondary Educational Service Area Office Chonburi Rayong, Chonburi 2 Sub-area.',
+        ach_vice2_lit_crit_district_66: 'Literary Criticism Competition, Junior High School Level, Student Arts & Crafts Competition, District Level, Secondary Educational Service Area Office Chonburi Rayong, Academic Year 2023.',
+        ach_vice2_lit_crit_senior: 'Literary Criticism Competition, Senior High School Level.',
+        ach_vice2_thai_read_comp_66: 'Thai Language Skills Competition, "Love Thai Language" Project, Thai Language Day Week, Academic Year 2023, Reading Comprehension Activity, Junior High School Level.',
+        policy4_note: '<span style="color:#1D4ED8;"> - We assure strict confidentiality of all information and stories shared, for everyone\'s comfort and safety.</span>',
+        policy10_note: '<span style="color:#EF4444;">- Applicants for the contest must adhere strictly to school regulations regarding attire and hairstyle.</span>',
+        policy11_note: '<span style="color:#1D4ED8;">- The project aims to promote a sense of helpfulness and create a sustainable sharing society.</span>',
+      }
+    };
+
+    let currentLanguage = localStorage.getItem('language') || 'th';
+
     const policies = {
       policy1: {
         number: '1',
-        title: 'Clean Zone',
-        subtitle: 'ห้องน้ำดีมีความสุข',
+        title: { th: 'Clean Zone', en: 'Clean Zone' },
+        subtitle: { th: 'ห้องน้ำดีมีความสุข', en: 'Happy Bathrooms' },
         icon: '🚻',
         color: 'from-pink-500 to-rose-500',
-        description: 'ดำเนินการแก้ไขปัญหาที่เกี่ยวข้องกับห้องน้ำ โดยเฉพาะเรื่องกลิ่นไม่พึงประสงค์ ผ่านการจัดหาสมุนไพรหรือผลิตภัณฑ์ที่มีกลิ่นหอมเพื่อช่วยลดกลิ่น รวมถึงจัดทำอุปกรณ์หรือที่แขวนเพิ่มเติม เพื่อให้ห้องน้ำมีความสะดวกสบายและเหมาะสมต่อการใช้งานมากยิ่งขึ้น'
+        description: {
+          th: 'ดำเนินการแก้ไขปัญหาที่เกี่ยวข้องกับห้องน้ำ โดยเฉพาะเรื่องกลิ่นไม่พึงประสงค์ ผ่านการจัดหาสมุนไพรหรือผลิตภัณฑ์ที่มีกลิ่นหอมเพื่อช่วยลดกลิ่น รวมถึงจัดทำอุปกรณ์หรือที่แขวนเพิ่มเติม เพื่อให้ห้องน้ำมีความสะดวกสบายและเหมาะสมต่อการใช้งานมากยิ่งขึ้น',
+          en: 'Resolving bathroom issues, especially unpleasant odors, by sourcing herbs or fragrant products to reduce smells. Additionally, providing extra equipment or hangers to make bathrooms more comfortable and suitable for use.'
+        }
       },
       policy2: {
         number: '2',
-        title: 'Eco-Conscious',
-        subtitle: 'ใส่ใจสิ่งแวดล้อม',
+        title: { th: 'Eco-Conscious', en: 'Eco-Conscious' },
+        subtitle: { th: 'ใส่ใจสิ่งแวดล้อม', en: 'Mindful of the Environment' },
         icon: '🌱',
         color: 'from-green-500 to-emerald-500',
-        description: 'ส่งเสริมการดูแลสิ่งแวดล้อมภายในโรงเรียน เพื่อปรับปรุงและพัฒนาสภาพแวดล้อมให้สะอาด เป็นระเบียบ และน่าอยู่ยิ่งขึ้น เช่น การเพิ่มถังขยะบริเวณหน้าโรงจอดรถ และการจัดกิจกรรมทำความสะอาดครั้งใหญ่ (Big Cleaning Day)'
+        description: {
+          th: 'ส่งเสริมการดูแลสิ่งแวดล้อมภายในโรงเรียน เพื่อปรับปรุงและพัฒนาสภาพแวดล้อมให้สะอาด เป็นระเบียบ และน่าอยู่ยิ่งขึ้น เช่น การเพิ่มถังขยะบริเวณหน้าโรงจอดรถ และการจัดกิจกรรมทำความสะอาดครั้งใหญ่ (Big Cleaning Day)',
+          en: 'Promoting environmental care within the school to improve and develop a clean, orderly, and more livable environment, such as adding trash bins near the parking lot and organizing a Big Cleaning Day.'
+        }
       },
       policy3: {
         number: '3',
-        title: 'Your Voice',
-        subtitle: 'QR Code รับความคิดเห็น',
+        title: { th: 'Your Voice', en: 'Your Voice' },
+        subtitle: { th: 'QR Code รับความคิดเห็น', en: 'Feedback QR Code' },
         icon: '💬',
         color: 'from-blue-500 to-cyan-500',
-        description: 'จัดทำ QR Code เพื่อเปิดช่องทางรับฟังความคิดเห็น ข้อเสนอแนะ หรือคำร้องเรียนต่าง ๆ จากพี่ ๆ น้อง ๆ เพื่อนำข้อมูลที่ได้รับไปพิจารณา ปรับปรุง และแก้ไขให้เกิดความเหมาะสมและดีขึ้นอย่างต่อเนื่อง'
+        description: {
+          th: 'จัดทำ QR Code เพื่อเปิดช่องทางรับฟังความคิดเห็น ข้อเสนอแนะ หรือคำร้องเรียนต่าง ๆ จากพี่ ๆ น้อง ๆ เพื่อนำข้อมูลที่ได้รับไปพิจารณา ปรับปรุง และแก้ไขให้เกิดความเหมาะสมและดีขึ้นอย่างต่อเนื่อง',
+          en: 'Creating a QR Code to open a channel for listening to opinions, suggestions, or complaints from students, to consider, improve, and continuously rectify issues for greater suitability and betterment.'
+        }
       },
       policy4: {
         number: '4',
-        title: 'Safe Talk',
-        subtitle: 'พี่ที่ปรึกษา',
+        title: { th: 'Safe Talk', en: 'Safe Talk' },
+        subtitle: { th: 'พี่ที่ปรึกษา', en: 'Peer Advisor' },
         icon: '🤝',
         color: 'from-purple-500 to-violet-500',
-        description: `หากพี่ ๆ น้อง ๆ คนใดกำลังประสบปัญหาหรือมีความกังวลใจ และไม่ทราบว่าจะปรึกษาใครได้ สามารถติดต่อพวกเราได้โดยตรง พวกเราพร้อมเป็นอีกหนึ่งช่องทางในการรับฟัง ให้คำแนะนำ และช่วยเสนอแนวทางแก้ไขปัญหาอย่างเหมาะสม เพื่อให้น้อง ๆ ได้รับการดูแลและความช่วยเหลืออย่างดีที่สุด
-        
-        <span style="color:#1D4ED8;"> - ทั้งนี้ พวกเราขอยืนยันว่าจะเก็บรักษาข้อมูลและเรื่องราวที่น้อง ๆ เข้ามาปรึกษาเป็นความลับอย่างเคร่งครัด
-          เพื่อความสบายใจและความปลอดภัยของทุกคน</span>`
+        description: {
+          th: 'หากพี่ ๆ น้อง ๆ คนใดกำลังประสบปัญหาหรือมีความกังวลใจ และไม่ทราบว่าจะปรึกษาใครได้ สามารถติดต่อพวกเราได้โดยตรง พวกเราพร้อมเป็นอีกหนึ่งช่องทางในการรับฟัง ให้คำแนะนำ และช่วยเสนอแนวทางแก้ไขปัญหาอย่างเหมาะสม เพื่อให้น้อง ๆ ได้รับการดูแลและความช่วยเหลืออย่างดีที่สุด \n\n' + translations.th.policy4_note,
+          en: 'If any students are experiencing problems or concerns and don\'t know who to talk to, they can contact us directly. We are ready to be another channel for listening, providing advice, and offering appropriate solutions, to ensure students receive the best care and assistance. \n\n' + translations.en.policy4_note
+        }
       },
       policy5: {
         number: '5',
-        title: 'Gen ใหม่ ห่างไกลยา',
-        subtitle: 'กิจกรรมต่อต้านยาเสพติด',
+        title: { th: 'Gen ใหม่ ห่างไกลยา', en: 'New Gen, Drug-Free' },
+        subtitle: { th: 'กิจกรรมต่อต้านยาเสพติด', en: 'Anti-Drug Activities' },
         icon: '🚫',
         color: 'from-red-500 to-orange-500',
-        description: 'พวกเราจะร่วมมือกับผู้ที่เกี่ยวข้องในการจัดกิจกรรมรณรงค์ต่อต้านยาเสพติด เพื่อสร้างความตระหนักรู้และเสริมภูมิคุ้มกันให้กับนักเรียน ผ่านกิจกรรมต่าง ๆ เช่น การจัดการแข่งขันกีฬา การจัดกิจกรรมให้ความรู้เกี่ยวกับโทษของยาเสพติด และการจัดบูธประชาสัมพันธ์'
+        description: {
+          th: 'พวกเราจะร่วมมือกับผู้ที่เกี่ยวข้องในการจัดกิจกรรมรณรงค์ต่อต้านยาเสพติด เพื่อสร้างความตระหนักรู้และเสริมภูมิคุ้มกันให้กับนักเรียน ผ่านกิจกรรมต่าง ๆ เช่น การจัดการแข่งขันกีฬา การจัดกิจกรรมให้ความรู้เกี่ยวกับโทษของยาเสพติด และการจัดบูธประชาสัมพันธ์',
+          en: 'We will collaborate with relevant parties to organize anti-drug campaigns to raise awareness and build immunity among students through various activities such as sports competitions, educational sessions on the dangers of drugs, and informational booths.'
+        }
       },
       policy6: {
         number: '6',
-        title: 'PSC Creative Class',
-        subtitle: 'กิจกรรมบูรณาการกับกลุ่มสาระการเรียนรู้ต่าง ๆ',
+        title: { th: 'PSC Creative Class', en: 'PSC Creative Class' },
+        subtitle: { th: 'กิจกรรมบูรณาการกับกลุ่มสาระการเรียนรู้ต่าง ๆ', en: 'Integrated Activities with Various Learning Areas' },
         icon: '🎨',
         color: 'from-yellow-500 to-amber-500',
-        description: 'ร่วมจัดกิจกรรมกับกลุ่มสาระการเรียนรู้ต่าง ๆ เพื่อส่งเสริมความสนุกสนาน ความสร้างสรรค์ และเพิ่มประสบการณ์การเรียนรู้อย่างหลากหลายให้มากยิ่งขึ้น'
+        description: {
+          th: 'ร่วมจัดกิจกรรมกับกลุ่มสาระการเรียนรู้ต่าง ๆ เพื่อส่งเสริมความสนุกสนาน ความสร้างสรรค์ และเพิ่มประสบการณ์การเรียนรู้อย่างหลากหลายให้มากยิ่งขึ้น',
+          en: 'Collaborating with various learning areas to promote fun, creativity, and diverse learning experiences.'
+        }
       },
       policy7: {
         number: '7',
-        title: 'PSC Buddy Link',
-        subtitle: 'สายใยน้องพี่น้ำเงินชมพู',
+        title: { th: 'PSC Buddy Link', en: 'PSC Buddy Link' },
+        subtitle: { th: 'สายใยน้องพี่น้ำเงินชมพู', en: 'Blue-Pink Sibling Bonds' },
         icon: '🤗',
         color: 'from-indigo-500 to-blue-500',
-        description: 'เป็นกิจกรรมจับสายรหัส เพื่อส่งเสริมและกระชับความสัมพันธ์อันดีระหว่างรุ่นพี่และรุ่นน้องให้แน่นแฟ้นยิ่งขึ้น โดยแบ่งกลุ่มตามระดับชั้น ได้แก่ ระดับมัธยมศึกษาตอนต้น, มัธยมศึกษาตอนปลาย (สายวิทย์) และมัธยมศึกษาตอนปลาย (สายศิลป์)'
+        description: {
+          th: 'เป็นกิจกรรมจับสายรหัส เพื่อส่งเสริมและกระชับความสัมพันธ์อันดีระหว่างรุ่นพี่และรุ่นน้องให้แน่นแฟ้นยิ่งขึ้น โดยแบ่งกลุ่มตามระดับชั้น ได้แก่ ระดับมัธยมศึกษาตอนต้น, มัธยมศึกษาตอนปลาย (สายวิทย์) และมัธยมศึกษาตอนปลาย (สายศิลป์)',
+          en: 'A buddy system activity to foster and strengthen good relationships between seniors and juniors, divided by grade levels: Junior High School, Senior High School (Science Stream), and Senior High School (Arts Stream).'
+        }
       },
       policy8: {
         number: '8',
-        title: 'PSC Opportunity Hub',
-        subtitle: 'ศูนย์กลางโอกาสของ PSC',
+        title: { th: 'PSC Opportunity Hub', en: 'PSC Opportunity Hub' },
+        subtitle: { th: 'ศูนย์กลางโอกาสของ PSC', en: 'PSC Opportunity Hub' },
         icon: '🎯',
         color: 'from-cyan-500 to-teal-500',
-        description: 'เป็นการประชาสัมพันธ์ข่าวสารและกิจกรรมที่เป็นประโยชน์แก่พี่ ๆ น้อง ๆ เช่น กิจกรรม Open House ของมหาวิทยาลัยต่าง ๆ รวมถึงกิจกรรมการแข่งขันทั้งภายในและภายนอกโรงเรียน เพื่อเป็นแนวทางในการเก็บสะสมผลงานและเกียรติบัตรสำหรับนำไปใช้ประกอบ Portfolio'
+        description: {
+          th: 'เป็นการประชาสัมพันธ์ข่าวสารและกิจกรรมที่เป็นประโยชน์แก่พี่ ๆ น้อง ๆ เช่น กิจกรรม Open House ของมหาวิทยาลัยต่าง ๆ รวมถึงกิจกรรมการแข่งขันทั้งภายในและภายนอกโรงเรียน เพื่อเป็นแนวทางในการเก็บสะสมผลงานและเกียรติบัตรสำหรับนำไปใช้ประกอบ Portfolio',
+          en: 'Disseminating news and beneficial activities for students, such as university Open House events and internal/external school competitions, to provide avenues for accumulating achievements and certificates for portfolios.'
+        }
       },
       policy9: {
         number: '9',
-        title: 'Fashion Show',
-        subtitle: 'แฟชั่นโชว์',
+        title: { th: 'Fashion Show', en: 'Fashion Show' },
+        subtitle: { th: 'แฟชั่นโชว์', en: 'Fashion Show' },
         icon: '👗',
         color: 'from-fuchsia-500 to-pink-500',
-        description: 'พวกเราจะร่วมจัดกิจกรรมการประกวดเดินแบบหรือการประกวดด้านแฟชั่น เพื่อส่งเสริมศักยภาพและความสามารถของพี่ ๆ น้อง ๆ ชาว P.S.C ให้ได้แสดงออกอย่างสร้างสรรค์ เช่น การประกวดชุดต่าง ๆ ในกิจกรรมวันสำคัญ'
+        description: {
+          th: 'พวกเราจะร่วมจัดกิจกรรมการประกวดเดินแบบหรือการประกวดด้านแฟชั่น เพื่อส่งเสริมศักยภาพและความสามารถของพี่ ๆ น้อง ๆ ชาว P.S.C ให้ได้แสดงออกอย่างสร้างสรรค์ เช่น การประกวดชุดต่าง ๆ ในกิจกรรมวันสำคัญ',
+          en: 'We will co-organize fashion shows or fashion competitions to promote the potential and creativity of P.S.C. students, allowing them to express themselves creatively, such as various costume contests during important events.'
+        }
       },
       policy10: {
         number: '10',
-        title: 'PSC Star',
-        subtitle: 'กิจกรรมประกวดดาว-เดือน',
+        title: { th: 'PSC Star', en: 'PSC Star' },
+        subtitle: { th: 'กิจกรรมประกวดดาว-เดือน', en: 'Star-Moon Contest' },
         icon: '⭐',
         color: 'from-amber-500 to-yellow-500',
-        description: `กิจกรรมที่เปิดโอกาสให้พี่ ๆ น้อง ๆ ชาว P.S.C ได้แสดงศักยภาพและความสามารถของตนเอง ผ่านกิจกรรมที่พวกเราจัดขึ้น โดยแบ่งการประกวดเป็น
- • ดาว (นักเรียนหญิง)
- • เดือน (นักเรียนชาย)
- • ควีน (LGBTQ)
-ภายหลังจากการแข่งขันเสร็จสิ้น ผู้ที่ได้รับตำแหน่งทั้ง 3 คนจะมีหน้าที่ร่วมประชาสัมพันธ์และส่งเสริมภาพลักษณ์ของโรงเรียนในด้านต่าง ๆ เช่น การแนะนำโรงเรียนผ่านช่องทางประชาสัมพันธ์ของโรงเรียน รวมถึงการถ่ายภาพเพื่อใช้ในการโปรโมทกิจกรรมต่าง ๆ
-
-<span style="color:#EF4444;">- ทั้งนี้ ผู้สมัครเข้าร่วมการประกวดจะต้องแต่งกายและจัดทรงผมให้ถูกต้องตามระเบียบของโรงเรียนอย่างเคร่งครัด</span>`
-
-
+        description: {
+          th: 'กิจกรรมที่เปิดโอกาสให้พี่ ๆ น้อง ๆ ชาว P.S.C ได้แสดงศักยภาพและความสามารถของตนเอง ผ่านกิจกรรมที่พวกเราจัดขึ้น โดยแบ่งการประกวดเป็น\n • ดาว (นักเรียนหญิง)\n • เดือน (นักเรียนชาย)\n • ควีน (LGBTQ)\nภายหลังจากการแข่งขันเสร็จสิ้น ผู้ที่ได้รับตำแหน่งทั้ง 3 คนจะมีหน้าที่ร่วมประชาสัมพันธ์และส่งเสริมภาพลักษณ์ของโรงเรียนในด้านต่าง ๆ เช่น การแนะนำโรงเรียนผ่านช่องทางประชาสัมพันธ์ของโรงเรียน รวมถึงการถ่ายภาพเพื่อใช้ในการโปรโมทกิจกรรมต่าง ๆ\n\n' + translations.th.policy10_note,
+          en: 'An activity that provides an opportunity for P.S.C. students to showcase their potential and talents through events organized by us, with categories:\n • Star (Female students)\n • Moon (Male students)\n • Queen (LGBTQ)\nAfter the competition, the three titleholders will be responsible for promoting and enhancing the school\'s image in various aspects, such as introducing the school through its communication channels and participating in photo shoots for activity promotions.\n\n' + translations.en.policy10_note
+        }
       },
       policy11: {
         number: '11',
-        title: 'Spread the Joy',
-        subtitle: 'พานทองสภารวมใจมอบให้',
+        title: { th: 'Spread the Joy', en: 'Spread the Joy' },
+        subtitle: { th: 'พานทองสภารวมใจมอบให้', en: 'Panthong Sapha Unites to Give' },
         icon: '💝',
         color: 'from-rose-500 to-pink-500',
-        description: `โครงการรับบริจาคเสื้อผ้า สิ่งของเครื่องใช้ และอุปกรณ์ต่าง ๆ ที่อยู่ในสภาพดีแต่ไม่ได้ใช้งานแล้ว เพื่อนำไปส่งต่อและบริจาคให้แก่ผู้ยากไร้หรือผู้ที่ขาดแคลน เพื่อเป็นการแบ่งปันน้ำใจและเพิ่มประโยชน์ให้แก่ผู้อื่นในสังคม
-        
-<span style="color:#1D4ED8;">- ทั้งนี้ โครงการมีเป้าหมายเพื่อส่งเสริมจิตสำนึกด้านการช่วยเหลือเกื้อกูล และสร้างสังคมแห่งการแบ่งปันอย่างยั่งยืน</span>`
-
+        description: {
+          th: 'โครงการรับบริจาคเสื้อผ้า สิ่งของเครื่องใช้ และอุปกรณ์ต่าง ๆ ที่อยู่ในสภาพดีแต่ไม่ได้ใช้งานแล้ว เพื่อนำไปส่งต่อและบริจาคให้แก่ผู้ยากไร้หรือผู้ที่ขาดแคลน เพื่อเป็นการแบ่งปันน้ำใจและเพิ่มประโยชน์ให้แก่ผู้อื่นในสังคม\n\n' + translations.th.policy11_note,
+          en: 'A project collecting good condition used clothes, items, and equipment to redistribute and donate to the underprivileged or those in need, fostering kindness and benefiting others in society.\n\n' + translations.en.policy11_note
+        }
       },
       policy12: {
         number: '12',
-        title: 'Choose Well, Study Right',
-        subtitle: 'เลือกให้ชัด เรียนให้ใช่',
+        title: { th: 'Choose Well, Study Right', en: 'Choose Well, Study Right' },
+        subtitle: { th: 'เลือกให้ชัด เรียนให้ใช่', en: 'Choose Well, Study Right' },
         icon: '📚',
         color: 'from-teal-500 to-green-500',
-        description: 'นโยบายแนะแนวแผนการเรียนเพื่อช่วยให้น้อง ๆ มัธยมต้นที่กำลังสับสนเกี่ยวกับการเลือกแผนการเรียน ได้มีข้อมูลและทางเลือกที่เหมาะกับตัวเองมากขึ้น โดยจัดกิจกรรมจากตัวแทนรุ่นพี่ในแต่ละแผนการเรียนจริง มาแชร์ประสบการณ์ตรง ข้อดี-ข้อควรระวัง และแนวทางการเตรียมตัว ทำให้น้อง ๆ ตัดสินใจได้มั่นใจขึ้น'
+        description: {
+          th: 'นโยบายแนะแนวแผนการเรียนเพื่อช่วยให้น้อง ๆ มัธยมต้นที่กำลังสับสนเกี่ยวกับการเลือกแผนการเรียน ได้มีข้อมูลและทางเลือกที่เหมาะกับตัวเองมากขึ้น โดยจัดกิจกรรมจากตัวแทนรุ่นพี่ในแต่ละแผนการเรียนจริง มาแชร์ประสบการณ์ตรง ข้อดี-ข้อควรระวัง และแนวทางการเตรียมตัว ทำให้น้อง ๆ ตัดสินใจได้มั่นใจขึ้น',
+          en: 'An academic path guidance policy to help junior high students who are confused about choosing their study plans, providing them with more information and suitable options. This involves organizing activities where senior student representatives from each study program share their direct experiences, pros and cons, and preparation tips, helping younger students make confident decisions.'
+        }
       },
       policy13: {
         number: '13',
-        title: 'Continue Senior Policy',
-        subtitle: 'สานต่อนโยบายรุ่นพี่',
+        title: { th: 'Continue Senior Policy', en: 'Continue Senior Policy' },
+        subtitle: { th: 'สานต่อนโยบายรุ่นพี่', en: 'Continue Senior Policy' },
         icon: '🔄',
         color: 'from-violet-500 to-purple-500',
-        description: 'เป็นนโยบายที่มุ่งเน้นการต่อยอดและสานต่อแนวทางของสภานักเรียนรุ่นก่อน เพื่อรักษาเจตนารมณ์ที่ดีและพัฒนาต่อเนื่องให้เกิดประโยชน์สูงสุด เช่น กิจกรรมลานน้ำเงินชมพู กิจกรรมการแข่งขัน E-Sports การจัดเตรียมผ้าอนามัยฉุกเฉินสำหรับนักเรียนหญิง และการใช้กระดาษ Reuse สำหรับห่อผ้าอนามัย เป็นต้น'
+        description: {
+          th: 'เป็นนโยบายที่มุ่งเน้นการต่อยอดและสานต่อแนวทางของสภานักเรียนรุ่นก่อน เพื่อรักษาเจตนารมณ์ที่ดีและพัฒนาต่อเนื่องให้เกิดประโยชน์สูงสุด เช่น กิจกรรมลานน้ำเงินชมพู กิจกรรมการแข่งขัน E-Sports การจัดเตรียมผ้าอนามัยฉุกเฉินสำหรับนักเรียนหญิง และการใช้กระดาษ Reuse สำหรับห่อผ้าอนามัย เป็นต้น',
+          en: 'A policy focused on extending and continuing the initiatives of previous student councils to maintain good intentions and foster continuous development for maximum benefit. Examples include the Blue-Pink Courtyard activity, E-Sports competitions, provision of emergency sanitary pads for female students, and using reuse paper for wrapping sanitary pads.'
+        }
       }
     };
 
     const members = {
       president: {
-        name: 'น.ส. อภิญญาภรณ์ บุญหนา',
-        nickname: 'แบม',
-        role: 'ประธานพรรค',
+        name: { th: 'น.ส. อภิญญาภรณ์ บุญหนา', en: 'Ms. Apinyaporn Bunna' },
+        nickname: { th: 'แบม', en: 'Bam' },
+        role: { th: 'ประธานพรรค', en: 'Party President' },
         image: 'https://img2.pic.in.th/4fd3f9c70602fc8dd80909d154e3a8fa.png',
-        room: '4/1',
-        program: 'คณิตศาสตร์ - หุ่นยนต์',
+        room: { th: '4/1', en: '4/1' },
+        program: { th: 'คณิตศาสตร์ - หุ่นยนต์', en: 'Mathematics - Robotics' },
         gpa: '3.66',
         instagram: 'https://www.instagram.com/nuldeas/',
         color: 'from-pink-500 to-purple-500',
         achievements: [
-        '<span class="text-shimmer font-bold mr-2">NEW</span><span style="color: #D4AF37; font-weight: bold;">รางวัลเหรียญทอง</span> การแข่งขัน วิทยาศาสตร์และเทคโนโลยีการแข่งขันการแสดงทางวิทยาศาสตร์ (Science Show) ม.4-ม.6 งานศิลปหัตถกรรมนักเรียน ครั้งที่ 73 ปีการศึกษา 2568',
-        '<span style="color: #D4AF37; font-weight: bold;">รางวัลเหรียญทองรองชนะเลิศอันดับ 1</span>  การแข่งขันการจัดทำหนังสือเล่มเล็ก ระดับชั้นมัธยมศึกษาตอนต้น ประจำปี 2567 สพม.เพชรบูรณ์',
-        '<span style="color: #D4AF37; font-weight: bold;">รางวัลเหรียญทอง</span> การแข่งขันพินิจวรรณคดี ระดับชั้นมัธยมศึกษาตอนต้น ประจำปี 2566 สพม.เพชรบูรณ์ กลุ่ม 3',
-        '<span style="color: #9CA3AF; font-weight: bold;">รางวัลรองชนะเลิศอันดับ 1</span> การประกวดพูดทางวิทยาศาสตร์ เนื่องในวันสัปดาห์วิทยาศาสตร์',
-        'รางวัล ชมเชย การประกวดภาพยนตร์สั้น กิจกรรมสิทธิมนุษย์ชนแผ่นฟิล์ม',
-        'เข้าร่วมการประกวดสุนทรพจน์ ระดับมัธยมศึกษาตอนปลาย ในกิจกรรม ทวีบัญญาเฉลิมพระเกียรติ พระบาทสมเด็จพระมงกุฎเกล้าเจ้าอยู่หัว เนื่องในโอกาสครบรอบ ๑๐๐ ปี แห่งวันสวรรคต',
-        'เป็นนักเรียนแกนนำโครงการสร้างและส่งเสริมความเป็นพลเมืองดีตามรอยพระยุคลบาทด้านการศึกษาสู่การปฏิบัติ ประจำปี 2567 (จังหวัดเพชรบูรณ์)'
+          'newAchievement prizeGold ach_pre_sci_show_73',
+          'prizeGold1stRunnerUp ach_pre_small_book_73',
+          'prizeGold ach_pre_lit_crit_66',
+          'prize1stRunnerUp ach_pre_sci_speech_wk',
+          'prizeCommendation ach_pre_short_film_hr',
+          'ach_pre_royal_speech',
+          'ach_pre_1'
         ]
-
-
       },
       vice1: {
-        name: 'นาย พชร กาเผือก',
-        nickname: 'ไกด์',
-        role: 'รองประธาน 1',
+        name: { th: 'นาย พชร กาเผือก', en: 'Mr. Pachara Kapueak' },
+        nickname: { th: 'ไกด์', en: 'Guide' },
+        role: { th: 'รองประธาน 1', en: 'Vice President 1' },
         image: 'https://img2.pic.in.th/a282ee30ae6857ae5dcaf191244f4b6c.png',
-        room: '4/1',
-        program: 'คณิตศาสตร์ - หุ่นยนต์',
+        room: { th: '4/1', en: '4/1' },
+        program: { th: 'คณิตศาสตร์ - หุ่นยนต์', en: 'Mathematics - Robotics' },
         gpa: '4.00',
         instagram: 'https://www.instagram.com/gxide_g/',
         color: 'from-blue-500 to-purple-500',
         achievements: [
-        '<span class="text-shimmer font-bold mr-2">NEW</span><span style="color: #D4AF37; font-weight: bold;">รางวัลเหรียญทอง</span> การแข่งขัน วิทยาศาสตร์และเทคโนโลยีการแข่งขันการแสดงทางวิทยาศาสตร์ (Science Show) ม.4-ม.6 งานศิลปหัตถกรรมนักเรียน ครั้งที่ 73 ปีการศึกษา 2568',
-          '<span style="color: #D4AF37; font-weight: bold;">รางวัลระดับเหรียญทอง</span> การแข่งขันแต่งบทร้อยกรองระดับมัธยมศึกษาตอนต้น เนื่องในวันคล้ายวันสถาปนาโรงเรียนศรีราชาครบรอบปีที่ ๗๒ และงานเปิดบ้านวิชาการศรีราชา ฟ้า-แดง ประจำปีการศึกษา ๒๕๖๖',
-          '<span style="color: #D4AF37; font-weight: bold;">รางวัลชนะเลิศ</span> การประกวดการเขียนเรียงความหัวข้อ "เข้าพรรษา พางดเหล้า" โรงเรียนพานทองสภาชนูปถัมภ์',
-          '<span style="color: #D4AF37; font-weight: bold;">รางวัลระดับเหรียญทอง รองชนะเลิศอันดับที่ ๑ </span>กิจกรรมการแข่งขันกวีเยาวชนคนรุ่นใหม่กาพย์ยานี ๑๑(๖บท) ระดับชั้นม.๑ ถึงม.๓ งานศิลปหัตถกรรมนักเรียนครั้งที่ ๗๑ ปีการศึกษา ๒๕๖๖ ระดับเขตพื้นที่การศึกษาสหวิทยาเขตชลบุรีเขต ๒',
-          '<span style="color: #D4AF37; font-weight: bold;">รางวัลชนะเลิศ</span> กิจกรรมแต่งคำประพันธ์ระดับชั้นมัธยมศึกษาตอนต้น กิจกรรมวันสุนทรภู่และวันภาษาไทยแห่งชาติ ปีการศึกษา 2567 โรงเรียนพานทองสภาชนูปถัมภ์',
-          '<span style="color: #D4AF37; font-weight: bold;">รางวัลระดับเหรียญทองชนะเลิศ </span> กิจกรรมประกวดโครงงานคุณธรรมระดับชั้นมัธยมศึกษา ม.1-ม.3 งานศิลปหัตถกรรมครั้งที่ 70 ระดับเขตพื้นที่การศึกษาสหวิทยาเขตชลบุรี 2 ณ โรงเรียนพนัสพิทยาคาร',
-          '<span style="color: #D4AF37; font-weight: bold;">รางวัลรองชนะเลิศอันดับที่ 1</span> ระดับอำเภอประเภทมัธยมศึกษาตอนต้น ในการประกวดโครงงานการสื่อสารสร้างสรรค์รู้เท่าทันยาบ้า จากสำนักงานคณะกรรมการป้องกันและปราบปรามยาเสพติดกระทรวงยุติธรรม',
-          '<span style="color: #D4AF37; font-weight: bold;">รางวัลรองชนะเลิศอันดับที่ 1</span> การแข่งขันการแสดงทางวิทยาศาสตร์ (Science Show) ระดับมัธยมศึกษาตอนปลาย เนื่องในกิจกรรมสัปดาห์วิทยาศาสตร์แห่งชาติประจำปี 2568 ณ โรงเรียนพานทองสภาชนูปถัมภ์',
-          '<span style="color: #9CA3AF; font-weight: bold;">รางวัลระดับเหรียญเงิน</span> กิจกรรมการประกวดโครงงานคุณธรรมระดับชั้นมัธยมศึกษาปีที่ ๑-๓ งานศิลปหัตถกรรมนักเรียน ระดับชาติครั้งที่ 70 ภาคกลางและภาคตะวันออก ณ จังหวัดราชบุรี',
-          '<span style="color: #9C4F19; font-weight: bold;">รางวัลระดับเหรียญทองแดง </span>กิจกรรมแต่งคำประพันธ์มัธยมศึกษาปีที่ ๑-๓ การแข่งขันทักษะภาษาไทยโครงงานรักภาษาไทยเนื่องในสัปดาห์วันภาษาไทยแห่งชาติปี ๒๕๖๗ ระดับเขตพื้นที่การศึกษา',
-          'เป็นตัวแทนนำเสนอผลการดำเนินงานโครงงานโรงเรียนคุณธรรมเนื่องในโอกาสรับการนิเทศติดตามผลการดำเนินงานโครงงานคุณธรรมโรงเรียนจากมูลนิธิยุวพัฒน์',
-          'ผ่านการเข้าร่วม "ค่ายนักสืบสายน้ำ ตอน ตราชั่งคาร์บอน" หน้าโรงไฟฟ้าบางปะกง ระหว่างวันที่ 19-21 พฤศจิกายน 2568'
+          'newAchievement prizeGold ach_pre_sci_show_73', // Shared achievement
+          'prizeGold ach_vice1_poetry_66',
+          'prizeWinner ach_vice1_essay_buddhist_lent',
+          'prizeGold1stRunnerUp ach_vice1_poetry_71',
+          'prizeWinner ach_vice1_thai_lit_67',
+          'prizeGold ach_vice1_moral_proj_70',
+          'prize1stRunnerUp ach_vice1_drug_comm_proj',
+          'prize1stRunnerUp ach_vice1_sci_show_68',
+          'prizeSilver ach_vice1_moral_proj_natl_70',
+          'prizeBronze ach_vice1_thai_lit_comp_67',
+          'ach_vice1_1',
+          'ach_vice1_2'
         ]
       },
       vice2: {
-        name: 'น.ส. ฐานิดา พลอารีย์',
-        nickname: 'แตม',
-        role: 'รองประธาน 2',
+        name: { th: 'น.ส. ฐานิดา พลอารีย์', en: 'Ms. Thanida polaree' },
+        nickname: { th: 'แตม', en: 'Tam' },
+        role: { th: 'รองประธาน 2', en: 'Vice President 2' },
         image: 'https://img2.pic.in.th/3811fccd5f646262837126ae3d1c42a2.png',
-        room: '4/1',
-        program: 'คณิตศาสตร์ - หุ่นยนต์',
+        room: { th: '4/1', en: '4/1' },
+        program: { th: 'คณิตศาสตร์ - หุ่นยนต์', en: 'Mathematics - Robotics' },
         gpa: '3.85',
         instagram: 'https://www.instagram.com/t.thanidaa_/',
         color: 'from-purple-500 to-pink-500',
         achievements: [
-          '<span class="text-shimmer font-bold mr-2">NEW</span><span style="color: #9C4F19; font-weight: bold;">รางวัลระดับเหรียญทองแดง</span> การแข่งขัน ภาษาไทยการแข่งขันวรรณกรรมพิจารณ์ ม.4-ม.6 งานศิลปหัตถกรรมนักเรียน ครั้งที่ 73 ปีการศึกษา 2568',
-          '<span style="color: #D4AF37; font-weight: bold;">รางวัลรองชนะเลิศอันดับ 1</span> การแข่งขันประกวดภาพยนตร์สั้นในหัวข้อ "เก่ง กล้า ดี มีคุณธรรม" ระดับชั้นมัธยมศึกษาตอนต้น',
-          '<span style="color: #D4AF37; font-weight: bold;">รางวัลเด็กดีศรีพานทองสภาฯ</span> เนื่องในวันเกียรติยศ กิจกรรมจบการศึกษามัธยมศึกษาตอนต้น',
-          '<span style="color: #D4AF37; font-weight: bold;">รางวัลรองชนะเลิศอันดับ 1</span> การตอบปัญหาสารานุกรม เนื่องในกิจกรรมสัปดาห์ห้องสมุด ระดับชั้นมัธยมศึกษาตอนปลาย',
-          '<span style="color: #D4AF37; font-weight: bold;">รางวัลชนะเลิศ</span> การแข่งขันวรรณกรรมพิจารณ์ ระดับชั้นมัธยมศึกษาตอนต้น งานศิลปหัตถกรรมนักเรียนระดับสหวิทยาเขต ครั้งที่ 71 ปีการศึกษา 2566 สังกัดสำนักงานเขตพื้นที่การศึกษามัธยมศึกษาชลบุรี ระยอง สหวิทยาเขตชลบุรี 2',
-          '<span style="color: #9CA3AF; font-weight: bold;">รางวัลระดับเหรียญเงิน</span> การแข่งขันวรรณกรรมพิจารณ์ ระดับชั้นมัธยมศึกษาตอนต้น งานศิลปหัตถกรรมนักเรียน ระดับเขตพื้นที่การศึกษา สพม.ชลบุรี ระยอง ปีการศึกษา 2566',
-          '<span style="color: #9C4F19; font-weight: bold;">รางวัลระดับเหรียญทองแดง</span> การแข่งขันวรรณกรรมพิจารณ์ ระดับชั้นมัธยมศึกษาตอนปลาย',
-          '<span style="color: #9C4F19; font-weight: bold;">รางวัลรองชนะเลิศลำดับ 3</span> การแข่งขันทักษะภาษาไทยโครงการรักษ์ภาษาไทย เนื่องในสัปดาห์วันภาษาไทยแห่งชาติ ปี 2566 กิจกรรมการอ่านจับใจความ ระดับชั้นมัธยมศึกษาตอนต้น'
+          'newAchievement prizeBronze ach_vice2_thai_lit_crit_73',
+          'prize1stRunnerUp ach_vice2_short_film_moral',
+          'ach_vice2_1',
+          'prize1stRunnerUp ach_vice2_encyclopedia_quiz',
+          'prizeWinner ach_vice2_lit_crit_71',
+          'prizeSilver ach_vice2_lit_crit_district_66',
+          'prizeBronze ach_vice2_lit_crit_senior',
+          'prize3rdRunnerUp ach_vice2_thai_read_comp_66'
         ]
       },
       member1: {
-        name: 'น.ส. ปาลีรัตน์ แสงทะมาตร์',
-        nickname: 'น้ำตาล',
-        role: 'แกนนำผู้ตั้งพรรค',
+        name: { th: 'น.ส. ปาลีรัตน์ แสงทะมาตร์', en: 'Ms. Paleerat Sangthamatr' },
+        nickname: { th: 'น้ำตาล', en: 'Namtan' },
+        role: { th: 'แกนนำผู้ตั้งพรรค', en: 'Founding Core Member' },
         image: 'https://img5.pic.in.th/file/secure-sv1/2daeabdae85b10f3494bb15299231a32.png',
-        room: '4/1',
-        program: 'คณิตศาสตร์ - หุ่นยนต์',
+        room: { th: '4/1', en: '4/1' },
+        program: { th: 'คณิตศาสตร์ - หุ่นยนต์', en: 'Mathematics - Robotics' },
         gpa: '3.86',
         instagram: 'https://www.instagram.com/nnnx_n_/',
-        color: 'from-pink-500 to-rose-500'
+        color: 'from-pink-500 to-rose-500',
+        achievements: null
       },
       member2: {
-        name: 'นาย แทนคุณ เบญมาตย์',
-        nickname: 'ตะวัน',
-        role: 'แกนนำผู้ตั้งพรรค',
+        name: { th: 'นาย แทนคุณ เบญมาตย์', en: 'Mr. Thaenkhun Benmart' },
+        nickname: { th: 'ตะวัน', en: 'Tawan' },
+        role: { th: 'แกนนำผู้ตั้งพรรค', en: 'Founding Core Member' },
         image: 'https://img5.pic.in.th/file/secure-sv1/b670c9521ac50bcfdfb480d7f7239618.png',
-        room: '4/1',
-        program: 'คณิตศาสตร์ - หุ่นยนต์',
+        room: { th: '4/1', en: '4/1' },
+        program: { th: 'คณิตศาสตร์ - หุ่นยนต์', en: 'Mathematics - Robotics' },
         gpa: '3.70',
         instagram: 'https://www.instagram.com/tx_w_an/',
-        color: 'from-blue-500 to-cyan-500'
+        color: 'from-blue-500 to-cyan-500',
+        achievements: null
       },
       member3: {
-        name: 'น.ส. ศศิธร หงษา',
-        nickname: 'จอย',
-        role: 'แกนนำผู้ตั้งพรรค',
+        name: { th: 'น.ส. ศศิธร หงษา', en: 'Ms. Sasithorn Hongsa' },
+        nickname: { th: 'จอย', en: 'Joy' },
+        role: { th: 'แกนนำผู้ตั้งพรรค', en: 'Founding Core Member' },
         image: 'https://img5.pic.in.th/file/secure-sv1/0263ff89b38c8f0cf109d7656758467f.png',
-        room: '4/1',
-        program: 'คณิตศาสตร์ - หุ่นยนต์',
+        room: { th: '4/1', en: '4/1' },
+        program: { th: 'คณิตศาสตร์ - หุ่นยนต์', en: 'Mathematics - Robotics' },
         gpa: '3.76',
         instagram: 'https://www.instagram.com/ssithrnhgsaa/',
-        color: 'from-purple-500 to-violet-500'
+        color: 'from-purple-500 to-violet-500',
+        achievements: null
       },
       member4: {
-        name: 'น.ส. ฐิตาภา พวงพิศ',
-        nickname: 'ไอเดียร์',
-        role: 'แกนนำผู้ตั้งพรรค',
+        name: { th: 'น.ส. ฐิตาภา พวงพิศ', en: 'Ms. Thitapha Phuangphit' },
+        nickname: { th: 'ไอเดียร์', en: 'Idea' },
+        role: { th: 'แกนนำผู้ตั้งพรรค', en: 'Founding Core Member' },
         image: 'https://img5.pic.in.th/file/secure-sv1/e85030dba531a5a3b0858c9b91f5fde4.png',
-        room: '4/1',
-        program: 'คณิตศาสตร์ - หุ่นยนต์',
+        room: { th: '4/1', en: '4/1' },
+        program: { th: 'คณิตศาสตร์ - หุ่นยนต์', en: 'Mathematics - Robotics' },
         gpa: '3.28',
         instagram: 'https://www.instagram.com/dearthitapa/',
-        color: 'from-cyan-500 to-teal-500'
+        color: 'from-cyan-500 to-teal-500',
+        achievements: null
       },
       member5: {
-        name: 'น.ส. พาขวัญ แสนเมืองชิน',
-        nickname: 'แพง',
-        role: 'แกนนำผู้ตั้งพรรค',
+        name: { th: 'น.ส. พาขวัญ แสนเมืองชิน', en: 'Ms. Phakhwan Saenmueangchin' },
+        nickname: { th: 'แพง', en: 'Paeng' },
+        role: { th: 'แกนนำผู้ตั้งพรรค', en: 'Founding Core Member' },
         image: 'https://img5.pic.in.th/file/secure-sv1/43901e5aa015605a15cffcb1d3b13e8b.png',
-        room: '4/1',
-        program: 'คณิตศาสตร์ - หุ่นยนต์',
+        room: { th: '4/1', en: '4/1' },
+        program: { th: 'คณิตศาสตร์ - หุ่นยนต์', en: 'Mathematics - Robotics' },
         gpa: '3.47',
         instagram: 'https://www.instagram.com/lily_01d/',
-        color: 'from-pink-500 to-fuchsia-500'
+        color: 'from-pink-500 to-fuchsia-500',
+        achievements: null
       },
       member6: {
-        name: 'นาย ธนวัฒน์ สิงห์จารย์',
-        nickname: 'ไตเติ้ล',
-        role: 'แกนนำผู้ตั้งพรรค',
+        name: { th: 'นาย ธนวัฒน์ สิงห์จารย์', en: 'Mr. Thanawat Singjarn' },
+        nickname: { th: 'ไตเติ้ล', en: 'Title' },
+        role: { th: 'แกนนำผู้ตั้งพรรค', en: 'Founding Core Member' },
         image: 'ไตเติ้ล.png',
-        room: '4/1',
-        program: 'คณิตศาสตร์ - หุ่นยนต์',
+        room: { th: '4/1', en: '4/1' },
+        program: { th: 'คณิตศาสตร์ - หุ่นยนต์', en: 'Mathematics - Robotics' },
         gpa: '3.43',
         instagram: 'https://www.instagram.com/can_igetyourheartt/',
-        color: 'from-indigo-500 to-blue-500'
+        color: 'from-indigo-500 to-blue-500',
+        achievements: null
       }
     };
+
+    function setAltText() {
+        document.querySelectorAll('[data-alt-key]').forEach(element => {
+            const key = element.getAttribute('data-alt-key');
+            if (translations[currentLanguage][key]) {
+                element.alt = translations[currentLanguage][key];
+            }
+        });
+    }
+
+    function setAriaLabels() {
+        document.querySelectorAll('[data-aria-label-key]').forEach(element => {
+            const key = element.getAttribute('data-aria-label-key');
+            if (translations[currentLanguage][key]) {
+                element.setAttribute('aria-label', translations[currentLanguage][key]);
+            }
+        });
+    }
+
+    // Function to translate achievement strings using defined keys
+    function getTranslatedAchievement(achievementKeyString) {
+        let translatedHtml = achievementKeyString;
+        // Iterate through all translation keys to replace placeholders
+        for (const key in translations[currentLanguage]) {
+            // Check for specific achievement keys first (e.g., ach_pre_sci_show_73)
+            if (key.startsWith('ach_') && translatedHtml.includes(key)) {
+                translatedHtml = translatedHtml.replace(key, translations[currentLanguage][key]);
+            }
+            // Check for prize/newAchievement keys
+            else if ((key.startsWith('prize') || key === 'newAchievement') && translatedHtml.includes(key)) {
+                translatedHtml = translatedHtml.replace(key, translations[currentLanguage][key]);
+            }
+        }
+        return translatedHtml;
+    }
+
+    // Function to update the display of the language button
+    function updateLangButtonDisplay() {
+      const langBtn = document.getElementById('langBtn');
+      const langIconSpan = document.getElementById('lang-indicator-icon');
+      const langTextSpan = document.getElementById('lang-indicator-text');
+
+      if (!langBtn || !langIconSpan || !langTextSpan) return;
+
+      if (currentLanguage === 'th') {
+        langIconSpan.textContent = '🇹🇭'; // Thai flag icon for current language
+        langTextSpan.textContent = translations.th.langBtnText; // (English) for target language
+        langBtn.setAttribute('aria-label', translations.th.langBtnAriaLabel);
+      } else { // currentLanguage === 'en'
+        langIconSpan.textContent = '🇬🇧'; // British flag icon for current language
+        langTextSpan.textContent = translations.en.langBtnText; // (Thai) for target language
+        langBtn.setAttribute('aria-label', translations.en.langBtnAriaLabel);
+      }
+    }
+
+    // Function to update the display of the dark mode button
+    function updateDarkButtonDisplay() {
+      const darkBtn = document.getElementById('darkBtn');
+      const darkIconSpan = document.getElementById('dark-indicator-icon');
+      const darkTextSpan = document.getElementById('dark-indicator-text');
+
+      if (!darkBtn || !darkIconSpan || !darkTextSpan) return;
+
+      const isDark = document.body.classList.contains("dark");
+      darkIconSpan.textContent = isDark ? '☀️' : '🌙';
+      darkTextSpan.textContent = isDark ? translations[currentLanguage].lightBtnText : translations[currentLanguage].darkBtnText;
+      darkBtn.setAttribute('aria-label', isDark ? translations[currentLanguage].lightBtnAriaLabel : translations[currentLanguage].darkBtnAriaLabel);
+    }
+
+    function setLanguage(lang) {
+      currentLanguage = lang;
+      localStorage.setItem('language', lang);
+
+      // Update HTML attributes and text content
+      document.documentElement.lang = lang;
+      document.title = translations[lang].pageTitle; // Update title tag
+
+      document.querySelectorAll('[data-lang-key]').forEach(element => {
+        const key = element.getAttribute('data-lang-key');
+        if (translations[lang][key]) {
+          element.textContent = translations[lang][key];
+        }
+      });
+      
+      setAltText(); // Update alt texts after language switch
+      setAriaLabels(); // Update aria-labels after language switch
+
+      // --- Update member names and roles on main cards ---
+      // President
+      const presidentNameElem = document.getElementById('president-card-name');
+      const presidentRoleElem = document.getElementById('president-card-role');
+      if (presidentNameElem) presidentNameElem.textContent = members.president.name[currentLanguage];
+      if (presidentRoleElem) presidentRoleElem.textContent = members.president.role[currentLanguage];
+
+      // Vice President 1
+      const vice1NameElem = document.getElementById('vice1-card-name');
+      const vice1RoleElem = document.getElementById('vice1-card-role');
+      if (vice1NameElem) vice1NameElem.textContent = members.vice1.name[currentLanguage];
+      if (vice1RoleElem) vice1RoleElem.textContent = members.vice1.role[currentLanguage];
+
+      // Vice President 2
+      const vice2NameElem = document.getElementById('vice2-card-name');
+      const vice2RoleElem = document.getElementById('vice2-card-role');
+      if (vice2NameElem) vice2NameElem.textContent = members.vice2.name[currentLanguage];
+      if (vice2RoleElem) vice2RoleElem.textContent = members.vice2.role[currentLanguage];
+
+      // Core Members
+      for (let i = 1; i <= 6; i++) {
+        const memberId = `member${i}`;
+        const memberNameElem = document.getElementById(`${memberId}-card-name`);
+        if (memberNameElem && members[memberId]) {
+          memberNameElem.textContent = members[memberId].name[currentLanguage];
+        }
+      }
+
+      // If a modal is open, re-render it with the new language
+      const modalElement = document.getElementById('modal');
+      if (!modalElement.classList.contains('hidden')) {
+        // This is a simplified approach: just close it.
+        // A more robust solution would store the member/policy ID and re-call openModal/openPolicyModal.
+        closeModal(); 
+      }
+      
+      updateCountdown(); // Update countdown text immediately
+      updateLangButtonDisplay(); // Update language button after language change
+      updateDarkButtonDisplay(); // Update dark mode button after language change (its text depends on currentLanguage)
+    }
+
+    function toggleLanguage() {
+      const newLang = currentLanguage === 'th' ? 'en' : 'th';
+      setLanguage(newLang);
+    }
 
     function openPolicyModal(policyId) {
       const policy = policies[policyId];
@@ -789,7 +1245,7 @@ body.dark span[style*="color"] {
       const modalContent = document.getElementById('modal-content');
       modalContent.innerHTML = `
         <div class="relative">
-          <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors z-10" aria-label="ปิด">
+          <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors z-10" aria-label="${translations[currentLanguage].closeButton}">
             <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
             </svg>
@@ -797,19 +1253,19 @@ body.dark span[style*="color"] {
           <div class="bg-gradient-to-r ${policy.color} p-8 rounded-t-3xl text-center">
             <div class="text-6xl mb-4">${policy.icon}</div>
             <span class="inline-block px-4 py-1 bg-white/20 backdrop-blur-sm text-white text-sm font-medium rounded-full mb-3">
-              นโยบายที่ ${policy.number}
+              ${translations[currentLanguage].policyModalNumber} ${policy.number}
             </span>
-            <h3 class="text-2xl font-bold text-white mb-2">${policy.title}</h3>
-            ${policy.subtitle ? `<p class="text-white/90 text-lg">${policy.subtitle}</p>` : ''}
+            <h3 class="text-2xl font-bold text-white mb-2">${policy.title[currentLanguage]}</h3>
+            ${policy.subtitle[currentLanguage] ? `<p class="text-white/90 text-lg">${policy.subtitle[currentLanguage]}</p>` : ''}
           </div>
           <div class="p-6">
             <div class="bg-gray-50 rounded-2xl p-5">
-              <p class="text-gray-700 leading-relaxed whitespace-pre-line">${policy.description}</p>
+              <p class="text-gray-700 leading-relaxed whitespace-pre-line">${policy.description[currentLanguage]}</p>
             </div>
             <div class="mt-6 pt-4 border-t border-gray-100 text-center">
               <p class="text-sm text-gray-600 flex items-center justify-center gap-2">
                 <span class="text-lg">🗳️</span>
-                พรรค Next Gen One เบอร์ 1
+                ${translations[currentLanguage].votePartyNum1}
               </p>
             </div>
           </div>
@@ -824,20 +1280,25 @@ body.dark span[style*="color"] {
       const member = members[memberId];
       if (!member) return;
 
+      const translatedAchievements = member.achievements ? member.achievements.map((achievementKey, index) => {
+        let processedText = getTranslatedAchievement(achievementKey);
+        return `
+          <li class="text-sm text-gray-700 leading-relaxed flex gap-2">
+            <span class="text-purple-500 font-bold flex-shrink-0">${index + 1}.</span>
+            <span>${processedText}</span>
+          </li>
+        `;
+      }).join('') : '';
+
       const achievementsHtml = member.achievements ? `
         <div class="mt-4 text-left">
           <h4 class="font-bold text-gray-800 mb-3 flex items-center gap-2">
             <span class="text-lg">🏆</span>
-            ผลงาน
+            ${translations[currentLanguage].achievementsLabel}
           </h4>
           <div class="bg-gray-50 rounded-2xl p-4 max-h-60 overflow-y-auto">
             <ul class="space-y-2">
-              ${member.achievements.map((achievement, index) => `
-                <li class="text-sm text-gray-700 leading-relaxed flex gap-2">
-                  <span class="text-purple-500 font-bold flex-shrink-0">${index + 1}.</span>
-                  <span>${achievement}</span>
-                </li>
-              `).join('')}
+              ${translatedAchievements}
             </ul>
           </div>
         </div>
@@ -846,28 +1307,28 @@ body.dark span[style*="color"] {
       const modalContent = document.getElementById('modal-content');
       modalContent.innerHTML = `
         <div class="relative">
-          <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors z-10" aria-label="ปิด">
+          <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors z-10" aria-label="${translations[currentLanguage].closeButton}">
             <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
             </svg>
           </button>
           <div class="bg-gradient-to-r ${member.color} p-8 rounded-t-3xl">
-            <img src="${member.image}" alt="${member.name}" class="w-32 h-32 mx-auto rounded-full object-cover shadow-xl ring-4 ring-white" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#e5e7eb'; this.alt='Image unavailable';">
+            <img src="${member.image}" alt="${member.name[currentLanguage]}" class="w-32 h-32 mx-auto rounded-full object-cover shadow-xl ring-4 ring-white" loading="lazy" onerror="this.src=''; this.alt=translations[currentLanguage].imageUnavailableAlt; console.error('Image failed to load:', this.src); this.style.background='#e5e7eb';">
           </div>
           <div class="p-6 text-center">
             <span class="inline-block px-4 py-1 bg-gradient-to-r ${member.color} text-white text-sm font-medium rounded-full mb-3">
-              ${member.role}
+              ${member.role[currentLanguage]}
             </span>
-            <h3 class="text-2xl font-bold text-gray-800 mb-2">${member.name}</h3>
-            ${member.nickname ? `<p class="text-lg text-gray-600 mb-4">ชื่อเล่น: ${member.nickname}</p>` : ''}
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">${member.name[currentLanguage]}</h3>
+            ${member.nickname ? `<p class="text-lg text-gray-600 mb-4">${translations[currentLanguage].nicknameLabel}: ${member.nickname[currentLanguage]}</p>` : ''}
             <div class="space-y-3 text-left bg-gray-50 rounded-2xl p-4">
               <div class="flex items-center gap-3">
                 <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
                   <span class="text-lg">🏫</span>
                 </div>
                 <div>
-                  <p class="text-sm text-gray-500">ห้อง</p>
-                  <p class="font-semibold text-gray-800">${member.room}</p>
+                  <p class="text-sm text-gray-500">${translations[currentLanguage].roomLabel}</p>
+                  <p class="font-semibold text-gray-800">${member.room[currentLanguage]}</p>
                 </div>
               </div>
               <div class="flex items-center gap-3">
@@ -875,8 +1336,8 @@ body.dark span[style*="color"] {
                   <span class="text-lg">📚</span>
                 </div>
                 <div>
-                  <p class="text-sm text-gray-500">แผนการเรียน</p>
-                  <p class="font-semibold text-gray-800">${member.program}</p>
+                  <p class="text-sm text-gray-500">${translations[currentLanguage].programLabel}</p>
+                  <p class="font-semibold text-gray-800">${member.program[currentLanguage]}</p>
                 </div>
               </div>
               ${member.gpa ? `
@@ -885,7 +1346,7 @@ body.dark span[style*="color"] {
                   <span class="text-lg">📊</span>
                 </div>
                 <div>
-                  <p class="text-sm text-gray-500">ผลการเรียน</p>
+                  <p class="text-sm text-gray-500">${translations[currentLanguage].gpaLabel}</p>
                   <p class="font-semibold text-gray-800">${member.gpa}</p>
                 </div>
               </div>
@@ -893,7 +1354,7 @@ body.dark span[style*="color"] {
               ${member.instagram ? `
               <div class="flex items-center gap-3">
                 <div class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center">
-                  <svg class="w-5 h-5 text-pink-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  <svg class="w-5 h-5 text-pink-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072-4.354-.2-6.782-2.618-6.979-6.98-.059-1.28-.073-1.689-.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                 </div>
                 <div class="flex-1">
                   <p class="text-sm text-gray-500">Instagram</p>
@@ -906,7 +1367,7 @@ body.dark span[style*="color"] {
             <div class="mt-6 pt-4 border-t border-gray-100">
               <p class="text-sm text-gray-600 flex items-center justify-center gap-2">
                 <span class="text-lg">🗳️</span>
-                พรรค Next Gen One เบอร์ 1
+                ${translations[currentLanguage].votePartyNum1}
               </p>
             </div>
           </div>
@@ -981,7 +1442,7 @@ body.dark span[style*="color"] {
       const countdownElement = document.getElementById("countdown");
 
       if (diff <= 0) {
-        countdownElement.innerText = "🎉 เลือกพรรคสภานักเรียน เบอร์ 1 🎉";
+        countdownElement.innerText = translations[currentLanguage].electionFinished;
         return;
       }
 
@@ -990,39 +1451,34 @@ body.dark span[style*="color"] {
       const minutes = Math.floor((diff / (1000 * 60)) % 60);
       const seconds = Math.floor((diff / 1000) % 60);
 
+      const prefix = translations[currentLanguage].electionPrefix ? translations[currentLanguage].electionPrefix + ' ' : '';
+
       countdownElement.innerText =
-        `อีก ${days} วัน ${hours} : ${minutes} : ${seconds} เลือกตั้ง`;
+        `${prefix}${days} ${translations[currentLanguage].days} ${hours} : ${minutes} : ${seconds} ${translations[currentLanguage].electionSuffix}`;
     }
 
     // Initial call and set interval
-    updateCountdown();
+    // updateCountdown(); // Called by setLanguage now
     setInterval(updateCountdown, 1000);
 
     // --- Dark Mode Logic ---
     function toggleDark(){
       document.body.classList.toggle("dark");
-
       const isDark = document.body.classList.contains("dark");
       localStorage.setItem("darkmode", isDark);
-
-      const btn = document.getElementById("darkBtn");
-      if(btn){
-        btn.innerHTML = isDark 
-          ? "☀️ <span class='hidden sm:inline'>Light</span>"
-          : "🌙 <span class='hidden sm:inline'>Dark</span>";
-      }
+      updateDarkButtonDisplay(); // Call the new function
     }
 
-    // Apply dark mode on load if saved preference exists
+    // Apply dark mode and language on load
     window.addEventListener("load", () => {
-      const saved = localStorage.getItem("darkmode") === "true";
-      if(saved){
+      // Apply dark mode if saved preference exists
+      const savedDark = localStorage.getItem("darkmode") === "true";
+      if(savedDark){
         document.body.classList.add("dark");
-        const btn = document.getElementById("darkBtn");
-        if(btn){
-          btn.innerHTML = "☀️ <span class='hidden sm:inline'>Light</span>";
-        }
       }
+      
+      // Apply language (this will also update dark mode and language button text)
+      setLanguage(currentLanguage);
     });
   </script>
  </body>
