@@ -531,7 +531,8 @@ body.dark span[style*="color"] {
    <div id="modal" class="fixed inset-0 z-50 hidden">
     <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeModal()"></div>
     <div class="absolute inset-4 sm:inset-8 md:inset-16 lg:inset-24 flex items-center justify-center">
-     <div id="modal-content" class="bg-white rounded-3xl shadow-2xl max-w-md w-full max-h-full overflow-auto modal-animation">
+     <!-- เปลี่ยน max-w-3xl เป็น max-w-5xl ที่นี่ -->
+     <div id="modal-content" class="bg-white rounded-3xl shadow-2xl max-w-5xl w-full max-h-full overflow-auto modal-animation">
      </div>
     </div>
    </div>
@@ -539,6 +540,7 @@ body.dark span[style*="color"] {
   <script>
     const translations = {
       th: {
+        pInfo: "ข้อมูลส่วนตัว",
         pageTitle: 'Next Gen One No.1',
         partyName: 'Next Gen One',
         heroNumber1: 'เบอร์ 1',
@@ -682,6 +684,152 @@ body.dark span[style*="color"] {
         clickToReadMore: 'คลิกเพื่ออ่านเพิ่มเติม →',
       },
       en: {
+        pInfo: "Personal Information",
+        pageTitle: 'Next Gen One No.1',
+        partyName: 'Next Gen One',
+        heroNumber1: 'No. 1',
+        heroSlogan: 'A new generation ready to take our school further.',
+        electionDateTitle: '📅 Student Council Election',
+        electionDate: 'February 13, 2026',
+        heroDesc: 'We think thoroughly, plan clearly, and turn every idea into tangible results for everyone.',
+        leadersTitle: 'Party Leaders',
+        presidentSectionTitle: '👑 Party President',
+        presidentRole: 'President',
+        clickForDetails: 'Click for details',
+        vicePresidentSectionTitle: '⭐ Party Vice Presidents',
+        vicePresidentRole: 'Vice President',
+        coreMembersTitle: 'Executive Members',
+        coreMembersDesc: 'A team ready to work for everyone.',
+        viewMore: 'View More',
+        policiesTitle: 'Our Policies',
+        policiesDesc: '13 policies to develop the school and student life.',
+        policy1Title: '1. Clean Zone',
+        policy1Subtitle: 'Happy Bathrooms',
+        policy1ShortDesc: 'Resolving bathroom issues, especially unpleasant odors...',
+        policy2Title: '2. Eco-Conscious',
+        policy2Subtitle: 'Mindful of the Environment',
+        policy2ShortDesc: 'Promoting environmental care within the school to improve and develop a clean environment...',
+        policy3Title: '3. Your Voice',
+        policy3Subtitle: 'Feedback QR Code',
+        policy3ShortDesc: 'Creating a QR Code to open a channel for feedback...',
+        policy4Title: '4. Safe Talk',
+        policy4Subtitle: 'Peer Advisor',
+        policy4ShortDesc: 'Ready to listen to problems and provide advice, strictly keeping information confidential...',
+        policy5Title: '5. New Gen, Drug-Free',
+        policy5Subtitle: 'Anti-Drug Activities',
+        policy5ShortDesc: 'Organizing campaigns through sports competitions, providing knowledge, and setting up information booths...',
+        policy6Title: '6. PSC Creative Class',
+        policy6Subtitle: 'Integrated Activities with Various Learning Areas',
+        policy6ShortDesc: 'Collaborating with various subjects to promote fun, creativity, and diverse learning experiences...',
+        policy7Title: '7. PSC Buddy Link',
+        policy7Subtitle: 'Blue-Pink Sibling Bonds',
+        policy7ShortDesc: 'Buddy system activities to foster and strengthen good relationships between seniors and juniors...',
+        policy8Title: '8. PSC Opportunity Hub',
+        policy8Subtitle: 'PSC Opportunity Hub',
+        policy8ShortDesc: 'Publicize news of Open House and competition activities to collect works...',
+        policy9Title: '9. Fashion Show',
+        policy9Subtitle: 'Fashion Show',
+        policy9ShortDesc: 'We will join in organizing a catwalk competition or fashion contest...',
+        policy10Title: '10. PSC Star',
+        policy10Subtitle: 'Star-Moon Contest',
+        policy10ShortDesc: 'Contest for Star, Moon, and Queen to represent and promote the school\'s image...',
+        policy11Title: '11. Spread the Joy',
+        policy11Subtitle: 'Panthong Sapha Unites to Give',
+        policy11ShortDesc: 'Collecting good condition used items to donate to those in need, sharing kindness in society...',
+        policy12Title: '12. Choose Well, Study Right',
+        policy12Subtitle: 'Choose Well, Study Right',
+        policy12ShortDesc: 'An academic path guidance policy to help middle school students who are confused about choosing their study plans...',
+        policy13Title: '13. Continue Senior Policy',
+        policy13Subtitle: 'Continue Senior Policy',
+        policy13ShortDesc: 'Continuing good policies like Blue-Pink Courtyard, E-Sports, emergency sanitary pads...',
+        callToActionTitle: '🗳️ Vote No. 1',
+        callToActionSlogan: 'Next Gen One, a new generation ready to take our school further.',
+        callToActionButton: 'Follow the Party Q&A, Click Here 👈',
+        footerPartyDesc: 'Student Council Party No. 1',
+        schoolName: 'Panthong Sapachanupatham School',
+        allRightsReserved: '© 2026 Next Gen One Party. All rights reserved.',
+        closeButton: 'Close',
+        policyModalNumber: 'Policy No.',
+        roomLabel: 'Room',
+        programLabel: 'Study Program',
+        gpaLabel: 'GPA',
+        achievementsLabel: 'Achievements',
+        
+        votePartyNum1: 'Next Gen One Party No. 1',
+        loadingTime: 'Loading time...',
+        electionFinished: '🎉 Vote Student Council Party No. 1 🎉',
+        days: 'days',
+        hours: 'hours',
+        minutes: 'minutes',
+        seconds: 'seconds',
+        electionPrefix: 'In',
+        electionSuffix: 'to election',
+        darkBtnText: 'Dark', // Text for Dark Mode button when in Light mode
+        lightBtnText: 'Light', // Text for Dark Mode button when in Dark mode
+        darkBtnAriaLabel: 'Toggle Dark Mode', // Aria label for toggling dark mode
+        lightBtnAriaLabel: 'Toggle Light Mode', // Aria label for toggling light mode
+        langBtnText: '(Thai)', // Text for Language button when in English mode (i.e., switch to Thai)
+        langBtnAriaLabel: 'Switch to Thai', // Aria label for switching to Thai
+        tiktokText: 'TikTok',
+        instagramText: 'Instagram',
+        tiktokAriaLabel: 'Next Gen One Party TikTok',
+        instagramAriaLabel: 'Next Gen One Party Instagram',
+        navLogoAlt: 'Next Gen One Logo',
+        heroLogoAlt: 'Next Gen One Logo',
+        presidentNameAlt: 'Image of Ms. Apinyaporn Bunna, Party President',
+        vice1NameAlt: 'Image of Mr. Pachara Kapueak, Vice President 1',
+        vice2NameAlt: 'Image of Ms. Thanida polaree, Vice President 2',
+        member1NameAlt: 'Image of Paleerat Sangthamatr, Executive Member',
+        member2NameAlt: 'Image of Thaenkhun Benmart, Executive Member',
+        member3NameAlt: 'Image of Sasithorn Hongsa, Executive Member',
+        member4NameAlt: 'Image of Thitapha Phuangphit, Executive Member',
+        member5NameAlt: 'Image of Phakhwan Saenmueangchin, Executive Member',
+        member6NameAlt: 'Image of Mr. Thanawat Singjarn, Executive Member', // Corrected name
+        footerLogoAlt: 'Next Gen One Logo',
+        imageUnavailableAlt: 'Image unavailable',
+        nicknameLabel: 'Nickname',
+        newAchievement: '<span class="text-shimmer font-bold mr-2">NEW</span>',
+        prizeGold: '<span style="color: #D4AF37; font-weight: bold;">Gold Medal Award</span>',
+        prizeGold1stRunnerUp: '<span style="color: #D4AF37; font-weight: bold;">1st Runner-up Gold Medal Award</span>',
+        prizeSilver: '<span style="color: #9CA3AF; font-weight: bold;">Silver Medal Award</span>',
+        prizeBronze: '<span style="color: #9C4F19; font-weight: bold;">Bronze Medal Award</span>',
+        prizeWinner: '<span style="color: #D4AF37; font-weight: bold;">Winner</span>',
+        prize1stRunnerUp: '<span style="color: #D4AF37; font-weight: bold;">1st Runner-up</span>',
+        prize3rdRunnerUp: '<span style="color: #9C4F19; font-weight: bold;">3rd Runner-up</span>',
+        prizeCommendation: 'Commendation Award',
+        ach_pre_sci_show_73: 'Science and Technology Competition: Science Show (M.4-M.6), 73rd Student Arts & Crafts Competition, Academic Year 2025',
+        ach_pre_small_book_73: 'Small Book Making Competition, Junior High School Level, Academic Year 2024, Secondary Educational Service Area Office Phetchabun',
+        ach_pre_lit_crit_66: 'Literary Criticism Competition, Junior High School Level, Academic Year 2023, Secondary Educational Service Area Office Phetchabun Group 3',
+        ach_pre_sci_speech_wk: 'Science Speech Contest during Science Week activities',
+        ach_pre_short_film_hr: 'Short Film Competition, Human Rights on Film Activity',
+        ach_pre_royal_speech: 'Participated in the Senior High School Speech Contest in the "Taveebanya Chalerm Phrakiat" activity, honoring His Majesty King Vajiravudh on the 100th anniversary of his passing.',
+        ach_pre_1: 'Core student for the project to build and promote good citizenship following the royal initiatives in education towards practice, 2024 (Phetchabun Province).',
+        ach_vice1_poetry_66: 'Poetry Writing Competition, Junior High School Level, on the 72nd anniversary of Sriracha School\'s establishment and Sriracha Academic Open House, Blue-Red, Academic Year 2023.',
+        ach_vice1_essay_buddhist_lent: 'Essay Writing Contest on "Buddhist Lent: Abstain from Alcohol" at Panthong Sapachanupatham School.',
+        ach_vice1_poetry_71: 'New Generation Poet Competition, Kap Yaani 11 (6 verses), Junior High School Level, 71st Student Arts & Crafts Competition, Academic Year 2023, Chonburi Educational Service Area 2.',
+        ach_vice1_thai_lit_67: 'Thai Literary Composition Activity, Junior High School Level, Sunthorn Phu Day and Thai Language Day Activity, Academic Year 2024, Panthong Sapachanupatham School.',
+        ach_vice1_moral_proj_70: 'Moral Project Competition, M.1-M.3 Junior High School Level, 70th Arts & Crafts Competition, Chonburi Educational Service Area 2, at Panus Pittayakarn School.',
+        ach_vice1_drug_comm_proj: 'District Level, Junior High School Category, in the Creative Communication Project Competition on "Understanding Yaba" from the Office of the Narcotics Control Board, Ministry of Justice.',
+        ach_vice1_sci_show_68: 'Science Show Competition, Senior High School Level, during National Science Week activities, Academic Year 2025, at Panthong Sapachanupatham School.',
+        ach_vice1_moral_proj_natl_70: 'Moral Project Competition, M.1-M.3 Junior High School Level, 70th National Student Arts & Crafts Competition, Central and Eastern Region, Ratchaburi Province.',
+        ach_vice1_thai_lit_comp_67: 'Thai Literary Composition Activity, M.1-M.3 Junior High School Level, Thai Language Skills Competition, "Love Thai Language" Project, Thai Language Day Week, Academic Year 2024, Regional Educational Service Area.',
+        ach_vice1_1: 'Representative presenting the results of the moral school project upon receiving supervision and follow-up on the school\'s moral project from the Yuwaphat Foundation.',
+        ach_vice1_2: 'Participated in "River Detective Camp, Carbon Scale Episode" in front of Bang Pakong Power Plant, November 19-21, 2025.',
+        ach_vice2_thai_lit_crit_73: 'Thai Language Competition: Literary Criticism (M.4-M.6), 73rd Student Arts & Crafts Competition, Academic Year 2025',
+        ach_vice2_short_film_moral: 'Short Film Competition on "Talented, Brave, Good, and Moral," Junior High School Level.',
+        ach_vice2_1: 'Outstanding Student of Panthong Sapha on Honor Day, Junior High School Graduation Activity.',
+        ach_vice2_encyclopedia_quiz: 'Encyclopedia Quiz Competition during Library Week activities, Senior High School Level.',
+        ach_vice2_lit_crit_71: 'Literary Criticism Competition, Junior High School Level, 71st Student Arts & Crafts Competition, Academic Year 2023, under Secondary Educational Service Area Office Chonburi Rayong, Chonburi 2 Sub-area.',
+        ach_vice2_lit_crit_district_66: 'Literary Criticism Competition, Junior High School Level, Student Arts & Crafts Competition, District Level, Secondary Educational Service Area Office Chonburi Rayong, Academic Year 2023.',
+        ach_vice2_lit_crit_senior: 'Literary Criticism Competition, Senior High School Level.',
+        ach_vice2_thai_read_comp_66: 'Thai Language Skills Competition, "Love Thai Language" Project, Thai Language Day Week, Academic Year 2023, Reading Comprehension Activity, Junior High School Level.',
+        policy4_note: '<span style="color:#1D4ED8;"> - We assure strict confidentiality of all information and stories shared, for everyone\'s comfort and safety.</span>',
+        policy10_note: '<span style="color:#EF4444;">- Applicants for the contest must adhere strictly to school regulations regarding attire and hairstyle.</span>',
+        policy11_note: '<span style="color:#1D4ED8;">- The project aims to promote a sense of helpfulness and create a sustainable sharing society.</span>',
+        clickToReadMore: 'Click to read more →',
+      },
+      en: {
+        pInfo: "Personal Information",
         pageTitle: 'Next Gen One No.1',
         partyName: 'Next Gen One',
         heroNumber1: 'No. 1',
@@ -988,7 +1136,7 @@ body.dark span[style*="color"] {
         color: 'from-pink-500 to-purple-500',
         achievements: [
           'newAchievement prizeGold ach_pre_sci_show_73',
-          'prizeGold1stRunnerUp ach_pre_small_book_73',
+          'prize1stRunnerUp ach_pre_small_book_73',
           'prizeGold ach_pre_lit_crit_66',
           'prize1stRunnerUp ach_pre_sci_speech_wk',
           'prizeCommendation ach_pre_short_film_hr',
@@ -1010,7 +1158,7 @@ body.dark span[style*="color"] {
           'newAchievement prizeGold ach_pre_sci_show_73', // Shared achievement
           'prizeGold ach_vice1_poetry_66',
           'prizeWinner ach_vice1_essay_buddhist_lent',
-          'prizeGold1stRunnerUp ach_vice1_poetry_71',
+          'prize1stRunnerUp ach_vice1_poetry_71',
           'prizeWinner ach_vice1_thai_lit_67',
           'prizeGold ach_vice1_moral_proj_70',
           'prize1stRunnerUp ach_vice1_drug_comm_proj',
@@ -1300,8 +1448,9 @@ body.dark span[style*="color"] {
         `;
       }).join('') : '';
 
-      const achievementsHtml = member.achievements ? `
-        <div class="mt-4 text-left">
+      // Removed mt-4 from achievementsHtml definition, now it's just the inner content
+      const achievementsContent = member.achievements ? `
+        <div>
           <h4 class="font-bold text-gray-800 mb-3 flex items-center gap-2">
             <span class="text-lg">🏆</span>
             ${translations[currentLanguage].achievementsLabel}
@@ -1313,6 +1462,9 @@ body.dark span[style*="color"] {
           </div>
         </div>
       ` : '';
+
+      // Determine classes for the personal info column based on whether achievements exist
+      const personalInfoColumnClasses = member.achievements ? '' : 'md:col-span-2';
 
       const modalContent = document.getElementById('modal-content');
       modalContent.innerHTML = `
@@ -1331,49 +1483,64 @@ body.dark span[style*="color"] {
             </span>
             <h3 class="text-2xl font-bold text-gray-800 mb-2">${member.name[currentLanguage]}</h3>
             ${member.nickname ? `<p class="text-lg text-gray-600 mb-4">${translations[currentLanguage].nicknameLabel}: ${member.nickname[currentLanguage]}</p>` : ''}
-            <div class="space-y-3 text-left bg-gray-50 rounded-2xl p-4">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
-                  <span class="text-lg">🏫</span>
-                </div>
-                <div>
-                  <p class="text-sm text-gray-500">${translations[currentLanguage].roomLabel}</p>
-                  <p class="font-semibold text-gray-800">${member.room[currentLanguage]}</p>
+            
+            <!-- New container for the two-column layout on desktop, stacked on mobile -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-4 text-left">
+              <!-- Left Column: Personal Info (Room, Program, GPA, Instagram) -->
+              <div class="${personalInfoColumnClasses}">
+                <h4 class="font-bold text-gray-800 mb-3 flex items-center gap-2">
+  <span class="text-lg">👤</span>
+  ${translations[currentLanguage].pInfo}
+</h4>
+
+                <div class="space-y-3 bg-gray-50 rounded-2xl p-4">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
+                      <span class="text-lg">🏫</span>
+                    </div>
+                    <div>
+                      <p class="text-sm text-gray-500">${translations[currentLanguage].roomLabel}</p>
+                      <p class="font-semibold text-gray-800">${member.room[currentLanguage]}</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                      <span class="text-lg">📚</span>
+                    </div>
+                    <div>
+                      <p class="text-sm text-gray-500">${translations[currentLanguage].programLabel}</p>
+                      <p class="font-semibold text-gray-800">${member.program[currentLanguage]}</p>
+                    </div>
+                  </div>
+                  ${member.gpa ? `
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                      <span class="text-lg">📊</span>
+                    </div>
+                    <div>
+                      <p class="text-sm text-gray-500">${translations[currentLanguage].gpaLabel}</p>
+                      <p class="font-semibold text-gray-800">${member.gpa}</p>
+                    </div>
+                  </div>
+                  ` : ''}
+                  ${member.instagram ? `
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center">
+                      <svg class="w-5 h-5 text-pink-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072-4.354-.2-6.782-2.618-6.979-6.98-.059-1.28-.073-1.689-.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </div>
+                    <div class="flex-1">
+                      <p class="text-sm text-gray-500">Instagram</p>
+                      <a href="${member.instagram}" target="_blank" rel="noopener noreferrer" class="font-semibold text-pink-600 hover:text-pink-700 text-sm break-all">@${member.instagram.split('/').filter(x => x).pop()}</a>
+                    </div>
+                  </div>
+                  ` : ''}
                 </div>
               </div>
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                  <span class="text-lg">📚</span>
-                </div>
-                <div>
-                  <p class="text-sm text-gray-500">${translations[currentLanguage].programLabel}</p>
-                  <p class="font-semibold text-gray-800">${member.program[currentLanguage]}</p>
-                </div>
-              </div>
-              ${member.gpa ? `
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                  <span class="text-lg">📊</span>
-                </div>
-                <div>
-                  <p class="text-sm text-gray-500">${translations[currentLanguage].gpaLabel}</p>
-                  <p class="font-semibold text-gray-800">${member.gpa}</p>
-                </div>
-              </div>
-              ` : ''}
-              ${member.instagram ? `
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center">
-                  <svg class="w-5 h-5 text-pink-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072-4.354-.2-6.782-2.618-6.979-6.98-.059-1.28-.073-1.689-.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                </div>
-                <div class="flex-1">
-                  <p class="text-sm text-gray-500">Instagram</p>
-                  <a href="${member.instagram}" target="_blank" rel="noopener noreferrer" class="font-semibold text-pink-600 hover:text-pink-700 text-sm break-all">@${member.instagram.split('/').filter(x => x).pop()}</a>
-                </div>
-              </div>
-              ` : ''}
+              
+              <!-- Right Column: Achievements (only if member.achievements exist) -->
+              ${member.achievements ? achievementsContent : ''}
             </div>
-            ${achievementsHtml}
+            
             <div class="mt-6 pt-4 border-t border-gray-100">
               <p class="text-sm text-gray-600 flex items-center justify-center gap-2">
                 <span class="text-lg">🗳️</span>
@@ -1493,4 +1660,3 @@ body.dark span[style*="color"] {
   </script>
  </body>
 </html>
-
