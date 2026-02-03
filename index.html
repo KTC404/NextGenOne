@@ -1702,6 +1702,13 @@ body.dark span[style*="color"] {
 <script>
 let currentAQI = null;
 
+// --- เช็คว่าเป็นการรีเฟรชหน้าเว็บไหม ---
+function isReload() {
+  const nav = performance.getEntriesByType("navigation")[0];
+  return nav && nav.type === "reload";
+}
+
+// --- เวลาไทยแบบตายตัว ---
 function getThaiHourKey() {
   const now = new Date();
 
@@ -1715,11 +1722,12 @@ function getThaiHourKey() {
   }).formatToParts(now);
 
   const map = {};
-  parts.forEach(p => map[p.type] = p.value);
+  parts.forEach(p => (map[p.type] = p.value));
 
   return `${map.year}-${map.month}-${map.day}-${map.hour}`;
 }
 
+// --- แสดงผล ---
 function renderAQI() {
   if (currentAQI === null) return;
 
@@ -1750,13 +1758,14 @@ function renderAQI() {
   valueEl.textContent = `${currentAQI} ${levelText}`;
 }
 
+// --- โหลด PM2.5 ---
 async function loadPM25() {
   const CACHE_KEY = "pm25_hour_cache";
   const currentHourKey = getThaiHourKey();
-
   const cached = localStorage.getItem(CACHE_KEY);
+  const forceReload = isReload();
 
-  if (cached) {
+  if (cached && !forceReload) {
     const obj = JSON.parse(cached);
     if (obj.hour === currentHourKey) {
       currentAQI = obj.value;
@@ -1794,8 +1803,9 @@ async function loadPM25() {
   }
 }
 
+// --- เริ่มทำงาน ---
 loadPM25();
 
-// ✅ เช็คทุกนาที แต่จะ fetch จริงเฉพาะตอนเปลี่ยนชั่วโมง
+// --- เช็คทุกนาที แต่จะ fetch จริงเฉพาะตอนเปลี่ยนชั่วโมง ---
 setInterval(loadPM25, 60 * 1000);
 </script>
