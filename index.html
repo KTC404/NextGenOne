@@ -11,6 +11,32 @@
   <style>
 
     /* ===== DARK MODE FINAL ===== */
+
+    /* ===== PM2.5 DARK MODE ===== */
+body.dark #pm25-box {
+  background: linear-gradient(135deg, #0b1220, #162033);
+  color: #e5e7eb;
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.6),
+    inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+body.dark #pm25-box p {
+  color: #e5e7eb;
+}
+
+body.dark #pm25-box #pm25-value {
+  color: #38bdf8;
+  text-shadow: 0 0 12px rgba(56,189,248,.4);
+}
+
+body.dark #pm25-box:hover {
+  box-shadow:
+    0 20px 45px rgba(0,0,0,.8),
+    0 0 25px rgba(56,189,248,.35);
+}
+
 body.dark {
   background: #050b18;
   color: #e5e7eb;
@@ -293,14 +319,47 @@ body.dark span[style*="color"] {
      <div class="fade-in-up delay-1 mb-6"><img src="IMG_2115.PNG" data-alt-key="heroLogoAlt" alt="Next Gen One Logo" class="w-32 h-32 mx-auto rounded-3xl shadow-2xl pulse-glow" loading="lazy" onerror="this.src=''; this.alt=translations[currentLanguage].imageUnavailableAlt; console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #ec4899, #8b5cf6)';">
      </div>
      <h1 class="fade-in-up delay-2 text-4xl sm:text-5xl md:text-6xl font-bold mb-4"><span class="text-shimmer" data-lang-key="heroNumber1">เบอร์ 1</span> <span id="hero-party-name" class="block mt-2 bg-gradient-to-r from-pink-500 via-purple-600 to-blue-500 bg-clip-text text-transparent" data-lang-key="partyName">Next Gen One</span></h1>
-     <p id="hero-slogan" class="fade-in-up delay-3 text-lg sm:text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed" data-lang-key="heroSlogan">รุ่นใหม่ที่พร้อมพาโรงเรียนเราไปให้ไกล</p>
-     <div class="fade-in-up delay-4 mt-6 mb-4">
-      <div class="inline-block bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 text-white px-8 py-4 rounded-2xl shadow-xl pulse-glow">
-       <p class="text-sm font-medium mb-1" data-lang-key="electionDateTitle">📅 เลือกตั้งสภานักเรียน</p>
-       <p class="text-2xl sm:text-3xl font-bold" data-lang-key="electionDate">13 กุมภาพันธ์ 2569</p>
-      </div>
-     </div>
-     <p class="fade-in-up delay-5 text-base text-gray-600 max-w-xl mx-auto mt-4 leading-relaxed" data-lang-key="heroDesc">เราคิดให้ครบ วางแผนให้ชัด และเปลี่ยนทุกไอเดียให้เป็นผลลัพธ์ที่ทุกคนรู้สึกได้</p>
+     <p id="hero-slogan" class="fade-in-up delay-3 text-lg sm:text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed" data-lang-key="heroSlogan">
+  รุ่นใหม่ที่พร้อมพาโรงเรียนเราไปให้ไกล
+</p>
+
+<p class="fade-in-up delay-4 text-base text-gray-600 max-w-xl mx-auto mt-3 leading-relaxed" data-lang-key="heroDesc">
+  เราคิดให้ครบ วางแผนให้ชัด และเปลี่ยนทุกไอเดียให้เป็นผลลัพธ์ที่ทุกคนรู้สึกได้
+</p>
+
+     <div class="flex flex-wrap justify-center gap-4 mt-8 mb-8">
+
+  
+  <!-- Date Box -->
+  <div class="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 text-white px-8 py-4 rounded-2xl shadow-xl pulse-glow">
+    <p class="text-sm font-medium mb-1" data-lang-key="electionDateTitle">📅 เลือกตั้งสภานักเรียน</p>
+    <p class="text-2xl sm:text-3xl font-bold" data-lang-key="electionDate">13 กุมภาพันธ์ 2569</p>
+    <div class="flex flex-wrap justify-center mt-1"></div>
+    <p class="text-sm font-medium mb-1" data-lang-key="Partynumber">เลือกพรรคสภานักเรียน เบอร์ 1</p>
+  </div>
+
+  <!-- PM2.5 Box -->
+  <a href="https://www.iqair.com/th/thailand/chon-buri/phan-thong" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   class="block">
+  
+  <div id="pm25-box" class="bg-white/90 backdrop-blur text-gray-800 px-8 py-4 rounded-2xl shadow-xl border hover:scale-105 transition-transform cursor-pointer text-center">
+    
+    <p class="text-sm font-medium mb-1" data-lang-key="pm25Title">🌫 พานทอง US AQI⁺</p>
+    
+    <p id="pm25-value" class="text-2xl sm:text-3xl font-bold">--</p>
+    <div class="flex flex-wrap justify-center mt-1"></div>
+    <p class="text-xs text-gray-500 mt-1" data-lang-key="pm25Desc">
+      คลิกเพื่อดูรายละเอียดคุณภาพอากาศ
+    </p>
+
+  </div>
+</a>
+
+
+
+</div>
     </div>
    </header><!-- Leaders Section -->
    <section class="py-12 px-4">
@@ -519,7 +578,7 @@ body.dark span[style*="color"] {
       <div class="text-center mt-5 mb-20">
 <p class="text-sm md:text-base text-white font-medium tracking-wider"
    data-lang-key="TEC">
-   สื่อหาเสียงอิเล็กทรอนิกส์นี้ผลิตโดย พรรค Next Gen One
+   สื่อหาเสียงอิเล็กทรอนิกส์นี้ผลิตโดย พรรคพรรคสภานักเรียน Next Gen One
 </p>
 </div>
 
@@ -627,12 +686,22 @@ body.dark span[style*="color"] {
   <script>
     const translations = {
       th: {
+
+        aqiGood: "ดี",
+        aqiModerate: "ปานกลาง",
+        aqiSensitive: "เริ่มมีผลกระทบ",
+        aqiUnhealthy: "ไม่ดีต่อสุขภาพ",
+        aqiDanger: "อันตรายมาก",
+
         pInfo: "ข้อมูลส่วนตัว",
         pageTitle: 'Next Gen One No.1',
         partyName: 'Next Gen One',
         heroNumber1: 'เบอร์ 1',
         heroSlogan: 'รุ่นใหม่ที่พร้อมพาโรงเรียนเราไปให้ไกล',
         electionDateTitle: '📅 เลือกตั้งสภานักเรียน',
+        Partynumber: 'เลือกพรรคสภานักเรียน เบอร์ 1',
+        pm25Title: '🌫 พานทอง US AQI⁺',
+        pm25Desc: 'คลิกเพื่อดูรายละเอียดคุณภาพอากาศ',
         electionDate: '13 กุมภาพันธ์ 2569',
         heroDesc: 'เราคิดให้ครบ วางแผนให้ชัด และเปลี่ยนทุกไอเดียให้เป็นผลลัพธ์ที่ทุกคนรู้สึกได้',
         leadersTitle: 'ผู้นำพรรค',
@@ -689,7 +758,7 @@ body.dark span[style*="color"] {
         callToActionSlogan: 'Next Gen One รุ่นใหม่ที่พร้อมพาโรงเรียนเราไปให้ไกล',
         callToActionButton: 'ติดตามพรรค Q&A กดเลย👈',
         footerOfficeLocation: 'โรงเรียนพานทองสภาชนูปถัมภ์',
-        TEC: "สื่อหาเสียงอิเล็กทรอนิกส์นี้ผลิตโดย พรรค Next Gen One",
+        TEC: "สื่อหาเสียงอิเล็กทรอนิกส์นี้ผลิตโดย พรรคสภานักเรียน Next Gen One",
         footerAddressLine1: 'F37R+GQQ',
         footerAddressLine2: 'ตำบล พานทอง',
         footerAddressLine3: 'ชลบุรี 20160',
@@ -779,12 +848,22 @@ body.dark span[style*="color"] {
         footerFacebookAriaLabel: 'Facebook ของโรงเรียนพานทองสภาชนูปถัมภ์', // New translation key
       },
       en: {
+
+        aqiGood: "Good",
+        aqiModerate: "Moderate",
+        aqiSensitive: "Unhealthy for Sensitive",
+        aqiUnhealthy: "Unhealthy",
+        aqiDanger: "Hazardous",
+
         pInfo: "Personal Information",
         pageTitle: 'Next Gen One No.1',
         partyName: 'Next Gen One',
         heroNumber1: 'No. 1',
         heroSlogan: 'A new generation ready to take our school further.',
         electionDateTitle: '📅 Student Council Election',
+        Partynumber: 'Choose student council party number 1',
+        pm25Title: '🌫 Phan Thong US AQI⁺',
+        pm25Desc: 'Click to see air quality details',
         electionDate: 'February 13, 2026',
         heroDesc: 'We think thoroughly, plan clearly, and turn every idea into tangible results for everyone.',
         leadersTitle: 'Party Leaders',
@@ -840,7 +919,7 @@ body.dark span[style*="color"] {
         callToActionTitle: '🗳️ Vote No. 1',
         callToActionSlogan: 'Next Gen One, a new generation ready to take our school further.',
         callToActionButton: 'Follow the Party Q&A, Click Here 👈',
-            TEC: "This electronic campaign media was produced by Next Gen One Party",
+            TEC: "This electronic campaign media is produced by Next Gen One Student Council Party",
         footerOfficeLocation: 'Phan Thong Sapha Chanupatham School',
         footerAddressLine1: 'F37R+GQQ',
         footerAddressLine2: 'Phan Thong Subdistrict',
@@ -1305,7 +1384,7 @@ body.dark span[style*="color"] {
           element.textContent = translations[lang][key];
         }
       });
-
+      renderAQI();
       setAltText(); // Update alt texts after language switch
       setAriaLabels(); // Update aria-labels after language switch
 
@@ -1619,3 +1698,104 @@ body.dark span[style*="color"] {
   </script>
  </body>
 </html>
+
+<script>
+let currentAQI = null;
+
+function getThaiHourKey() {
+  const now = new Date();
+
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "Asia/Bangkok",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    hour12: false
+  }).formatToParts(now);
+
+  const map = {};
+  parts.forEach(p => map[p.type] = p.value);
+
+  return `${map.year}-${map.month}-${map.day}-${map.hour}`;
+}
+
+function renderAQI() {
+  if (currentAQI === null) return;
+
+  const valueEl = document.getElementById("pm25-value");
+
+  let color = "";
+  let levelKey = "";
+
+  if (currentAQI <= 50) {
+    color = "#22c55e";
+    levelKey = "aqiGood";
+  } else if (currentAQI <= 100) {
+    color = "#eab308";
+    levelKey = "aqiModerate";
+  } else if (currentAQI <= 150) {
+    color = "#f97316";
+    levelKey = "aqiSensitive";
+  } else if (currentAQI <= 200) {
+    color = "#ef4444";
+    levelKey = "aqiUnhealthy";
+  } else {
+    color = "#7f1d1d";
+    levelKey = "aqiDanger";
+  }
+
+  const levelText = translations[currentLanguage][levelKey];
+  valueEl.style.color = color;
+  valueEl.textContent = `${currentAQI} ${levelText}`;
+}
+
+async function loadPM25() {
+  const CACHE_KEY = "pm25_hour_cache";
+  const currentHourKey = getThaiHourKey();
+
+  const cached = localStorage.getItem(CACHE_KEY);
+
+  if (cached) {
+    const obj = JSON.parse(cached);
+    if (obj.hour === currentHourKey) {
+      currentAQI = obj.value;
+      renderAQI();
+      return;
+    }
+  }
+
+  const codeiqair = "19dd1cc1-84a8-4320-b02e-8cddd50d6995";
+  const LAT = 13.4453;
+  const LON = 101.0956;
+
+  const url = `https://api.airvisual.com/v2/nearest_city?lat=${LAT}&lon=${LON}&key=${codeiqair}`;
+
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+
+    if (data.status !== "success") throw data;
+
+    currentAQI = data.data.current.pollution.aqius;
+
+    localStorage.setItem(
+      CACHE_KEY,
+      JSON.stringify({
+        value: currentAQI,
+        hour: currentHourKey
+      })
+    );
+
+    renderAQI();
+  } catch (e) {
+    console.error("AQI error:", e);
+    document.getElementById("pm25-value").textContent = "ไม่พบข้อมูล";
+  }
+}
+
+loadPM25();
+
+// ✅ เช็คทุกนาที แต่จะ fetch จริงเฉพาะตอนเปลี่ยนชั่วโมง
+setInterval(loadPM25, 60 * 1000);
+</script>
