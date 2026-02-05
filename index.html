@@ -314,7 +314,7 @@ body.dark span[style*="color"] {
 </nav>
 
    <!-- Hero Section -->
-   <header class="pt-24 pb-16 px-4">
+   <header class="pt-24 pb-8 px-4"> <!-- Adjusted pb-16 to pb-8 -->
     <div class="max-w-4xl mx-auto text-center">
      <div class="fade-in-up delay-1 mb-6"><img src="IMG_2115.PNG" data-alt-key="heroLogoAlt" alt="Next Gen One Logo" class="w-32 h-32 mx-auto rounded-3xl shadow-2xl pulse-glow" loading="lazy" onerror="this.src=''; this.alt=translations[currentLanguage].imageUnavailableAlt; console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #ec4899, #8b5cf6)';">
      </div>
@@ -357,12 +357,104 @@ body.dark span[style*="color"] {
   </div>
 </a>
 
-
-
 </div>
     </div>
-   </header><!-- Leaders Section -->
-   <section class="py-12 px-4">
+   </header>
+   
+<!-- Categories + Gallery - MOVED OUT OF HEADER AND ADJUSTED PADDING -->
+<section class="py-16 px-4"> <!-- Adjusted py-12 to py-8 -->
+  <div class="max-w-6xl mx-auto">
+    <h2 class="fade-in-up text-3xl font-bold text-center mb-10 text-shimmer" data-lang-key="galleryTitleMain">
+      ภาพบรรยากาศ
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+      <!-- ทีมของเรา -->
+<div onclick="openViewerSet('team')"
+     class="group relative overflow-hidden rounded-3xl shadow-xl cursor-pointer">
+        <img src="image/S__7634968.jpg"
+          class="w-full h-72 object-cover group-hover:scale-110 transition-all duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+        <div class="absolute bottom-5 left-5">
+          <h3 class="text-white text-2xl font-bold" data-lang-key="ourPartyCategoryTitle">👥 พรรคของเรา</h3>
+          <p class="text-white/80 text-sm mt-1" data-lang-key="ourPartyCategoryDesc">ผู้นำพรรค Next Gen One</p>
+        </div>
+      </div>
+
+      <!-- ลงพื้นที่ -->
+<div onclick="openViewerSet('field')"
+     class="group relative overflow-hidden rounded-3xl shadow-xl cursor-pointer">
+
+        <img src='image/4127_0.jpg'
+          class="w-full h-72 object-cover group-hover:scale-110 transition-all duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+        <div class="absolute bottom-5 left-5">
+          <h3 class="text-white text-2xl font-bold" data-lang-key="fieldWorkCategoryTitle">📸 ลงพื้นที่</h3>
+          <p class="text-white/80 text-sm mt-1" data-lang-key="fieldWorkCategoryDesc">ลงพื้นที่หาเสียง</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery Modal -->
+<div id="galleryModal" class="fixed inset-0 z-[999] hidden">
+  <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" onclick="closeGallery()"></div>
+
+  <div class="absolute inset-6 md:inset-20 bg-white dark:bg-slate-900 rounded-3xl p-6 overflow-auto">
+    <div class="flex justify-between items-center mb-4">
+      <h3 id="galleryTitle" class="text-2xl font-bold text-shimmer"></h3>
+      <button onclick="closeGallery()" class="px-4 py-2 rounded-full bg-red-500 text-white">ปิด</button>
+    </div>
+
+    <div id="galleryGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"></div>
+  </div>
+</div>
+
+<!-- Image Viewer -->
+<div id="imgViewer" class="fixed inset-0 z-[1000] hidden select-none">
+
+  <!-- Backdrop -->
+  <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeViewer()"></div>
+
+  <!-- Image -->
+  <img id="viewerImg"
+       class="absolute inset-0 m-auto max-w-[92%] max-h-[82%] rounded-3xl
+              scale-75 opacity-0 transition-all duration-300 shadow-2xl">
+
+  <!-- Controls -->
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-4
+              bg-black/40 px-5 py-3 rounded-full backdrop-blur-md shadow-xl">
+
+    <button onclick="prevImg()"
+      class="w-11 h-11 flex items-center justify-center rounded-full
+             bg-white/10 text-white text-2xl
+             active:scale-90 transition">
+      ‹
+    </button>
+
+    <button onclick="closeViewer()"
+      class="w-11 h-11 flex items-center justify-center rounded-full
+             bg-red-500/80 text-white text-lg
+             active:scale-90 transition">
+      ✕
+    </button>
+
+    <button onclick="nextImg()"
+      class="w-11 h-11 flex items-center justify-center rounded-full
+             bg-white/10 text-white text-2xl
+             active:scale-90 transition">
+      ›
+    </button>
+
+  </div>
+
+</div>
+
+
+   <!-- Leaders Section -->
+   <section class="py-16 px-4"> <!-- Adjusted py-12 to py-8 -->
     <div class="max-w-6xl mx-auto">
      <h2 class="fade-in-up text-3xl font-bold text-center mb-12 text-shimmer" data-lang-key="leadersTitle">ผู้นำพรรค</h2><!-- President -->
      <div class="mb-12">
@@ -671,6 +763,7 @@ body.dark span[style*="color"] {
       <!-- Bottom Section: Copyright -->
       <div class="mt-8 pt-4 border-t border-gray-700 text-center">
         <p class="text-gray-500 text-xs" data-lang-key="allRightsReserved">© 2026 Next Gen One Party. All rights reserved.</p>
+        <p class="text-gray-500 text-xs">Version 1.8.0.0.47</p>
       </div>
     </div>
    </footer><!-- Modal -->
@@ -686,6 +779,13 @@ body.dark span[style*="color"] {
   <script>
     const translations = {
       th: {
+        galleryTitleMain: 'ภาพบรรยากาศ',
+        ourPartyCategoryTitle: '👥 พรรคของเรา',
+        ourPartyCategoryDesc: 'ผู้นำพรรค Next Gen One',
+        fieldWorkCategoryTitle: '📸 ลงพื้นที่',
+        fieldWorkCategoryDesc: 'ลงพื้นที่หาเสียง',
+        galleryModalTitleTeam: 'ทีมของเรา',
+        galleryModalTitleField: 'ลงพื้นที่',
 
         aqiGood: "ดี",
         aqiModerate: "ปานกลาง",
@@ -848,6 +948,13 @@ body.dark span[style*="color"] {
         footerFacebookAriaLabel: 'Facebook ของโรงเรียนพานทองสภาชนูปถัมภ์', // New translation key
       },
       en: {
+        galleryTitleMain: 'Photo Gallery',
+        ourPartyCategoryTitle: '👥 Our Party',
+        ourPartyCategoryDesc: 'Next Gen One Party Leaders',
+        fieldWorkCategoryTitle: '📸 Field Work',
+        fieldWorkCategoryDesc: 'Campaigning Activities',
+        galleryModalTitleTeam: 'Our Team',
+        galleryModalTitleField: 'Field Work',
 
         aqiGood: "Good",
         aqiModerate: "Moderate",
@@ -918,7 +1025,6 @@ body.dark span[style*="color"] {
         policy13ShortDesc: 'Continuing good policies like Blue-Pink Courtyard, E-Sports, emergency sanitary pads...',
         callToActionTitle: '🗳️ Vote No. 1',
         callToActionSlogan: 'Next Gen One, a new generation ready to take our school further.',
-        callToActionButton: 'Follow the Party Q&A, Click Here 👈',
             TEC: "This electronic campaign media is produced by Next Gen One Student Council Party",
         footerOfficeLocation: 'Phan Thong Sapha Chanupatham School',
         footerAddressLine1: 'F37R+GQQ',
@@ -958,8 +1064,8 @@ body.dark span[style*="color"] {
         vice1NameAlt: 'Image of Mr. Pachara Kapueak, Vice President 1',
         vice2NameAlt: 'Image of Ms. Thanida polaree, Vice President 2',
         member1NameAlt: 'Image of Paleerat Sangthamatr, Executive Member',
-        member2NameAlt: 'Image of Thaenkhun Benmart, Executive Member',
-        member3NameAlt: 'Image of Sasithorn Hongsa, Executive Member',
+        member2NameAlt: 'Image of Mr. Thaenkhun Benmart, Executive Member',
+        member3NameAlt: 'Image of Ms. Sasithorn Hongsa, Executive Member',
         member4NameAlt: 'Image of Ms. Thitapha Phuangphit, Executive Member',
         member5NameAlt: 'Image of Ms. Phakhwan Saenmueangchin, Executive Member',
         member6NameAlt: 'Image of Mr. Thanawat Singjarn, Executive Member', // Corrected name
@@ -1810,3 +1916,90 @@ loadPM25();
 setInterval(loadPM25, 60 * 1000);
 </script>
 
+<script>
+const galleries = {
+  team: [
+    "image/S__7634968.jpg",
+    "image/S__7634970.jpg",
+    "image/S__8200227.jpg",
+  ],
+  field: [
+    "image/4127_0.jpg",
+    "image/4134_0.jpg" ,
+    "image/IMG_0427.JPG",
+    "image/IMG_0392.JPG",
+  ]
+};
+
+let currentImages = [];
+let currentIndex = 0;
+
+function openViewerSet(name) {
+  currentImages = galleries[name];
+  currentIndex = 0;
+  showImg();
+}
+
+function showImg() {
+  const viewer = document.getElementById("imgViewer");
+  const img = document.getElementById("viewerImg");
+
+  img.src = currentImages[currentIndex];
+  viewer.classList.remove("hidden");
+
+  setTimeout(() => {
+    img.classList.remove("scale-75", "opacity-0");
+    img.classList.add("scale-100", "opacity-100");
+  }, 10);
+}
+
+function closeViewer() {
+  const viewer = document.getElementById("imgViewer");
+  const img = document.getElementById("viewerImg");
+
+  img.classList.add("scale-75", "opacity-0");
+
+  setTimeout(() => {
+    viewer.classList.add("hidden");
+  }, 200);
+}
+
+function nextImg() {
+  currentIndex = (currentIndex + 1) % currentImages.length;
+  showImg();
+}
+
+function prevImg() {
+  currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+  showImg();
+}
+</script>
+
+<script>
+let startX = 0;
+let endX = 0;
+
+const viewer = document.getElementById("imgViewer");
+
+viewer.addEventListener("touchstart", e => {
+  startX = e.touches[0].clientX;
+});
+
+viewer.addEventListener("touchend", e => {
+  endX = e.changedTouches[0].clientX;
+  handleSwipe();
+});
+
+function handleSwipe() {
+  const diff = startX - endX;
+
+  if (Math.abs(diff) < 50) return;
+
+  if (diff > 0) {
+    nextImg();   // ปัดซ้าย
+  } else {
+    prevImg();   // ปัดขวา
+  }
+}
+
+</script>
